@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../CSS/mystyle.css">
+	<script>
+		arr = new Array();
+		i = 0;
+		
+		function proc1(){
+			x = setInterval(function(){
+
+			arr[i] = x;	
+			i++;
+			arr.pop(i);
+			
+			//result1(div)로 접근 = 부모
+				parent = document.getElementById('result1');
+			
+			//img 태그로 접근 = 자식
+			//	child = document.getElementsByTagName('img')[0];
+				child = parent.firstChild;
+			
+			//요소 삭제 : 부모.removeChild(자식)
+			//	parent.removeChild(child);
+			
+			//삭제된 요소를 부모의 마지막요소로 추가
+			//appendChild : 마지막위치로 추가 (1. 부모의 새로운 요소로 추가
+			//							2.기존에 존재하는 요소를 자동으로 잘라내고 추가 -> 이 경우 removeChild가 생략가능하다.)
+				parent.appendChild(child);
+				
+			}, 500);
+		}
+		
+		function proc2(){
+			clearInterval(x);
+		}
+	</script>
+	
+	<style>
+		img {
+			width : 100px;
+			height : 100px;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="box">		
+		<h2>이미지 회전</h2>
+		<pre>
+0.5초마다 첫번째 이미지를 삭제해서 마지막 위치로 변경한다.
+		</pre>
+		<button onclick="proc1()" type="button">실행</button>
+		<button onclick="proc2()" type="button">멈춤</button>
+		<div id="result1">
+			<img src="../images/사자.jpg">
+			<img src="../images/burger.jpg">
+			<img src="../images/max1.jpg">
+			<img src="../images/pizza.jpg">
+			<img src="../images/pikachu.png">
+			<img src="../images/Coca-Cola-logo.png">
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+
+	code = "";
+	code += '<div class="panel panel-default">';
+    code += '  <div class="panel-heading">';
+    code += '    <h4 class="panel-title">';
+    code += '      <a data-toggle="collapse"data-parent="#accordion" href="#collapse' + 번호 + '">' + 제목 + '</a>';
+    code += '    </h4>';
+    code += '  </div>';
+    code += '  <div id="collapse' + 번호  + '"class="panel-collapse collapse in">';
+    code += '    <div class="panel-body">';
+	code += '		<p style="float:left; width:80%;">';
+	code += '		작성자 : ' + 홍길동;
+	code += '		이메일 : ' + a123@daum.net + '	작성일 : ' + 2020.3.21 + ' + 	조회수 : ' + 0 ;
+	code += '		</p>'
+
+	code += '		<p style="float:right;">';		
+	code += '		<button idx="' + 번호 + '" type="button" class="action">수정</button>';
+	code += '		<button idx="' + 번호 + '" type="button" class="action">삭제</button>';
+	code += '		</p>';
+	code += '		<hr/>';
+	code += '		<p> ';
+	code += '			내용출력 <br>내용출력 <br>';
+	code += '		</p>';
+	code += '		<p><textarea Class="area" cols"100">';
+	code += ' 			댓글 쓰기 댓글 쓰으으으기';
+	code += '		</textarea> ';
+	code += '		<button type="button" name="reply" class = "action">등록</button>
+	code += '		</p>';
+    code += '    </div>';
+    code += '  </div>';
+    code += '</div>';

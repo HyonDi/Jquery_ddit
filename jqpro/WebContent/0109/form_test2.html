@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>form2</title>
+</head>
+<body>
+
+<form action="test2.jsp" method="post"> 
+<!--  post로 보내는 이유? get 은 주소 뒤에 너무 많이 따라옴.
+ post:  데이터가 많을때, 중요한 데이터가 있을 때 사용.
+ 전송할대엔 name 속성이 필수임.-->
+이름 : <input type="text" name="name"><br>
+이메일(text) : <input type="text" name="email"><br>
+이메일(email) : <input type="email" name="email2"><br>
+<br>
+전화번호(text) :<input type="text" name="tel1"><br>
+전화번호(tel) :<input type="tel" name="tel2"><br>
+<br>
+생년월일(text) : <input type="text" name="bir1"><br>
+생년월일(date) : <input type="date" name="bir2"><br>
+<br>
+키(text) : <input type="text" name="height1"><br>
+키(number) : <input type="number" name="height2"><br>
+<br>
+<input type="submit" value="전송">
+</form>
+<br>
+<hr>
+<!-----------------------------------------------------------  -->
+<form action="test2.jsp" method="post"> 
+<!--  post로 보내는 이유? get 은 주소 뒤에 너무 많이 따라옴.
+ post:  데이터가 많을때, 중요한 데이터가 있을 때 사용.
+ 전송할대엔 name 속성이 필수임.-->
+<input type="text" name="name" placeholder="이름"><br>
+<input type="text" name="email" placeholder="이메일(text)"><br>
+<input type="email" name="email2" placeholder="이메일(email)"><br>
+<br>
+<input type="text" name="tel1" placeholder="전화번호(text)"><br>
+<input type="tel" name="tel2" placeholder="전화번호(tel)"><br>
+<br>
+<input type="text" name="bir1" placeholder="생일(text)"><br>
+<input type="date" name="bir2" placeholder="생일(date)"><br>
+<br>
+<input type="text" name="height1" placeholder="키(text)"><br>
+<input type="number" name="height2" placeholder="키(number)"><br>
+<br>
+<input type="submit" value="전송">
+</form>
+
+
+
+
+</body>
+</html>

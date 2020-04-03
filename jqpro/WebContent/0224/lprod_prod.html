@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="../CSS/mystyle.css";>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	
+	<script>
+		$(function(){
+			$('#btn1').on('click', function(){
+				$.ajax({
+					url : '/jqpro/LprodList',
+					success : function(res){
+						// 옵션만들기
+						code="";
+						$.each(res, function(i){
+							code += "<option value='" + res[i].gu + "'>" + res[i].nm + "</option>";
+						})
+						$('#lprod').html(code);
+						$('#lprod').trigger('change');
+						
+					},
+					error : function(xhr){
+						alert("상태 : " + xhr.status);
+					},
+					dataType : 'json'
+				})
+			})
+			
+			$('#lprod').on('change', function(){
+				// $('this option:selected') : 아래처럼 바꾸기!!
+				lprod_gu = $('option:selected', this).val();
+				
+				$.ajax({
+					url : '/jqpro/p.do',
+					type : 'get',
+					data : {'lprod_gu' : lprod_gu },
+					success : function(res){
+						if(res.sw=="ok"){
+							
+							code = "";
+							$.each(res.data, function(i){// res는 배열아님. res.data가 배열이야.
+								code += "<option value='" + res.data[i].id + "'>" + res.data[i].name + "</option>";
+								
+								
+							})
+							
+							$('#prod').html(code);
+							// $('#prod').trigger('change');
+							
+						}else if(res.sw=="no"){
+							
+							code = "<option value=0>데이터없음</option>";
+							
+							// 데이터 없을때엔 result2에 있는내용 삭제한다.
+							$('#result2').empty();
+							
+							// remove 는 삭제후 result2 자체를 삭제해버려서 다시 데이터찍기 불가능.
+							//$('#result2').remove();
+							
+							
+						}
+						// $('#prod').html(code);
+						
+						
+						
+						
+						
+						
+		/*///////////////////////////////////////////////////////////////////////////////////
+						code = "";
+						$.each(res, function(i){
+							code += "<option value='" + res[i].id + "'>" + res[i].name + "</option>";
+						})
+						
+						$('#prod').html(code);
+		*//////////////////////////////////////////////////////////////////////////////////////	
+					
+						
+					},
+					error : function(xhr){
+						alert("상태 : " + xhr.status)
+					},
+					dataType : 'json'
+				})
+				
+			})
+			
+			$('#prod').on('change', function(){
+				//alert($('option:selected', this).val());
+				// 두번째 셀렉트 선택시 div에 상세정보 뜨게하는 부분만 코딩하면 된다.
+				prod_id = $('option:selected', this).val();
+				if(prod_id == null) return false;
+				
+				$.ajax({
+					url : '/jqpro/p.do',
+					type : 'post',
+					data : {'prod_id' : prod_id},
+					// data : "prod_id=" + prod_id,
+					
+					
+					success : function(res){
+						code = "<table class='table table-hover'>";
+						code += "<tr class='warning'><td>항목</td>";
+						code += "<td>내용</td></tr>";
+						
+						code += "<tr><td>PROD_ID</td>";
+						code += "<td>" + res.id + "</td></tr>";
+						
+						code +="<tr><td>PROD_NAME</td>";
+						code +="<td>" + res.name + "</td></tr>";
+						
+						code +="<tr><td>PROD_LGU</td>";
+						code +="<td>" + res.lgu + "</td></tr>";
+						
+						code +="<tr><td>PROD_BUYER</td>";
+						code +="<td>" + res.buyer + "</td></tr>";
+						
+						code +="<tr><td>PROD_COST</td>";
+						code +="<td>" + res.cost + "</td></tr>";
+						
+						code +="<tr><td>PROD_PRICE</td>";
+						code +="<td>" + res.price + "</td></tr>";
+						
+						code +="<tr><td>PROD_SALE</td>";
+						code +="<td>" + res.sale + "</td></tr>";
+						
+						code +="<tr><td>PROD_OUTLINE</td>";
+						code +="<td>" + res.out + "</td></tr>";
+						
+						code +="<tr><td>PROD_COLOR</td>";
+						code +="<td>" + res.color + "</td></tr>";
+						
+						code += "</table>";
+						
+						
+						$('#result2').html(code);
+					},
+					error : function(xhr){
+						alert("상태 : " + xhr.status)
+					},
+					dataType : 'json'
+				})
+			})
+			
+			
+		})
+	</script>
+</head>
+<body>
+	<div class="box">
+		<h2> </h2>
+		<pre>
+
+		</pre>
+		<button id="btn1" type="button">실행</button>
+		<br>
+		<!-- <div id="result1">
+			<select id="lprod">
+				<option value="P101">컴퓨터제품</option>
+			
+			</select>
+			<select id="prod">
+				<option value="P101000001">모니터 삼성전자15인치칼라</option>
+				
+			</select>
+			
+			
+		</div> -->
+		
+	<!-- ========================부트스트랩으로 셀렉트박스랑 테이블을 꾸며줍니다. ========================-->
+		<div class="container">
+		  <h3>제품분류에 따른 상품 목록 및 상세정보</h3>
+		  
+		  <form>
+		    <div class="form-group">
+		      <label for="lprod">제품 분류 리스트 : </label>
+		      <select class="form-control" id="lprod">
+
+		      </select>
+		      <br>
+		      
+		      <label for="prod">상품 리스트 : </label>
+		      <select class="form-control" id="prod">
+
+		      </select>
+		      
+		      
+		    </div>
+		  </form>
+		</div>
+				
+		
+		
+		
+		
+		
+		
+		<div id="result2"></div>
+	</div>
+</body>
+</html>

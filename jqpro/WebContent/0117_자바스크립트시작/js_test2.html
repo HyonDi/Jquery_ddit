@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="../CSS/mystyle.css";>
+	<!-- 이미 만들어져있는 다큐멘트에 body 태그안쪽의 버튼이 뿌려져있음.
+	그런데 script태그안의 documet.write 는 새로운 다큐먼트를 만들기때문에
+	확인버튼을 누르면 버튼 사라짐.
+	그래서 document.write 쓸일 별로없음. -->
+	<script>
+		function proc1() {
+			now = new Date();
+			document.write(now);
+			
+		}
+	
+	</script>
+	
+</head>
+<body>
+	<button onclick="proc1()" type="button">확인</button>
+</body>
+</html>

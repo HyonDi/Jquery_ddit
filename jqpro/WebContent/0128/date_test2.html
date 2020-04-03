@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="../CSS/mystyle.css";>
+	
+	<script type="text/javascript">
+		function proc1() {
+			
+			//현재날짜, 태어난 날짜를 가지고 Date객체를 생성한다.
+			today = new Date();
+			myday = new Date("1996.01.19.");
+			/* myday = new Date(1996,01-1,19); 위와 같은 것.*/
+			
+			time = today.getTime() - myday.getTime();
+			
+			//출력
+			/* alert(time + "밀리세컨"); // 밀리세컨으로 나온다. 
+			alert(time/1000 + "초");
+			 */
+			 
+			 sec = time / 1000;
+			 min = sec / 60;
+			 hour = min / 60;
+			 day = hour / 24;
+			 month = day /12;
+			 year = day / 365;
+			 
+			 res = "new Date() : " + today.toLocaleDateString()+"<br>";
+			 res += "new Date(1996,01-1,19) : " + myday.toLocaleDateString() +"<br>";
+			 
+			 res += " 당신은 " + year + "년 살았습니다." + "<br>";
+			 res += " 당신은 " + month + "달 살았습니다."+ "<br>";
+			 res += " 당신은 " + day + "일 살았습니다."+ "<br>";
+			 res += " 당신은 " + hour + "시간 살았습니다."+ "<br>";
+			 res += " 당신은 " + min + "분 살았습니다."+ "<br>";
+			 res += " 당신은 " + sec + "초 살았습니다."+ "<br>";
+			 
+			 
+			 document.getElementById('result1').innerHTML = res;
+			
+		}
+		
+		function proc2(){
+			today = new Date();
+			
+			// time = 현재의 getTime을 구해서 + 100일의 getTime을 구한다.
+			milisec = today.getTime() + 100* 1*24*60*60*1000;
+			
+			// alert(milisec);
+			// milisec으로 새로운 Date객체를 생성한다.
+			newday = new Date(milisec);
+			
+			// 출력
+			document.getElementById('result2').innerHTML = newday.toLocaleDateString();			
+		}
+		
+		function proc3() {
+			// 구매한날짜 가져오기
+			bdate = document.getElementById("bdt").value;
+			bdate = new Date(bdate);
+			
+			// 오늘날짜
+			today = new Date();
+			
+			/* time = today.getTime() - bdate.getTime();
+			
+			day = time / 1000/ 60/ 60/ 24; */
+			
+			// 위 주석은 아래와 같다.
+			day = today.getDate() - bdate.getDate();
+			
+			
+			res = "구입 날짜 : " + bdate.toLocaleDateString() + "<br>";
+			res += "오늘 날짜 : " + today.toLocaleDateString() + "<br>";
+			if(day <= 7) {
+				res+="<strong>"+"교환/반품 가능합니다."+"<strong>";
+			}else{
+				res+="<strong>"+"교환/반품 불가능 합니다."+"<strong>";
+			}
+			
+			document.getElementById('result3').innerHTML = res;
+			/* alert(today.toLocaleDateString()); */
+			
+		}
+	</script>
+	
+</head>
+<body>
+	<div class="box">
+			<h2>살아온 날 구하기</h2>
+			<pre>
+			//현재날짜, 태어난 날짜를 가지고 Date객체를 생성한다.
+			today = new Date();
+			myday = new Date("1996.01.19.");
+			/* myday = new Date(1996,01-1,19); 위와 같은 것.*/
+			
+			time = today.getTime() - myday.getTime();
+			
+			//출력
+			/* alert(time + "밀리세컨"); // 밀리세컨으로 나온다. 
+			alert(time/1000 + "초");
+			 */
+			 
+			 sec = time / 1000;
+			 min = sec / 60;
+			 hour = min / 60;
+			 day = hour / 24;
+			 month = day /12;
+			 year = day / 365;
+			</pre>
+			<button onclick="proc1()" type="button">실행</button>
+			<br>
+			<div id="result1"></div>
+		</div>
+		
+		
+		<div class="box">
+			<h2>앞으로의 날 구하기</h2>
+			<pre>
+				현재부터 100일 후 의 날을 구한다.
+				today = new Date();
+			
+			// time = 현재의 getTime을 구해서 + 100일의 getTime을 구한다.
+			milisec = today.getTime() + 100* 1*24*60*60*1000;
+			
+			// milisec으로 새로운 Date객체를 생성한다.
+			newday = new Date(milisec);
+			
+			// 출력
+			document.getElementById('result2').innerHTML 
+					= newday.toLocaleDateString();
+								// 포맷하는부분
+			</pre>
+			<button onclick="proc2()" type="button">실행</button>
+			<br>
+			<div id="result2"></div>
+		</div>
+		
+		
+		
+		
+		<div class="box">
+			<h2>교환 가능/불가능 구하기</h2>
+			<pre>
+
+				
+			</pre>
+			&nbsp 구입 날짜 : <input id="bdt" type="date">
+			<button onclick="proc3()" type="button">검사</button>
+			<br>
+			<div id="result3"></div>
+		</div>
+</body>
+</html>

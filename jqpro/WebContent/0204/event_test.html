@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="../CSS/mystyle.css";>
+	<script type="text/javascript">
+		function changeColor(c){
+			
+			result = document.getElementById('result1');
+			
+			result.style.background = c;
+			
+		}
+		
+		window.onload = function(){
+			document.body.style.background = 'lightgreen';
+		}
+		
+		function loadProc(){
+			document.body.style.background = 'skyblue';
+			f = document.ff;
+		}
+
+		
+		function nameProc(){
+			// 대문자로 이름 입력 시 입력한 값을 소문자로 변경한다.
+			
+			// 값 가져오기. (get)
+			namevalue = f.name.value;
+			
+			// 한글자씩 비교해 대소문자 변경.
+			val="";
+			for(i=0; i<namevalue.trim().length; i++){
+				if(namevalue.substr(i,1) >= "A" && namevalue.substr(i,1) <= "Z"){
+					val += namevalue.substr(i,1).toLowerCase();
+				}else if(namevalue.substr(i,1) >= "a" && namevalue.substr(i,1) <= "z"){
+					val += namevalue.substr(i,1).toUpperCase();
+				}
+			}
+			
+			
+			// 이 아래는 한꺼번에 대소문자 변경.
+			
+			//if문 비교
+/*  			if(namevalue >= "A" && namevalue <= "Z"){
+				val = namevalue.toLowerCase();
+			}else if(namevalue >= "a" && namevalue <= "z"){
+				val = namevalue.toUpperCase();
+			}
+			*/
+			f.name.value = val;   
+/* 			
+			// 소문자로 바꾸기.
+			lowervalue = namevalue.toLowerCase();
+			// 소문자로 set하기.
+			f.name.value = lowervalue; */
+			
+		}
+		
+		function selProc(){
+			
+		}
+	</script>
+</head>
+<body onload="loadProc()">
+	<div class="box">
+		<h2> </h2>
+		<pre>
+		1.
+		body onload="loadProc()"
+		
+		2.
+		window.onload = function(){}
+		
+		onload event 가 동시에 있을 때, window.onload는 무시된다.
+		
+		</pre>
+		<input type="radio" name="color" onclick="changeColor('skyblue')">파랑
+		<input type="radio" name="color" onclick="changeColor('lightgreen')">녹색
+		<br>
+		<div id="result1"></div>
+		<form name="ff">
+			이름 : <input type="text" name="name" onchange="nameProc()">
+			&nbsp;&nbsp;&nbsp;&nbsp;
+			선택 : 
+			<select name="sel" onchange="selProc()">
+				<option value="봄">봄</option>
+				<option value="여름">여름</option>
+				<option value="가을" selected>가을</option>
+				<option value="겨울">겨울</option>
+			</select>
+		</form>
+	</div>
+</body>
+</html>

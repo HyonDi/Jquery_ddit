@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="../CSS/mystyle.css";>
+	<script src="../js/jquery-3.4.1.min.js"></script>
+	
+	<script>
+		$(function(){
+			xhr = new XMLHttpRequest();
+			
+			//===요청===
+			$('#txt').on('click', function(){
+				xhr.open('get', 'txt.jsp',true);
+				/* true : 겟방식으로, txt.jsp에 비동기로 보내겠단뜻으로 넣음. */
+				xhr.send();
+				
+			//===응답===
+				xhr.onreadystatechange = function(){
+				if(this.readyState == 4 && this.status == 200){
+					res = this.responseText;// res에 응답텍스트를 담는다.
+					// res = 홍길동/진달래/개나리/무궁화/임꺽정/신나라
+					res = res.split("/");
+					// res가 / 를 기준으로 잘린 배열로 바뀌었다.
+					
+					// 반복문으로 값을 꺼내온다.
+					code = "<ul>"
+					$.each(res, function(i){
+						code += "<li>" + res[i] + "</li>";
+					})
+					code += "</ul>"
+					
+					$('#result1').html(code);
+				}
+			}
+			})
+			
+			$('#jarr').on('click', function(){
+				// ===요청=== : jarr.jsp
+				xhr = new XMLHttpRequest();
+				
+				xhr.open('get', 'jarr.jsp', true);
+				xhr.send();
+				
+				// ===응답===
+			xhr.onreadystatechange = function(){
+				if(this.readyState == 4 && this.status == 200){
+					
+				res = JSON.parse(this.responseText);
+				// res 는 배열이야.
+				//res = JSON.parse(res);
+				
+				code = "<ol>"
+				$.each(res, function(i){
+					code += "<li>" + res[i] + "</li>";
+				})
+				code += "</ol>"
+				
+				$('#result2').html(code);
+			}
+			}
+			})
+			
+			$('#jobj').on('click', function(){
+				// ===요청=== : jobj.jsp
+				xhr.open('get', 'jobj.jsp', true);
+				xhr.send();
+					
+				// ===응답===
+				xhr.onreadystatechange = function(){
+					if(this.readyState == 4 && this.status == 200){
+						
+					res = JSON.parse(this.responseText);
+					
+					code = "이름 : " + res.name + "<br>";
+					code += "주소 : " + res.addr + "<br>";
+					code += "전화번호 : " + res.tel + "<br>";
+					code += "우편번호 : " + res.zip + "<br>";
+					
+					$('#result3').html(code);
+					
+				}
+			}
+		})
+			
+		$('#jobjarr').on('click', function(){
+			
+			// === 요청 ===
+			xhr.open('get', 'jobjarr.jsp', true);
+			xhr.send();
+			
+				
+			// === 응답 ===
+			xhr.onreadystatechange = function(){
+				if(this.readyState == 4 && this.status == 200){
+					
+					res = JSON.parse(this.responseText);
+					code = "";
+					$.each(res, function(i){
+						code += (i+1) + "번 째 회원 자료<br>";
+						code += "이름 : " + res[i].name + "<br>";
+						code += "주소 : " + res[i].addr + "<br>";
+						code += "전화번호 : " + res[i].tel + "<br>";
+						code += "우편번호 : " + res[i].zip + "<br><br>";
+						
+					})
+					
+					$('#result4').html(code);
+					
+				}
+			}
+			
+		})
+			
+			
+			
+		})
+	</script>
+	
+	<style>
+		.box div{
+			float : left;
+			width : 200px;
+			height : auto;
+			margin : 5px;
+			padding : 10px;
+		}
+		.box button {
+		 	margin-left : 70px;
+		 	margin-right : 70px;
+		 }
+	</style>
+	
+</head>
+<body>
+	<div class="box">
+		<h2> </h2>
+		<pre>
+
+		</pre>
+		<button id="txt" type="button">text실행</button>
+		<button id="jarr" type="button">jArray실행</button>
+		<button id="jobj" type="button">jObject실행</button>
+		<button id="jobjarr" type="button">jObjArr실행</button>
+		<br>
+		<div id="result1"></div>
+		<div id="result2"></div>
+		<div id="result3"></div>
+		<div id="result4"></div>
+	</div>
+</body>
+</html>

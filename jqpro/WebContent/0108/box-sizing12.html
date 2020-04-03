@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../CSS/mystyle.css">
+
+<style>
+ .wrapper{
+   width :  300px;
+   height : 100px;
+   border : 5px solid #ff00ff;
+   background : #ffd9ec;
+ }
+ .one, .two{
+   width : 50%;
+   /*width 이렇게정해놓으면 안된다고??*/
+   height : 100px; 
+   border : 5px solid purple;
+   float : left;
+ }
+ 
+ .one{
+   box-sizing : border-box;  
+ }
+ 
+ .two{
+   box-sizing :content-box;
+ }
+</style>
+</head>
+<body>
+<pre>
+  BOX-SIZING : border-box :
+   border테두리와 padding부분까지 합해서 사이즈를 산출
+   margin은 포함되지 않는다.
+ 	width : calc(50%-1%) 혹은 몇 픽셀 등
+ 	width : calc(200px - 2px)
+ 	width : calc(80% - 2px)
+ 	width : 50%
+ 	//이렇게 경우에따라 달라져야한다.
+ 	//calc : 동적으로 계속 계산되게한다.
+ 	width : calc(100px - 1%)
+ 	
+ 	
+  BOX-SIZING : content-box :
+   border테두리와 padding부분은 제외하고 내용만으로 사이즈를 산출
+   
+</pre>
+
+
+<H2> BOX-SIZING : border-box</H2>
+<div class="wrapper">
+  <div class="one">50%</div>
+  <div class="one">50%</div>
+</div>
+<br>
+<hr>
+<br>
+<br>
+<br>
+<br>
+<H2> BOX-SIZING : content-box</H2>
+<div class="wrapper">
+  <div class="two">50%</div>
+  <div class="two">50%</div>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="../CSS/mystyle.css";>
+
+	<style>
+			div{
+				height : auto;
+				padding : 10px;
+				margin : 10px;
+				border : 1px dotted orange;
+			}
+	</style>
+	
+	<script type="text/javascript">
+		function proc1(){
+			arr = ["개나리", "진달래", "무궁화", "수선화", "라벤더"];
+			/* 배열은 대괄호. 객체는 중괄호. */
+			out = document.getElementById("array1");
+			print();
+		}	
+		
+		function print(){
+			out.innerHTML = arr;
+			/* 자바스크립트는 이렇게해도 주소 말고 값이 찍힌다. */
+		}
+		
+		function proc2(){
+			arr = new Array();/* 생성자에 값이 없으니까 아래처럼 . */
+			arr[0] = "홍길동";
+			arr[1] = "임꺽정";
+			arr[2] = "이도령";
+			arr[3] = "성춘향";
+			
+			out = document.getElementById("array2");
+			/* 생성자에 값을 대입했음. */
+			print();
+		}	
+		
+		function proc3() {
+			arr = new Array("사과", "바나나", "복숭아", "딸기", "파인애플");
+			out = document.getElementById("array3");
+			print();
+		}
+		
+	
+	
+	</script>
+
+</head>
+<body>
+	<h1>배열 생성 하기.</h1>
+	
+	<h3>a = ["개나리", "진달래", "무궁화", "수선화", "라벤더"]</h3>
+	<button onclick="proc1()" type="button">리터럴</button>
+	<br>
+	<div id="array1"></div>
+	<hr>
+	
+	<h3>a = new Array()</h3>
+	<button onclick="proc2()" type="button">생성자</button>
+	<br>
+	<div id="array2"></div>
+	<hr>
+	
+	<h3>a = new Array("사과", "바나나", "복숭아", "딸기", "파인애플")</h3>
+	<button onclick="proc3()" type="button">생성자</button>
+	<br>
+	<div id="array3"></div>
+	<hr>
+	
+</body>
+</html>

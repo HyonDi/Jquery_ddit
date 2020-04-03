@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../CSS/mystyle.css">
+<script type="text/javascript">
+		window.onload = function(){
+			f = document.ff
+			f.data.focus();
+		}
+		
+		
+		function addProc(){
+			if(window.event.keyCode == 13 || window.event.target.tagName == "BUTTON"){
+		
+			// 입력한 data값을 가져온다. - value;
+			datavalue = f.data.value;
+			
+			// 값이 공백이냐 - 종료
+			if (datavalue.trim().length == 0) {
+				alert("데이터를 입력하세요.");
+				return;
+			}
+			
+			// option 요소를 생성
+			opt = document.createElement("option");
+			
+			// option의 value와 text를 설정
+			opt.value = datavalue;
+			opt.text = datavalue;
+		
+			// select의 name이 left인 것에 추가한다. 
+			f.left.appendChild(opt);
+		
+			// 입력한 값을 지운다.
+			f.data.value = "";
+			
+			// 커서는 입력 요소에 둔다.
+			f.data.focus();
+			}
+			
+		}
+		
+		
+		
+		function toRight() {
+			// 왼쪽 select에서 하나를 선택
+			idx = f.left.selectedIndex;
+			
+			// 선택한 항목이 없으면(-1) 선택하세요. - return
+			if (idx == -1) {
+				alert("선택하세요.");
+				return;
+			}
+			
+			// 왼쪽에서 선택한 option의 값을 가져온다.
+			lvalue = f.left.options[idx].value
+			
+			// option을 생성해서 오른쪽에 추가한다.
+			opt = document.createElement("option");
+			opt.value = lvalue;
+			opt.text = lvalue;
+			
+			f.right.appendChild(opt);
+			
+			// 왼쪽에서 삭제하기
+			f.left.removeChild(f.left.options[idx]);
+		}
+		function rightAll() {
+			leng = f.left.length;
+			for(i=0; i < leng; i++){
+			
+	
+				// 왼쪽에서 선택한 option의 값을 가져온다.
+				lavalue = f.left.options[0].value
+				
+				// option을 생성해서 오른쪽에 추가한다.
+				opt = document.createElement("option");
+				opt.value = lavalue;
+				opt.text = lavalue;
+				
+				f.right.appendChild(opt);
+				
+				// 왼쪽에서 삭제하기
+				f.left.removeChild(f.left.options[0]);
+			}
+		}
+		function toLeft() {
+			// 오른쪽 select에서 하나를 선택
+			idx = f.right.selectedIndex;
+			
+			// 선택한 항목이 없으면(-1) 선택하세요. - return
+			if (idx == -1) {
+				alert("선택하세요.");
+				return;
+			}
+			
+			// 오른쪽에서 선택한 option의 값을 가져온다.
+			rvalue = f.right.options[idx].value
+			
+			// option을 생성해서 왼쪽에 추가한다.
+			opt = document.createElement("option");
+			opt.value = rvalue;
+			opt.text = rvalue;
+			
+			f.left.appendChild(opt);
+			
+			// 오른쪽에서 삭제하기
+			f.right.removeChild(f.right.options[idx]);
+		}
+		function leftAll() {
+			leng = f.right.length;
+			for(i=0; i < leng; i++){
+			
+	
+				// 왼쪽에서 선택한 option의 값을 가져온다.
+				lavalue = f.right.options[0].value
+				
+				// option을 생성해서 오른쪽에 추가한다.
+				opt = document.createElement("option");
+				opt.value = lavalue;
+				opt.text = lavalue;
+				
+				f.left.appendChild(opt);
+				
+				// 왼쪽에서 삭제하기
+				f.right.removeChild(f.right.options[0]);
+			}
+		}
+	</script>
+	<style>
+		table{
+			width : 400px;
+			height : 500px;
+			border-collapse: collapse;
+		}
+	
+	
+		th {
+			width : 400px;
+		    height : 60px;
+		    text-align: center; 
+		}
+		 
+		td {
+			width : 100px;
+		    height : 30px;
+		    text-align: center;
+		}
+		
+		.m {
+			height : 200px;
+		}
+		
+		#mm{
+			width : 50px;
+		}
+		
+		.mb{
+			width : 30px;
+			margin : 20px 0px 20px 0px;
+		}
+		
+		#b{
+			margin : 10px;
+		}
+		
+		select{
+			width : 100%;
+			height : 100%;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="box">
+	<h2>select 객체 연습</h2>
+	<pre>
+	form 안에 input type=text 인 요소가 하나가 있을 때
+	input 요소에서 엔터를 치면 자동 submit이 수행된다.
+	
+	자동 submit이 수행되지 않도록 하기 위해서
+	form 태그 안에 onsubmit=return false; 를 기술해 준다.
+	
+	한 페이지에 submit 1개뿐이 올 수 없음.
+	
+	button태그는 자동submit이 수행된다.
+	button에서 자동 submit이 수행되지 않도록 하기 위해서
+	button type="button" 속성을 줘야한다. 
+	</pre>
+		<form name="ff" onsubmit="return false"> 
+		<!-- 엔터를 눌렀을때도 왼쪽 셀렉트에 추가되게하기위해 onsubmit 부분 추가했다.-->
+		
+			<table border="1">
+				<tr>
+					<th colspan="3">Select 객체 예제</th>
+				</tr>
+				<tr>
+					<td class="m">
+						<select name="left" multiple size=15>
+						</select></td>
+					<td class="m" id="mm">
+						<input class="mb" type="button" value=">" onclick="toRight()"><br>
+						<input class="mb" type="button" value=">>" onclick="rightAll()"><br>
+						<input class="mb" type="button" value="<" onclick="toLeft()"><br>
+						<input class="mb" type="button" value="<<" onclick="leftAll()"><br>
+					</td>
+					<td class="m">
+						<select name="right" multiple size=15>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="3">
+						<input name="data" type="text" onkeyup="addProc()"><!-- 엔터치고 올라올때 addProc()가 실행된다. -->
+						<button type="button" onclick="addProc()" id="b">추가하기</button>
+					</td>
+				</tr>
+			</table>	
+				
+		</form>
+	</div>
+</body>
+</html>

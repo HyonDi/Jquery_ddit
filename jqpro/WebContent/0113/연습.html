@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+*{
+	font-size : 1.1em;
+	margin : 10px;
+	
+}
+
+label {
+	display: inline-block;
+	width: 80px;
+}
+
+/* .txt{
+	border : 2px solid pink;
+} */
+
+input[class=txt]{
+	border : 2px solid pink;
+}
+
+/* #area{
+	border : 3px dotted orange;
+} */
+
+textarea[id=area]{
+	border : 3px dotted orange;
+}
+/* 속성선택자 */
+
+input[type=submit]{
+	background : cyan;
+}
+
+input[type=reset]{
+	background : crimson;
+}
+</style>
+</head>
+<body>
+<h1>이메일 전송화면</h1>
+<form>
+	<fieldset>
+		<legend>이메일 전송하기</legend><br>
+		<label>이름</label> <input class="txt" type="text" name="name"><br>
+		<label>이메일주소</label> <input type="email" name="email"><br>
+		내용<br><textarea id="area" rows="5" cols="50" name="contents"></textarea> <br>
+		<input type="submit" value="전송">
+		<input type="reset" value="재설정">
+	</fieldset>
+</form>
+<br>
+<hr>
+<h1>회원 가입 화면</h1>
+<form action="fromtest.jsp" method="post">
+	<fieldset>
+		<legend>회원 가입 하기</legend><br>
+		<label>이름</label> <input class="txt" type="text" name="name"><br>
+		<label>주소</label> <input class="txt" type="text" name="addr"><br>
+		<label>email</label> <input type="email" name="email"><br>
+		<input type="radio" checked value="남자" name="gender">Male<br>
+		<input type="radio" value="여자" name="gender">Female<br>
+		
+		<label>Male</label>
+		<input type="radio" value="남자" name="gender"><br>
+		<label>Female</label>
+		<input type="radio" value="여자" name="gender"><br>
+		
+		
+		<input type="submit" value="Send">
+		<input type="reset" value="원래대로">
+	<br>
+	
+	
+	</fieldset>
+</form>
+
+</body>
+</html>

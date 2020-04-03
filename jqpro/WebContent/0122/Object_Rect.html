@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="../CSS/mystyle.css";>
+	
+	<script type="text/javascript">
+	// 객체정의
+	Rect = {/* rect = 사각형 */
+			width : 30,
+			height : 50,
+			
+			getArea : function(){
+				area = this.width * this.height;
+				return area;
+			}
+	}
+	/* window.onload 필요 없음. 왜?????? */
+	
+	
+	
+	
+		function proc1() {
+			print(0);
+
+			}
+		
+		function proc2(){
+			// 현재의 가로, 세로 값을 얻은 후 +5 시킨다.
+			Rect.width += 5;
+			Rect.height += 5
+			
+			print(1);
+
+		}
+	
+		
+		function print(num) {
+			str = "";
+			Rect.name = "사각형";
+			str += "이름 : " + Rect.name + "<br>";/* Rect정의시 name을 주지않았지만 쓸수있다. 동적. */
+			str += "가로 : " + Rect.width + "<br>";
+			str += "세로 : " + Rect.height + "<br>";
+			str += "면적 : " + Rect.getArea() + "<br>"
+			/* area = Rect.getArea();
+			str+= "면적 : " + area + "<br>" */
+			
+			document.getElementsByTagName("div")[num].innerHTML = str;
+		}
+	</script>
+	
+</head>
+<body>
+	<pre>
+		리터럴 형식의 객체 생성과 사용
+		a={ }
+		<!-- 빈 객체를 만들고 a.color = 'red'; 이렇게 넣어줄수도있다. -->
+		
+		
+		a = { 
+			변수1 : 값,
+			변수2 : 값,
+			함수이름1 : function(){},
+			함수이름2 : function(){},
+		 };
+		 
+		 a.변수1 = 
+		 a.변수5 = 
+		  이렇게 값 넣기 가능!!	
+		  
+		  버튼을 클릭하면 Rect객체를 생성한다.
+		  Rect의 속성에는 가로와 세로가 있다.
+		  
+		  속성 : width, height
+		 함수 : 면적을 구한다.
+	</pre>
+	<br>
+	<button onclick = "proc1()" type = "button">객체실행</button>
+	<br><br>
+	<div></div>
+	<br><br>
+	<pre>
+		Rect객체의 현재 가로, 세로의 값에서 5씩 증가하고 다시 면적을 구한다.
+	</pre>
+	<br>
+	<button onclick = "proc2()" type = "button">변경실행</button>
+	<br><br>
+	<div></div>
+	
+</body>
+</html>

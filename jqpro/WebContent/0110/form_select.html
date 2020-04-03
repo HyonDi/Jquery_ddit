@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>form_selectOption</title>
+<link_rel="stylesheet" href="../CSS/mystyle.css">
+<script>
+
+	function getValue(){
+		//방법1. tag이름이 select 요소로 접근.
+		//방법2. name이 nameList 요소로 접근.
+		//위 방법으로 값 가져오기
+		a = document.getElementsByName("nameList");
+		x = a[0].value;
+		
+		//div에 출력한다.(태그이름이 div인 요소로 접근해라.)
+		b = document.getElementsByTagName('div');
+		
+		//출력시 - innerHTML
+		b[0].innerHTML = x;
+	}
+
+</script>
+<style>
+	form, div{
+		width : 50%;
+		margin : 30px auto;
+		padding : 30px;
+		border : 3px solid orange;
+	}
+</style>
+
+</head>
+<body>
+
+<pre>
+방법1. tag이름이 select 요소로 접근.
+	=> a = document.getElementsByTagName('select')
+	   x = a[0].value
+방법2. name이 nameList 요소로 접근.
+	=> x = document.getElementsByname('nameList')[0].value
+	
+위 방법으로 값 가져오기
+
+tag이름이 div인 요소로 접근&출력
+ 	=> b = document.getElementsByTagName('div')
+ 	=> b[0].innerHTML = x;
+ 
+ 	
+ innerHTML 을 이용해서 출력할 수 있는 태그들  
+ 	 : input, textarea, select 를 제외한 모든 요소들.
+ 	  
+
+</pre>
+
+<form>
+	<h3>선택하세요.</h3>
+	<select onchange="getValue()" name="nameList">
+	<option value="192.168.205.46">강현철</option>
+	<option value="192.168.205.37">정보람</option>
+	<option value="192.168.205.42">이병훈</option>
+	<option value="192.168.205.32">김지선</option>
+	<option value="192.168.205.04">연은주</option>
+	<option value="192.168.205.29">이승재</option>
+	<option value="192.168.205.30">강현지</option>
+	
+	</select>
+	
+</form>
+<br>
+<br>
+
+<div>
+
+</div>
+
+</body>
+</html>

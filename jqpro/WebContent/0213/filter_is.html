@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="../CSS/mystyle.css";>
+	<script src="../js/jquery-3.4.1.min.js"></script>
+	
+	<script>
+		$(function(){
+			$('p').on('click',function(){
+				// 클릭한 p를 this로 받는다.
+				// this의 부모를 찾는다.
+				// 부모가 dis인지 비교한다.
+				// 맞다면 p를 복사해서 부모에게 붙여넣기 한다.
+				if($(this).parent().is('.dis')){
+					$(this).clone(true).appendTo($(this).parent());
+				}else{
+					alert("작업 대상이 아닙니다.");
+				}
+				
+			})
+		})
+	</script>
+</head>
+<body>
+	<div class="box">
+		<h2> </h2>
+		<pre>
+	
+		</pre>
+		
+		<p>무궁화 꽃은 언제 필까요?</p>
+		
+		<div class="dis">
+			<p>마지막 시간을 뽀개기</p>
+		</div>
+		
+		<div class="dis">
+			<p>오늘이 지나면 내일이 와요...</p>
+		</div>
+		
+		<p>은주는 예쁘다~~~</p>
+		
+		<div id="result1"></div>
+	</div>
+</body>
+</html>

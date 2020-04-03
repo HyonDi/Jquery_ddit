@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="../CSS/mystyle.css";>
+	
+	<style type="text/css">
+		div{
+				width : 220px;
+				height : auto;
+				padding : 10px;
+				border : 1px dotted red;
+				background : pink;
+				
+			}
+	</style>
+	
+	<script type="text/javascript">
+		function proc1(){
+			str="";
+			while(true){
+				
+				// 입력
+				dan = prompt("구구단 몇단을 출력할까요?");
+				out = document.getElementsByTagName("div")[0];
+				/* 다큐먼트가 하나여서 입력하는대로 따로 먼저출력 못함.ㅡㅜㅜㅜ */
+				
+				//for문으로 구구단 출력
+				for(var i = 1; i<=9;i++){
+					str += dan+" * "+i+" = " + dan*i+"<br>";
+				}
+				out.innerHTML = str;
+				str+="<br>"
+				
+				
+				// 계속여부 묻는다.
+				cc = confirm("계속 출력하시겠습니까?");
+			 	if(!cc){
+					break;
+				}
+			}
+		}
+	</script>
+	
+</head>
+<body>
+	<pre>
+		수를 입력
+		입력된 수의 구구단을 출력한다.
+		confirm 으로 계속여부를 묻는다.
+			확인 : true
+			취소 : flase
+		ture 인지 flase 인지 판단한다.
+	</pre>
+	
+	<button onclick="proc1()" type="button">실행</button>
+	<br><br>
+	
+	<div id="result"></div>
+	
+</body>
+</html>

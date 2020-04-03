@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel ="stylesheet" href="../css/mystyle.css">
+
+<style>
+   table{
+       border : 10px solid blue;
+      /*  border-collapse: separate;  */
+      
+   } 
+  
+  td{
+    width : 100px;
+    height : 30px;
+    text-align: center; 
+  }
+  
+   th{
+    width : 300px;
+    height : 50px;
+    background : blue;
+    color : white;
+   }    
+</style>
+</head>
+<body>
+<pre>
+ table : 표 형식의 데이타 
+ tr : table row, 행 
+ td : table data,열 
+ th : table header , 열의 제목 
+ 
+ &lt;table border="1"&gt; 
+  테이블의 테두리를 생성한다 ,border 속성의 기본값은 1 이고 
+  그이외의 값은 html5에서의 표준이 아니다 
+ 
+ table의 테두리 속성은 style에서 설정한다 
+  table{
+       border : 10px solid blue;
+       border-collapse: collapse; 
+   } 
+ table의 td테두리합치기 
+ border-collapse: collapse; 
+  
+</pre>
+ <table border="1">
+   <tr>
+     <th>이름</th>
+     <th>주소</th>
+     <th>전화번호</th>
+   </tr>
+   
+   <tr>
+     <td>홍길동</td>
+     <td>대전</td>
+     <td>010-1123-3456</td>
+   </tr>
+   
+   <tr>
+     <td>임꺽정</td>
+     <td>서울</td>
+     <td>010-0987-8765</td>
+   </tr>
+   
+   <tr>
+     <td>이순신</td>
+     <td>대전</td>
+     <td>010-4567-1234</td>
+   </tr>
+   
+ </table>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

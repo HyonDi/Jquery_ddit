@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="../CSS/mystyle.css";>
+	<script type="text/javascript">
+		
+		function proc1(){
+			f = document.ff;
+			
+			// 선택한 파일 가져오기.
+			// vfile은 File객체다.
+			vfile = f.file.files[0];
+			str = "";
+			
+			str += "이름 : " + vfile.name + "<br>";
+			str += "크기 : " + vfile.size + "<br>";
+			str += "유형 : " + vfile.type + "<br>";
+			
+			dateStr = vfile.lastModifiedDate.toLocaleString();
+			str += "변경날짜 : " + dateStr + "<br>";
+			
+			info = document.getElementById("info");
+			info.innerHTML = str;
+			info.style.fontSize = "1.5em";
+			
+			/* document.getElementById("result2").innerHTML="<img src='../images/" + vfile.name + "'>"; */
+			
+			freader = new FileReader();
+			
+			
+			//freader.readAsText(vfile, "UTF-8"); // 이미지불러올수없음.
+			
+			//freader.readAsDataURL(vfile); // 텍스트내용 볼 수 없음.
+			
+			if(vfile.name.match('jpg|gif|png|PNG')){ // vfile 안에 저게 들어있으면
+				freader.readAsDataURL(vfile);
+			}else{
+				freader.readAsText(vfile, "UTF-8");
+			}
+			
+			
+			
+			/* readAsText 로 읽어봄. 자동으로 FileReader안의 result라는 속성에 저장된다. 
+			 따라서 freader.freader.readAsText(vfile, "UTF-8"); 를 받는 변수를 따로 선언하지 않아도 된다.*/
+			 
+			
+			freader.onload = function(){
+				 //freader가 다 읽은 후에 result1에 찍게하기위해 onload함수를 사용했음.
+				 document.getElementById("result1").innerHTML = freader.result;
+				 
+				 vimg = document.getElementById("imgview");
+				 if(freader.result.match("image")){
+					 // 이 문장 맨뒤에 .src 안붙이면 객체를 리턴하고 src붙이면 뭘리턴한다구??
+					 vimg.src = freader.result;
+					 vimg.style.display = "block";
+				 }else {
+					 vimg.style.display = "none";
+				 }
+			}
+			
+		}
+	</script>
+	<style type="text/css">
+		img{
+			width : 200px;
+			height : 200px;
+			margin : 10px;
+			display : none;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<h2>file읽기 </h2>
+		<pre>
+		input type="file" 에서 선택한 파일을 가져온다.
+		value 대신에 files[0]를 사용해 값을 가져온다.
+		f.file.files[0] 
+		
+		* File 객체 : 파일의 기본정보를 얻는다. 탐색기에 나오는 내용
+		  (이름name, 크기size, 종류type, 변경날짜lastModifiedDate)
+		
+		* FileReader 객체 : 파일의 내용을 실제로 읽을 수 있는 기능을 제공한다.
+		
+		* 메서드
+		  readAsText(file객체, 인코딩) : 텍스트를 읽어라.
+		  readAsDataUTL(file객체) : 데이터안에 url이 포함되어있도록 읽어라.
+		  
+		* 속성
+		  result : 읽어온 파일의 내용이 저장되어 있다. 
+		  error : 오류정보가 저장되어 있다.
+		
+		</pre>
+		
+		<form name="ff">
+			파일 <input type="file" multiple name="file">
+			<button onclick="proc1()" type="button">읽기</button>
+		
+		</form>
+		
+		<div id="result1"></div>
+	</div>
+	<!---------------------------------------------------------------------------------------  -->
+	<div class="box">
+		<h2>file정보 출력 </h2>
+		<pre>
+		위에서 선택한 파일이 이미지 파일이면, 해당 이미지가 result2에 나타난다.
+		일반파일을 선택하면 이미지는 사라지고, result1에 해당 파일의 내용이 나타난다.
+	
+		</pre>
+		<img id="imgview" src="../images/핫초코.jpg">
+		<br>
+		<div id="info"></div>
+	</div>
+	
+</body>
+</html>

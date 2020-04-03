@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="../CSS/mystyle.css";>
+	<script src="../js/jquery-3.4.1.min.js"></script>
+	
+	<script>
+		$(function(){
+			$('#btn1').on('click', function(){
+				$('li:first-child').css('border','4px solid red');
+				// ol그룹에서 각각 하나씩 선택한다.(ol개수만큼.)
+				
+				$('li:first').css('background','yellow');
+				// 현재파일의 모든 li중 첫번째.(하나)
+			})
+			
+			$('#btn2').on('click',function(){
+				$('.tab1 td:first-child').css('background','gray');
+				$('.tab1 td:last-child').css('background','#dcdcdc');
+				$('.tab1 td:nth-child(2)').css('background','darkgray');
+				$('.tab1 tr:first').css('font-weight','bold');
+			})
+			
+			
+			$('#btn3').on('click',function(){
+				$('.tab2 td:first-child').css('background','gray');
+				$('.tab2 td:last-child').css('background','#dcdcdc');
+				$('.tab2 td:nth-child(2)').css('background','darkgray');
+				
+				$('.tab2 tr:first td').css('background','black').css('color','white').css('font-weight','bold');
+				/*table > tr > td 순서의 우선순위가 있다. 
+				 따라서 $('.tab2 tr:first td') 이렇게써야해
+				 $('.tab2 tr:first') 이렇게쓰면 안먹혀.*/
+			})
+			
+			
+		})
+	</script>
+	<style>
+		td{
+			width : 130px;
+			height : 30px;
+			text-align : center;
+		}
+	</style>
+</head>
+<body>
+	<div class="box box1">
+		<h2>자식필터</h2>
+		<pre>
+		:first-child
+		:last-child
+		
+		$('li:first-child').css('border','4px solid red');
+			: ol그룹에서 각각 하나씩 선택한다.(ol개수만큼.)
+				
+		$('li:first').css('background','yellow');
+			: 현재파일의 모든 li중 첫번째.(하나)
+		</pre>
+		<h2>여자에게 있기있는 남자들</h2>
+		<ol>
+			<li>능력있는 남자</li>
+			<li>돈 많은 남자</li>
+			<li>잘 생긴 남자</li>
+			<li>프로그래머</li>
+		</ol>
+		
+		<h2>남자에게 있기있는 여자들</h2>
+		<ol>
+			<li>예쁜 여자</li>
+			<li>귀여운 여자</li>
+			<li>섹시한 여자</li>
+		</ol>
+		<button id="btn1" type="button">실행</button>
+		<br>
+	</div>
+	
+	<div class="box box2">
+		<h2>자식필터 nth-child</h2>
+		<pre>
+			:nth-child(인덱스)
+			:nth-child(even/odd) = 홀수/짝수
+			:nth-child(수식) :nth_child(2n-1) 
+		</pre>
+			<table class="tab1">
+				<tr>
+					<td>이름</td>
+					<td>주소</td>
+					<td>전화번호</td>
+				</tr>
+				<tr>
+					<td>홍길동</td>
+					<td>대전</td>
+					<td>010-222-333</td>
+				</tr>
+				<tr>
+					<td>진달래</td>
+					<td>서울</td>
+					<td>010-444-555</td>
+				</tr>
+				<tr>
+					<td>개나리</td>
+					<td>부산</td>
+					<td>010-666-777</td>
+				</tr>
+				<tr>
+					<td>무궁화</td>
+					<td>대구</td>
+					<td>010-888-999</td>
+				</tr>
+			</table>
+		<button id="btn2" type="button">실행</button><br><br><br>
+		
+		
+		
+			<table class="tab2">
+				<tr>
+					<td>이름</td>
+					<td>주소</td>
+					<td>전화번호</td>
+				</tr>
+				<tr>
+					<td>홍길동</td>
+					<td>대전</td>
+					<td>010-222-333</td>
+				</tr>
+				<tr>
+					<td>진달래</td>
+					<td>서울</td>
+					<td>010-444-555</td>
+				</tr>
+				<tr>
+					<td>개나리</td>
+					<td>부산</td>
+					<td>010-666-777</td>
+				</tr>
+				<tr>
+					<td>무궁화</td>
+					<td>대구</td>
+					<td>010-888-999</td>
+				</tr>
+			</table>
+		<button id="btn3" type="button">실행</button>
+		<br>
+	</div>
+</body>
+</html>

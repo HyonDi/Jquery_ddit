@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="../CSS/mystyle.css";>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../js/member2.js"></script>
+
+	
+	<script>
+		count = 0;
+	
+		$(function(){
+			// 위에 외부스크립트 member2.js 불러와 id중복검사했음.
+			
+			// 텍스트필드 클릭시
+			$('#pass').on('focus', function(){
+				// 얘도 외부스크립트 줄 수 있음.
+				
+				$('.cpass span').remove();
+				$('.cpass img').remove();
+				
+				$('<span/>',{
+					'text' : '영문대소문자특수문자숫자조합4~10'
+					}).appendTo('.cpass');
+			})
+			
+			// 텍스트필드 밖을 클릭했을때
+			$('#pass').on('blur', function(){
+				// 정규식 체크
+				// 맞다면 체크표시
+				if(!passcheck()){
+					return false;
+				}
+				
+				$('.cpass span').remove();
+				
+				
+				$('<img>', {
+					'src' : '../images/체크이미지2.png'
+				}).appendTo('.cpass');
+				
+				
+				
+			})
+			
+			$('#pass2').on('focus', function(){
+				// span생성 : 비밀번호와 동일하게 입력.
+				$('.cpass2 span').remove();
+				$('.cpass2 img').remove();
+				
+				$('<span/>',{
+					'text' : '비밀번호와동일하게입력'
+					}).appendTo('.cpass2');
+				
+			})
+			
+			$('#pass2').on('blur', function(){
+				// 이미지추가
+				if(!pass2check()){
+					return false;
+				}
+				
+				$('.cpass2 span').remove();
+				
+				$('<img>', {
+					'src' : '../images/체크이미지2.png'
+				}).appendTo('.cpass2');
+				
+			})
+			
+			$('#name').on('focus', function(){
+				$('.cname span').remove();
+				$('.cname img').remove();
+				
+				$('<span/>',{
+					'text' : '한글2~5/영문5~10'
+					}).appendTo('.cname');
+			})
+			$('#name').on('blur', function(){
+				if(!namecheck()){
+					return false;
+				}
+				
+				$('.cname span').remove();
+				
+				$('<img>', {
+					'src' : '../images/체크이미지2.png'
+				}).appendTo('.cname');
+			})
+			
+			$('#hp').on('focus', function(){
+				$('.cptel span').remove();
+				$('.cptel img').remove();
+				
+				$('<span/>',{
+					'text' : '전화번호입력'
+					}).appendTo('.cptel');
+			})
+			
+			$('#hp').on('blur', function(){
+				// 이미지추가
+				if(!telcheck()){
+					return false;
+				}
+				
+				$('.cptel span').remove();
+				
+				$('<img>', {
+					'src' : '../images/체크이미지2.png'
+				}).appendTo('.cptel');
+			})
+			
+			
+			$('#mail').on('focus', function(){
+				$('.cmail span').remove();
+				$('.cmail img').remove();
+				
+				$('<span/>',{
+					'text' : '이메일형식'
+					}).appendTo('.cmail');
+			})
+			$('#mail').on('blur', function(){
+				// 이미지추가
+				if(!mailcheck()){
+					return false;
+				}
+				
+				$('.cmail span').remove();
+				
+				$('<img>', {
+					'src' : '../images/체크이미지2.png'
+				}).appendTo('.cmail');
+			})
+			
+			$('#bir').on('focus', function(){
+				$('.cbir span').remove();
+				$('.cbir img').remove();
+				
+				$('<span/>',{
+					'text' : '생년월일 입력'
+					}).appendTo('.cbir');
+			})
+			$('#bir').on('blur', function(){
+				if(!bircheck()){
+					return false;
+				}
+				
+				$('.cbir span').remove();
+				
+				$('<img>', {
+					'src' : '../images/체크이미지2.png'
+				}).appendTo('.cbir');
+			})
+			
+			
+			
+			///////////////////////////////////////////////////////////////////////
+			 // 아이디 중복검사
+			$('#btnid').on('click', function(){
+				/* idvalue = $('#id').val().trim();
+				idlen = idvalue.length;
+				
+				// 공백체크
+				if(idlen <= 0){
+					alert("아이디를 입력하세요.");
+					return false;
+				}
+				
+				// 길이 체크
+				if(idlen < 4 || idlen >12){
+					alert('id 4~12사이로 입력');
+					 return false;
+				}
+				
+				//데이터 형식 체크(정규식)
+				idreg = /^[a-zA-Z]+[0-9]$/
+				if(idreg.test(idvalue)){
+					alert("아이디형식오류")
+					return false;
+				} */
+				
+				if(!idcheck()){
+					return false; // false 면 아무것도안하고 true 일때 ajax실행.
+				}
+				
+				$.ajax({
+					url : '/member/CheckId',
+					type : 'get',
+					data : {/* 'gubun' : '1' ,  */'id' : idvalue}, // 서블릿 하나만 만들 시 구분 필요.
+					/* 서블릿에서 request.getparam("id") 라고 써서. */
+					success : function(res){
+						$('#idchk').html(res.sw).css('color', 'red');
+					},
+					error : function(xhr){
+						alert("상태 : " + xhr.status);	
+					},
+					dataType : 'json'
+				})
+			}) 
+			
+			
+/* 			// 우편번호 검색
+			$('#zipBtn').on('click', function(){
+				window.open("zip.html", "_blank", "width=400 height=500"); //_blank : 새창, _self :현재창, 언더바없으면 그냥 새 창의 이름.
+				// 서블릿으로 값 가져가야함.
+			})	 
+*/		
+			
+			
+			//제출
+			$('#btnjoin').on('click',function(){
+			console.log($('#ff').serialize());
+			console.log($('#ff').serializeArray());
+			
+			
+				// 입력 데이터의 공백이나 형식 체크
+				// 올바른 데이터일 경우는 서버로 전송
+				// 이름, 비밀번호, email, 생년월일, 휴대폰
+				
+				/*
+				// 
+				if(!regcheck()){
+					return false;
+				} 
+				
+				*/ 
+				/* if(모든항목이 다 입력되었는지 체크){
+					
+				} */
+				
+				
+				alert("성공");
+				
+				
+				// 정규표현식 작성 다 하고 주석 풀기
+	 			$.ajax({
+	 				url :'/member/MemberJoin',
+	 				type:'post',
+	 				data:$('#ff').serializeArray(),
+	 				success : function(suc){
+	 					$('#joinres').html(suc.sw).css('color','red');
+	 					$('#reset').hide();
+	 				},
+	 				error : function(err){
+	 					alert("상태 : " + err.status);
+	 				},
+					
+	 				dataType : 'json'
+	 			})
+		})
+		
+		
+		
+		
+		
+		// 동 검색
+		$('#dongbtn').on('click', function(){
+				dongvalue = $('#dong').val().trim();
+				
+				$.ajax({
+					url : '/member/ZipCode',
+					type : 'post',
+					data : {'dong' : dongvalue},
+					dataType : 'json',
+					success : function(res){
+						code="<table>";
+						code+="<tr><td> 우편번호</td><td>주소</td>";
+						code+="<td>번지</td></tr>";
+						
+						$.each(res, function(i){
+							code+="<tr><td>" + res[i].zip + "</td>";
+							code+="<td>" + res[i].addr + "</td>";
+							code+="<td>" + res[i].bunji + "</td></tr>";
+								
+							
+						})
+						code+="</table>";
+						$('#result1').html(code);
+						
+					},
+					error : function(xhr){
+						alert("상태 : " + xhr.status);	
+					}
+					
+				})
+			})
+			
+			//$('tr').on('click',function(){}) tr은 동적으로생긴거라 deligate써야함.
+			// 동출력 결과에서 한 행을 클릭하면
+			$('#result1').on('click','tr',function(){
+				
+				// 결과에서 하나의 행을 선택하면 우편번호와 주소값 가져오기.
+				code = $('td:eq(0)', this).text();
+				addr = $('td:eq(1)', this).text();
+				
+				// 부모창 : opener.document  의 input 에 값을 입력한다.
+				// 부모창에 전달하여 부모창에 출력하기.
+				
+				// 모달창일경우에는 부모창이 아니어서,opener.document 삭제시킨다. 
+				$('#zip'/* ,opener.document */).val(code);
+				$('#add1'/* ,opener.document */).val(addr);
+				
+				// 검색창에들어있던 값 지운다.
+				$('#dong').val("");
+				
+				// 검색된목록 내용 지운다.
+				$('#result1').empty();
+				
+				// 창닫기
+				/* window.close(); */
+				$('#myModal').modal('hide'); // <->'show'
+			})
+		
+		
+		
+		
+		
+		
+		
+		
+		})
+	</script>
+	
+	<style>
+		.form-control {
+			width : 300px;
+		}
+		
+		#zip,#id {
+			
+			display : inline-block;
+			margin-right : 5px;
+		}
+		
+		h2{
+			text-align : center;
+		}
+		
+		#addr,#addrdetail{
+			width : 380px;
+		}
+		
+		form{
+			border : 5px solid gray;
+			padding : 20px;
+		}
+		
+		tr:hover{
+			background : skyblue;
+		}
+		
+		img{
+			width : 22px;
+			height : 22px;
+		}
+		
+		#pass,#pass2,#name,#hp,#mail,#bir{
+			display : inline-block;
+		}
+		
+		span {
+			color : red;
+		}
+		
+	</style>
+</head>
+<body>
+<div class="container">
+  <h2>회원가입</h2>
+  <form id="ff" name="ff" class="form-horizontal" action="/action_page.php">
+  <!-- input 들에 name 줄때 vo에있는 변수이름 그대로 써야함. !!!!!!!!!!!!!!!!!!-->
+  
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="id">아이디:</label>
+      <div class="col-sm-10">				<!--('#id').val  -->
+        <input type="text" class="form-control" id="id" placeholder="Enter id" name="mem_id">
+        <button id="btnid" type=button class="btn btn-info">중복검사</button>
+        <span id="idchk"></span>
+      </div>
+    </div>
+    
+    <div class="form-group" >
+      <label class="control-label col-sm-2" for="pass">비밀번호:</label>
+      <div class="col-sm-10 cpass divc">          
+        <input type="password" class="form-control" id="pass" placeholder="Enter password" name="mem_pass">
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="pass">비밀번호확인:</label>
+      <div class="col-sm-10 cpass2 divc">          
+        <input type="password" class="form-control" id="pass2" placeholder="Check password" name="mem_pass2">
+      </div>
+    </div>
+    
+    
+    
+    
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="name">이름:</label>
+      <div class="col-sm-10 cname divc">
+        <input type="text" class="form-control" id="name" placeholder="Enter name" name="mem_name">
+      </div>
+    </div>
+    
+    
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="bir">생년월일:</label>
+      <div class="col-sm-10 cbir divc">
+        <input type="date" class="form-control" id="bir" placeholder="Enter birthday" name="mem_bir">
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="bir">성별:</label>
+      <div class="col-sm-10">
+        <!-- <input type="" class="form-control" id="gender" placeholder="Enter birthday" name="mem_bir"> -->
+        <select id="gender" class="form-control" placeholder="Enter birthday" name="mem_bir">
+        	<option selected>남자</option>
+        	<option>여자</option>
+        </select>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="hp">휴대폰번호:</label>
+      <div class="col-sm-10 cptel divc">
+        <input type="tel" class="form-control" id="hp" placeholder="Enter tel" name="mem_hp">
+      </div>
+    </div>
+    
+    
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="mail">이메일:</label>
+      <div class="col-sm-10 cmail divc">
+        <input type="email" class="form-control" id="mail" placeholder="Enter e-mail" name="mem_mail">
+      </div>
+    </div>
+    
+    
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="zip">우편번호</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="zip" name="mem_zip" >
+    <button id="zipBtn" type=button class="btn btn-info" data-toggle="modal" data-target="#myModal">번호검색</button>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="add1">주소:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="add1" placeholder="Enter address" name="mem_add1">
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="add2">상세주소:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="add2" placeholder="Enter detail address" name="mem_add2">
+      </div>
+    </div>
+    
+    
+    <div class="form-group">        
+      <div class="col-sm-offset-2 col-sm-10">
+        <button type="button" id="btnjoin" class="btn btn-success">제출</button>
+        <span id="joinres"></span>
+        <button id="reset" type="reset" class="btn btn-success">초기화</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">우편번호 찾기</h4>
+      </div>
+      <div class="modal-body">
+        <div class="box">
+			<h2> 우편번호 찾기 </h2>
+			동 입력 : <input type="text" id="dong">
+			<button id="dongbtn" type="button">실행</button>
+			<div id="result1"></div>
+		</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>

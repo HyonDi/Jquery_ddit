@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="../CSS/mystyle.css";>
+	
+	<script>
+		function print(){
+			var x = "hello world~";
+			
+			// 1. alert 로 출력한다.
+			alert(x);
+			
+			// 2. span태그에 출력한다.
+			vspan = document.getElementById("sp1");
+			vspan.innerHTML = x;
+			
+			// 3. input type="text" 에 출력한다.
+			vinput = document.getElementById("txt");
+			vinput.value = x;
+			/* input type 에는 innerHTML 아니고 value 써야함.  */
+		}
+	</script>
+	
+	<style>
+	
+	span{
+		border : 1px solid lightgray;
+		width : 175px;
+		height : 20px;
+		display : inline-block;/* 블럭만 width,height를 조절할수있는데 줄바꿈안하려고 inline-block줌. */
+	}
+	
+	</style>
+	
+</head>
+<body>
+	<pre>
+	x = "hello world~"
+	확인버튼을 클릭하면 x변수의 값을 출력한다.
+	
+	span에 출력 : <strong>innerHTML</strong> 사용.
+		vspan = document.getElementById("sp1");
+		vspan.innerHTML = x;
+		
+	input에 출력 : <strong>value</strong> 사용.
+		vinput = document.getElementById("txt");
+		vinput.value = x;
+	</pre>
+	<button type="button" onclick="print()">확인</button>
+	<br>
+	결과(span) : <span id="sp1"></span><br>
+	결과(input) : <input type="text" id="txt"><br>
+	 
+	
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="../CSS/mystyle.css";>
+	<script type="text/javascript">
+		function proc1(){
+			
+			win = window.open("winsub.html", "_blank"
+					, "width=500 height=600");
+			win.moveTo(200, 200);
+			/* win 변수에 안담고 파라미터 괄호 뒤 바로 moveTo 써도 된다.
+			이름대신 _(언더바.) 주면 타겟이 된것._self : 새창에서 안열리고 현재창에서 새로운
+			창으로 넘어감. _blank: 새창에서열림*/
+		}
+	</script>
+</head>
+<body>
+	<div class="box">
+		<h2> Window 객체(부모창) </h2>
+		<pre>
+		window.open(url, name 혹은 target, specs);  =  새로운 창 열기
+		새로 열린 창 : 자식 창. 
+		자식창에서 부모창을 가르킬때 : opener
+		
+		버튼을 클릭하면 새로운 창을 열고 이름과 전화번호를 입력받아서 부모창에 출력한다.
+		
+		이름대신 _(언더바.) 주면 타겟이 된것.
+		_self : 새창에서 안열리고 현재창에서 새로운 창으로 넘어감. 
+		_blank: 새창에서열림.
+		빈문자열로 넣어도되고, "ㅇㅁㄴ" -> 이렇게 이름넣어줘도되는데 겉보기에는 똑같음.
+		
+		url 부분에아무것도안쓰면 그냥 빈 창 뜬다.
+		
+		</pre>
+		<button onclick="proc1()" type="button">Open</button>
+		<br>
+		<div id="result1"></div>
+	</div>
+</body>
+</html>

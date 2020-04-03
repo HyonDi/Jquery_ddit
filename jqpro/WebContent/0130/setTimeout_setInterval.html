@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="../CSS/mystyle.css";>
+	<style>
+		#b3, #b5 {
+			display : none;
+		}
+		
+		
+	</style>
+	<script type="text/javascript">
+	function proc1(){
+		// 0.5초가 경과하면 result1의 배경색을 변경한다.
+		setTimeout(function(){
+			document.getElementById('result1').style.background = "cyan";		
+		}, 1000);
+	}
+	
+	function proc2(but){
+		
+		but.style.display = "none";
+		document.getElementById('b3').style.display = "inline";
+		
+		// 0.5초가 경과할 때 마다 result1의 배경색을 변경한다.
+		
+/* 		setInterval 실행시 발생되는 수행Id 를 변수x에 담음. : 정지할때 사용하기 위함. */
+		x = setInterval(function(){
+			console.log(x);
+			cr = Math.floor(Math.random()*256);
+			cg = Math.floor(Math.random()*256);
+			cb = Math.floor(Math.random()*256);
+
+			document.getElementById('result2').style.background
+			= "rgb(" + cr + "," + cg + "," + cb + ")";
+			
+			/* 16진수로 바꾸기 */
+			
+/* 			cr = cr.toString(16);
+			cg = cg.toString(16);
+			cb = cb.toString(16);
+			
+			document.getElementById('result2').style.background
+			= "#" + cr + cg + cb; 
+*/
+			
+		}, 500);
+	}
+	
+	function proc3(but){
+		document.getElementById('b2').style.display = "inline";
+		but.style.display = "none";
+		/* 포문 --로 x까지 전부삭제시키면??? */
+		clearInterval(x);
+	}
+	
+	function proc4(but){
+		document.getElementById('b5').style.display = "inline";
+		but.style.display = "none";
+		
+		result = document.getElementById('result4');
+		result.style.background = "green";
+		
+		y = setInterval(function(){
+/* 			if(result.style.background == 'green'){
+				result.style.background = 'yellow';
+			}else {
+				result.style.background = 'green';
+			} 
+*/
+			
+			/* 위를 삼항연산자로 바꿈. */
+			result.style.background =
+				result.style.background == 'green'? 'yellow' : 'green';
+					
+		}, 1000)
+	}
+	
+	function proc5(but){
+		document.getElementById('b4').style.display = "inline";
+		but.style.display = "none";
+		
+		clearInterval(y);
+	}
+	</script>
+</head>
+
+<body>
+	<form name="ff">
+		<div class="box">
+			<h2> setTimeout/setInterval</h2>
+			<pre>
+				setTimeout(fn, millisec)
+				setInterval(fn, millisec)
+				
+				div에 name 못준대.
+				
+				* from 태그 안에서는 button태그 안에 'type=button' 을 꼭 줘야한다.
+				 타입 안주면 form태그 안에서는 전송(submit) 기능을 하게된다.
+			</pre>
+			
+			<button onclick="proc1()" type="button">setTimeout</button>
+			<div id="result1" name='result1'></div>
+			
+			<button id="b2" onclick="proc2(this)" type="button">setInterval</button>
+			<button id="b3" onclick="proc3(this)" type="button">clearInterval</button>
+			<div id="result2" name='result2'></div>
+		</div>
+	</form>
+	
+	
+	<div class="box">
+			<h2> setTimeout/setInterval</h2>
+			<pre>
+			1초마다 녹색, 노랑색으로 배경색 변경
+			setInterval(fn, millisec) : 
+			</pre>
+			
+			<button id='b4' onclick="proc4(this)" type="button">실행</button>
+			<button id='b5' onclick="proc5(this)" type="button">정지</button>
+			<div id="result4"></div>
+	</div>
+	
+</body>
+</html>

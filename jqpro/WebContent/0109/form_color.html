@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>colorform</title>
+
+<script>
+	function proc1(){
+		
+		//alert("여기는 proc1 함수입니다.")
+		//1. id가 col인 곳에서 선택된 색상을 가져온다.
+		a = document.getElementById('col');
+		aValue = a.value
+		console.log(aValue);
+		
+		//2. div의 배경색을 1번에서 선택된 결과로 변경한다.
+		b = document.getElementsByTagName('div');
+		b[0].style.background = aValue
+	}
+</script>
+
+<style>
+	div{
+		width : 100%;
+		height : 300px;
+		border : 2px solid orange;
+		margin : 20px;
+		
+/* 		위 한줄은 아래것의 간축속성
+		border-width : 2px;
+		border-style : solid;
+		border-color : orange;
+ *//* border-top-color : orange; */
+ 
+ 	
+	}
+</style>
+
+</head>
+<body>
+
+<pre>
+메서드는 스타일위에서 스크립트태그 안에 만든다.
+
+
+document 는 window 객체의 하위 객체로 지정되어 있다.
+document.
+(바디태그안에 구성된 요소들을 가지고 documet 를 먼저 만든 후 윈도우에 띄운것임.)
+실행시 body태그에 기술된 각각의 요소들로 document를 생성한다.
+생성된 document를 window에 보여준다.
+
+body태그안의 어떤 요소에 접근하기 위한 방법 : document
+a(변수이름) = document.getElementById('col')
+a.value 는 색을 가져온거야.
+
+b = document.getElementsByTagName('div')
+b[인덱스번호(여기서는 div의 순서에따른 번호)].style.background = a.value
+(----아이디는 항상 하나니까 getElement... 인데)
+클래스이름이나 태그이름은 여러개니까 getElements... 임.)
+</pre>
+
+<form>
+	<input type="color" id="col">
+	<input onclick="proc1()" type="button" value="확인">
+</form>
+
+<div></div>
+
+</body>
+</html>

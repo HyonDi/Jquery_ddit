@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="../CSS/mystyle.css";>
+	<script src="../js/jquery-3.4.1.min.js" type="text/javascript"></script>
+	
+	<script type="text/javascript">
+	
+		// dom으로 접근해서 변수를 리턴받는 방식. result = 돔객체.
+		/* window.onload = function(){
+			result = document.getElementById('result1');
+			result.innerHTML = "<h1>Hello</h1>";
+			result.style.color = red;
+			
+			but = document.getElementsByTagName('button')[0];
+		}
+		 */
+		 
+		 
+		// 위와 아래 같은 뜻임.
+		
+		
+		//result = jQuery객체.
+		jQuery(document).ready(function(){//jQuery 부분 $ 로 써도 된다.
+		
+			/* but = $('button:eq(0)');
+			but.function(){};*/
+			
+			// 위 주석 2줄을 한줄로표현함.
+			$('button:eq(0)').on('click', function(){
+				
+				result = $('#result1');
+				result.html("<h1>Hello JQuery</h1>");
+				result.css('color','red');
+			})
+			//jQuery('button')[0]; 
+			// 이렇게써도되긴하는데 jQuery가아니고, dom이다. jQuery메서드를 사용할수 없다는의미.
+			
+		})
+		
+		function proc1(){
+				result = $('#result1');
+				result.html("<h1>Hello Proc1</h1>");
+				result.css('color','blue');
+			 }
+		
+	</script>
+</head>
+<body>
+	<div class="box">
+		<h2> </h2>
+		<pre>
+		</pre>
+		<button type="button">실행jQuery</button>
+		<button type="button" onclick="proc1()">실행proc</button>
+		<br>
+		<div id="result1"></div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="../CSS/mystyle.css";>
+	<script src="../js/jquery-3.4.1.min.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		$(function(){
+			$('button:eq(0)').on('click',function(){
+				ptag= $("<p id='p1' onclick='proc1()' class='pp'>Hello jQuery~~</p>");
+				$(ptag).appendTo('#result1');
+			})
+			
+			$('button:eq(1)').on('click',function(){
+				vimg = $("<img>",{
+					'src' 	: '../images/풍차.jpg',
+					'alt' 	: '풍차',
+					'width' : '100px',
+					'height': '100px',
+					'click' : function(){
+						$(this).css('border','3px solid orange');
+								},
+					'dblclick' : function(){
+						$(this).css('border','0px');
+					}
+				});
+				
+				$(vimg).appendTo('#result2');
+					// = 위아래 같음.
+				//$('#result2').append(vimg);
+			})
+			
+			
+		})
+		
+		function proc1(){
+			alert("Hello");
+		}
+	</script>
+</head>
+<body>
+	<div class="box">
+		<h2>새로운 요소 생성-추가</h2>
+		<pre>
+		버튼을 클릭하면 p태그를 새롭게 생성해서 div(result1)에 추가한다.
+		p태그 클릭하면 alert("Hello"); 나옴. 
+		</pre>
+		<button type="button">실행</button>
+		<br>
+		<div id="result1"></div>
+	</div>
+	
+		<div class="box">
+		<h2>새로운 요소 생성-추가</h2>
+		<pre>
+		버튼을 클릭하면 img태그를 새롭게 생성해서 div(result1)에 추가한다. 
+		클릭하면 border생김.
+		</pre>
+		<button type="button">이미지 생성</button>
+		<br>
+		<div id="result2"></div>
+	</div>
+	
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="../CSS/mystyle.css";>
+	<script src="../js/jquery-3.4.1.min.js"></script>
+	
+	<script>
+	/*  $('p:eq(0)')     $('p').eq(1)
+	$('p').filter(':eq(0)')
+세개 같지만 실행면에서 두번째거가 좋대.   */
+		$(function(){
+			$('#emp1').on('click', function(){
+				$('#dd').empty();
+			})
+			
+			$('#re1').on('click', function(){
+				$('#dd').remove();
+			})
+			
+			$('.pp').on('click', function(){
+				$(this).css('font-size', '+=2px');
+				//클릭할때마다 2px씩 크기가 늘어난다.
+			})
+			
+			$('#re2').on('click', function(){
+				$('#result2').append($('#p1').remove());
+			})
+			
+			$('#de2').on('click', function(){
+				$('#p2').detach().appendTo('#result2');
+			})
+			
+			$('#cl').on('click', function(){
+				$('#cp3').clone().prependTo('#result3'); //ctlr+c & ctrl+v
+				
+			})
+			
+			$('#clt').on('click', function(){
+				
+				$('#result3').prepend($('#cp4').clone(true)); //ctlr+c & ctrl+v
+			})
+		})
+	</script>
+	
+	<style type="text/css">
+		#dd {
+			background : #c8c8c8;
+		}
+	</style>
+</head>
+<body>
+	<div class="box box1">
+		<h2> 비우기와 지우기 </h2>
+		<pre>
+		empty() : 대상 요소는 삭제하지 않고, 자식들만 지워진다. 비우기.
+		remove() : 대상요소뿐 만 아니라, 자식요소까지 함께 지워진다. 
+		</pre>
+		<div id="dd">
+			오늘은 목요일, 내일은 금요일, 모레는 토요일.<br>
+			우리는 매일매일 고고~~	
+		</div>
+		<button id="emp1" type="button">empty</button>
+		<button id="re1" type="button">remove</button>
+		
+		<div id="result1"></div>
+	</div>
+	
+	<div class="box box2">
+		<h2> 삭제시 이벤트 확인</h2>
+		<pre>
+		remove() : 요소 삭제시 이벤트핸들러도 함께 삭제된다.
+		detach() : 요소 삭제시 이벤트핸들러는 삭제되지 않는다.
+		</pre>
+
+		<p class="pp" id="p1"> 무궁화꽃이 피었습니다.</p>
+		<p class="pp" id="p2"> 제주도엔 유체꽃이 활짝 피었고요</p>
+		<p class="pp" id="p3"> 남쪽에선 곧 매화 산수유도 피겠지요</p>
+		<p class="pp" id="p4"> 꽃놀이는 꿈도 못꿔요 ~~</p>
+		
+		<button id="re2" type="button">remove</button>
+		<button id="de2" type="button">detach</button>
+		<div id="result2"></div>
+	</div>
+	
+	<div class="box box3">
+		<h2> 복사시 이벤트 확인</h2>
+		<pre>
+		clone(true) : 요소 복사시 이벤트 핸들러도 함께 복사된다.
+		clone() : 요소 복사시 이벤트 핸들러는 복사되지 않는다.
+		</pre>
+
+		<p class="pp" id="cp1"> 무궁화꽃이 피었습니다.</p>
+		<p class="pp" id="cp2"> 제주도엔 유체꽃이 활짝 피었고요</p>
+		<p class="pp" id="cp3"> 남쪽에선 곧 매화 산수유도 피겠지요</p>
+		<p class="pp" id="cp4"> 꽃놀이는 꿈도 못꿔요 ~~</p>
+		
+		<button id="clt" type="button">clone(true)</button>
+		<button id="cl" type="button">clone()</button>
+		<div id="result3"></div>
+	</div>
+</body>
+</html>

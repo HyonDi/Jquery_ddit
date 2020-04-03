@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="../CSS/mystyle.css";>
+	
+	<script type="text/javascript">
+		function inputProc(){
+			/* 두개의 수를 입력받는다. */
+			input1 = parseInt(prompt("첫번째 수 입력 >> ","정수로 입력해주세요."));
+			input2 = prompt("두번째 수 입력 >> ","정수로 입력해주세요.");
+		}/* var 를 안쓴 변수들은 전역변수니까 계속 다른곳에서 사용 가능하다. */
+	
+		function addProc(){
+						
+			inputProc();
+			
+			res = input1 + " + " + input2 + " = "; /* 문자 그대로 써라.(문자로인식해라.) */
+			res += parseInt(input1) + parseInt(input2);/* 덧셈을 수행해라. */
+			/* += 을 써서 윗출력결과에 덧셈결과를 추가시켰다. */
+			
+			document.getElementsByTagName('div')[0].innerHTML = res;
+			document.getElementsByTagName('div')[0].style.fontSize = '20px';
+			document.getElementsByTagName('div')[0].style.color = 'blue';
+		}
+		
+		
+		window.onload = function(){
+		tagdiv = document.getElementsByTagName('div')[1];
+		}
+		
+		function subProc(){
+		
+			inputProc();
+			
+			sub = input1 - input2;
+			
+			res = input1 + " - " + input2 + " = "; 
+			res += sub;
+			
+			tagdiv.innerHTML = res;
+			tagdiv.style.color = 'red';
+		}
+		
+		function mulProc(){
+
+			inputProc();
+			res = input1 + " * " + input2 + " = ";
+			res += input1 * input2;
+			
+			tagdiv.innerHTML = res;
+			tagdiv.style.color = 'green';
+			tagdiv.style.fontSize = '20px'
+			/* tagdiv는 sub에서 처음 쓰인 전역변수여서 여기서도 쓸 수 있지만 sub가 실행된 후에 사용 가능함.
+			그래서 함수밖에 tagdiv = document.getElementsByTagName('div')[1]; 를 위치시켰고,
+			저 값찾아오려고 window.donload = function(){} 안에 넣었음.
+			*/
+		}
+		
+		function divideProc(){
+
+			inputProc();
+			res = input1 + " / " + input2 + " = ";
+			res += input1 / input2;
+			
+			tagdiv.innerHTML = res;
+			tagdiv.style.color = 'red';
+			tagdiv.style.fontSize = '20px'
+		} 
+	
+		
+	</script>
+	<style>
+		div{
+			border : 1px solid blue;
+			margin : 10px;
+			padding : 20px;
+		}
+	</style>
+</head>
+<body>
+	<pre>
+		확인버튼을 클릭하면 2개의 정수를 각각 입력해서 덧셈을 수행 한다.
+		
+		입력 : :prompt();
+		리턴결과형 : String
+		
+		덧셈을 수행하기위해서 number 숫자형태로 변환
+		parseInt() 
+		input 받을때 혹은 res에 넣을 때 1번만 해줘도 된다.
+		
+		+ 연산 외에는 parseInt() 필요 없음.
+		
+		
+	</pre>
+	<button type="button" onclick="addProc()">덧셈</button>
+	<br><br>
+	<div></div>
+	<br><br>
+	
+	<button type="button" onclick="subProc()">뺄셈</button>
+	<button type="button" onclick="mulProc()">곱하기</button>
+	<button type="button" onclick="divideProc()">나누기</button>
+	<div></div>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>z-index</title>
+	<link rel="stylesheet" href="../CSS/mystyle.css";>
+	<style>
+		/* 포지션디폴트 : 스태틱 (순서대로)*/
+		div{
+			position : absolute;
+			width : 200px;
+			height : 200px;
+		}
+		
+		/* z-index 디폴트 : 0 */
+		#d1{
+			top : 50px;
+			left : 20px;
+			background : blue;
+			z-index : 2
+		}
+		
+		#d2{
+			top : 90px;
+			left : 60px;
+			background : yellow;
+			z-index : 1
+		}
+		
+		#d3{
+			top : 120px;
+			left : 100px;
+			background : green;
+		}
+		
+		hr{
+			position : relative;
+			top : 320px;
+		}
+		img{
+			position : relative;
+			top : 350px;
+			 width : 200px; 
+			 height : 200px;
+			 z-index : -1;
+		}
+		p{
+			position : relative;
+			top : 250px;
+			/* z-index : -2; */
+		}
+		
+	</style>
+</head>
+<body>
+	<div id="d1"></div>
+	<div id="d2"></div>
+	<div id="d3"></div>
+	<br>
+	<hr color = 'red'>
+	<br>
+	
+	<img src="../images/dog.png" alt="" />
+    <p>img 요소의 z-index가 -1이므로 다른 요소의 뒤에 위치한다. </p>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</body>
+</html>

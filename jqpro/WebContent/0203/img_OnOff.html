@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../CSS/mystyle.css">
+	<script>
+		function proc1(){
+			vsrc = document.onoff;
+			//alert(vsrc.src);
+			
+			//if(vsrc.src == "http://localhost/jqpro/images/switch1_off.png");
+			//match() : 전체문자가 아닌 일부분의 문자
+			if(vsrc.src.match("switch1_off")){
+				console.log(vsrc.src.match("switch1_off"));
+				vsrc.src = "../images/switch1_on.png";
+			}else{
+				//해당하는 글자가 없을때는 null 리턴
+				console.log(vsrc.src.match("switch1_off"));
+				vsrc.src = "../images/switch1_off.png";
+			}
+				
+		}
+	</script>
+</head>
+
+<body>
+	<div class="box">		
+		<h2>일부분의 문자열 비교</h2>
+		<pre>
+match(/^정규식$/)
+match("일반문자")
+전체 문자열 중에서 일치하는 문자가 일부분 있는지 판별
+일치하는 문자가 있으면 해당 문자들을 리턴
+일치하는 문자가 없으면 null을 리턴
+
+이름이 onoff인 이미지 요소에 접근, src의 속성값을 얻어 'switch1_off'라는 문자와 일치하는 이미지주소가 있는지 확인 
+vsrc = document.onoff;
+if(vsrc.src.match("switch1_off")){
+	vsrc.src = "../images/switch1_on.png";
+}else{
+	//해당하는 글자가 없을때는 null 리턴
+	vsrc.src = "../images/switch1_off.png";
+}
+		</pre>
+		<img name="onoff" onclick="proc1()" src="../images/switch1_off.png" alt="switch1">
+	</div>
+</body>
+</html>

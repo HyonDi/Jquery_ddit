@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../CSS/mystyle.css">
+	<script>
+		//실행시 위에서 아래로 실행되는데 ex값이 없는 상태이기 때문에 window.onload 사용
+		window.onload = function(){
+			vex = document.getElementById('ex');
+		}
+		
+		function get(){
+			alert(vex.innerHTML);
+		}
+		
+		function set(txt){
+			vex.innerHTML = txt;
+		}
+		
+		function change(){
+			//img요소의 접근방법
+			/* document.getElementById('imageId');
+			document.getElementsByName('imageName')[0];
+			document.getElementsByTagName('img')[0]; */
+			
+			//document 객체에 img 객체가 form과 따로 있기때문에
+			//img는 form안에 있어도 바로 접근 가능하다.
+			document.imageName.src = "../images/rest1.jpg";
+		}
+		
+		function intervalChange(){
+			
+			//이미지를 배열로 생성
+			imgArr = new Array();
+			imgArr[0] = "cafelatte.jpg";
+			imgArr[1] = "movie.jpg";
+			imgArr[2] = "호랑이.jpg";
+			
+			//이미지[랜덤]번째로 0.5초마다 변경
+			x = setInterval(function(){
+				//랜덤 발생
+				rand = Math.floor(Math.random()*imgArr.length);
+
+				document.imageName.src = "../images/" + imgArr[rand];			
+			}, 500);
+		}
+		
+		function stopChange(){
+			clearInterval(x);
+		}
+	</script>
+	
+	<style>
+		img{
+			width : 300px;
+			Height : 300px;
+			border-radius : 100%;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="box">		
+		<h2>html요소 변경</h2>
+		<pre>
+innerHTML을 이용해서 div(id=ex)요소를 변경
+innerHTML을 이용해서 a태그의 내용을 가져온다
+		</pre>
+		<div id="ex">무궁화 꽃이 피었습니다.</div>
+	    <a href="#" onclick="get()">div 요소 내용 가져오기</a><br>
+	    <a href="#" onclick="set('장미꽃이 피었습니다')">div 요소 내용 변경하기</a>
+	</div>
+	
+	<div class="box">		
+		<h2>html요소 속성 변경</h2>
+		<pre>
+이미지의 src 속성을 변경해서 이미지를 바꾼다
+		</pre>
+		<!-- alt="카페라뗴" : 이미지가 안나올때 뜨는것. -->
+		<img id="imageId" name="imageName" src="../images/cafelatte.jpg" alt="카페라뗴">
+		<button type="button" onclick="change()">실행</button>
+		<button type="button" onclick="intervalChange()">시간간격실행</button>
+		<button type="button" onclick="stopChange()">멈춤</button>
+	</div>
+</body>
+</html>

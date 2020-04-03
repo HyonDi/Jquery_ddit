@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="../CSS/mystyle.css";>
+	<script src="../js/jquery-3.4.1.min.js"></script>
+	
+	<script>
+		$(function(){
+			
+			//$('.dd').delegate('.but', 'click', function(){})
+			// 위는 delegate형식. 아래는 on형식으로 delegate를 만듬.
+			$('.dd').on('click', '.but', function(){
+			// .dd 대신에 document도 쓸 수 있다.
+			
+			//$('.but').on('click', function(){
+				// 위는 bind 형식.
+				$('<button/>', {
+					'class' : 'but',
+					'type' : 'button',
+					'text' : '새로운 버튼'
+					}).appendTo('#result1')				 
+				})
+				
+			$('#clear').on('click', function(){
+				// but에대한 클릭이벤트해제.
+				// $('.dd').undelegate('click');
+				// 위는 3.0 이전에 쓰던것. (delegate랑 bind랑 마찬가지.)
+				
+				$('.dd').off('click');
+				})
+			
+		})
+	</script>
+</head>
+<body>
+	<div class="box">
+		<h2> </h2>
+		<pre>
+
+		</pre>
+		<div id="d1" class="dd">
+			<button class="but" type="button">버튼1</button>
+			<button class="but" type="button">버튼2</button>
+			<button class="but" type="button">버튼3</button>
+		</div>
+		
+		<button id="clear" type="button">해제</button>
+		
+		<div class="dd" id="result1"></div>
+	</div>
+</body>
+</html>

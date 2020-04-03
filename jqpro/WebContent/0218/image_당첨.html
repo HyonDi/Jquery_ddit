@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="../CSS/mystyle.css";>
+	<script src="../js/jquery-3.4.1.min.js"></script>
+	
+	<script>
+		$(function(){
+			$('#start').on('click', function(){
+				$(this).hide();
+				$('img').css('border', 'none');
+				
+				a = setInterval(function(){
+					$('img:first').appendTo('#result1');
+					
+				}, 500)
+		})
+		
+		$('#end').on('click', function(){
+			clearInterval(a);
+			rand = Math.floor(Math.random()*$('img').length);
+			
+			$('img:eq('+ rand +')').css('border', '5px double red');
+			$('#start').show();
+	})
+		 })
+	</script>
+	<style>
+		img{
+			width : 100px;
+			height : 100px;
+			border-radius :50px;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<h2> </h2>
+		<pre>
+
+		</pre>
+		<div id="result1">
+			<img src="../images/사자.jpg">
+			<img src="../images/핫초코.jpg">
+			<img src="../images/풍차.jpg">
+			<img src="../images/카페라떼.jpg">
+			<img src="../images/에스프레소.jpg">
+			<img src="../images/아메리카노.jpg"><br>
+		</div>
+		<button id="start" type="button">시작</button>
+		<button id="end" type="button">멈춤</button>
+	</div>
+</body>
+</html>

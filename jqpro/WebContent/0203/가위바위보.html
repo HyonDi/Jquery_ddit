@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../CSS/mystyle.css">
+	<script>
+		function proc1(){
+			//컴퓨터 이미지 랜덤발생
+			comStr = ["가위", "바위", "보"];
+			rand = Math.floor(Math.random() * 3);
+			com = comStr[rand];
+			
+			man = prompt("입력하세요.");
+			
+			document.iCom.src = "../images/" + com + "_우.PNG";
+			document.iMan.src = "../images/" + man + "_좌.PNG";
+			
+			if(com == man){
+				res = "비겼습니다.";
+			}else if(man == "가위" && com == "보"
+						|| man == "바위" && com == "가위"
+						|| man == "보" && com == "바위"){
+				res = "사람이 이겼습니다.";
+			}else{
+				res = "컴퓨터가 이겼습니다.";
+			}
+			
+			document.getElementById('result1').innerHTML = res;
+			document.getElementById('result1').style.color = 'green';
+		}
+	</script>
+	
+	<style>
+		img {
+			width : 90%;
+			height : 90%;
+		}
+		
+		td {
+			text-align : center;
+		}
+		
+		#man, #com {
+			height : 30px;
+		}
+		
+		#man {
+			background : pink;
+		}
+		
+		#com {
+			background : #bebebe;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="box">		
+		<h2>가위바위보</h2>
+		<pre>
+버튼을 클릭하면 컴퓨터는 랜덤, 사람은 입력하여 승자를 판별한다.
+		</pre>
+		<table border="1">
+			<tr>
+				<td colspan="2"><button type="button" onclick="proc1()">게임시작</button></td>
+			</tr>
+			<tr>
+				<td id="man">사 람</td>
+				<td id="com" >컴 퓨 터</td>
+			</tr>
+			<tr>
+				<td><img name="iMan" src="../images/바위_좌.PNG" alt="바위"></td>
+				<td><img name="iCom" src="../images/바위_우.PNG" alt="바위"></td>
+			</tr>
+		</table>
+		<div id="result1"></div>
+	</div>
+</body>
+</html>

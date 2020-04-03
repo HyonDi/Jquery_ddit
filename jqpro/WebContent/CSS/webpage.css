@@ -1,0 +1,19 @@
+@CHARSET "UTF-8";
+
+h1, p {    
+     font-family: serif;
+     color:       green;
+}
+span { font-size :2.0em;     color : blue; }
+ 
+em { font-size :1.5em;     color : blue; }
+h1 {    
+     border-bottom: 1px solid gray;
+     color:       red;
+}
+body {
+     font-size : large;
+     background-color: yellow;
+     
+     
+} 

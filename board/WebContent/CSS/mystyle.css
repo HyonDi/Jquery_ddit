@@ -1,0 +1,45 @@
+@CHARSET "UTF-8";
+
+pre{	
+		height : auto;
+		background : #FAEAF2;
+		padding : 20px;
+		margin : 10px;
+		border-bottom :2px double #D767A5;
+		border-top : 2px double #D767A5;
+		font-size : 15px; 
+		color : #504C4E;
+}
+
+.box {
+	background : #FAEAF2;
+	margin : 10px;
+	height : auto;
+	padding : 20px;
+}
+
+.box div{
+	/* 한칸띄우는건 후손의미함. */
+	border : 2px dotted gray;
+	height : auto;
+	margin : 10px;
+	padding : 10px;
+}
+
+.box button{
+	color : white;
+	background : black;
+	padding : 10px;
+	margin : 5px;
+	width : auto;
+	border-radius : 50px;
+}
+
+.box pre{
+	padding : 15px;
+	color : #504C4E;
+	background : pink;
+	font-weight : bold;
+
+}
+

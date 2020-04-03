@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<link rel="stylesheet" href="../CSS/mystyle.css;">
+
+<style>
+#p1{
+	font-size : large;
+}
+
+p[id=p1]{
+	color : red;
+}
+
+#p2{
+	font-size : small;
+}
+
+#p3{
+	font-size : 20px;
+}
+
+#p4{
+	font-size : 50px;
+}
+
+#p5{
+	font-size : xx-large;
+}
+
+#p6{
+	font-size : initial;
+}
+
+#p7{
+	font-size : 15px;
+}
+
+#p8{
+	font-size : 1.5em;
+}
+
+#p9{
+	font-size : 150%;
+}
+
+p[title=진달래]{
+	background : yellow;
+}
+
+p[title]{
+	border : 2px dotted crimson;
+}
+
+span{
+	color : red;
+}
+</style>
+</head>
+<body>
+
+<pre>
+ - 속성 선택자 : 속성을 이용한 선택
+	 .id가 p1인 p태그를 선택.
+	 
+	 <span>p[id=p1]</span>{
+		color : red;
+	}
+	
+.title : 이 진달래인 p태그를 선택
+	<span>p[title]</span>{
+	border : 2px dptted crimson;
+	}
+
+.title : 속성을 가지고 있는 p태그를 선택
+	<span>p[title]</span>{
+		border : 2px dotted crimson;
+	}
+
+
+</pre>
+
+	<p id=p1 title="무궁화">무궁화 꽃이 피었습니다. -large</p>
+	<p id=p2>무궁화 꽃이 피었습니다. -small</p>
+	<p id=p3 title="개나리">무궁화 꽃이 피었습니다. - 20px</p>
+	<p id=p4>무궁화 꽃이 피었습니다. - 50px</p>
+	<p id=p5 title="진달래">무궁화 꽃이 피었습니다. - xx-large</p>
+	<p id=p6>무궁화 꽃이 피었습니다. - initial</p>
+	<p id=p7>무궁화 꽃이 피었습니다. - 15px</p>
+	<p id=p8>무궁화 꽃이 피었습니다. - 1.5em </p>
+	<p id=p9 title="라벤더">무궁화 꽃이 피었습니다. - 150% </p>
+	
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="../CSS/mystyle.css";>
+	<script>
+	function calc(){
+		b = document.getElementById('cnt');
+		bValue = b.value;
+		
+		document.getElementById('rs').value = bValue*2000000 + "원";
+		/*  */
+		b = document.getElementById('cnt2');
+		bValue = b.value;
+		
+		document.getElementById('rs2').value = bValue*50000 + "원";
+		
+		b = document.getElementById('cnt3');
+		bValue = b.value;
+		
+		document.getElementById('rs3').value = bValue*1000 + "원";
+		
+		b = document.getElementById('cnt4');
+		bValue = b.value;
+		
+		document.getElementById('rs4').value = bValue*5000 + "원";
+	}
+
+
+	
+	</script>
+	<style>
+	table {
+		border-collapse: collapse;
+	}
+	*{
+		background :#FFF0F5;
+		font-size : 1em;
+		}
+	input{
+		background : white;
+	}	
+		
+	.a{
+		background :#FFF0F5;
+	}
+	
+	
+	</style>
+</head>
+<body>
+<table border="1">
+	<tr>
+	<th>품목</th>
+	<th>가격</th>
+	<th>수량</th>
+	<th>합계</th>
+	</tr>
+	
+	<tr>
+	<td>컴퓨터 세트</td>
+	<td id="price">2,000,000원</td>
+	<td><input id="cnt" type="number" min="0" max="100" step="1" value="0"></td>
+	<td><input id="rs" type="text" value="0"></td>
+	</tr>
+	
+	<tr>
+	<td>티셔츠</td>
+	<td id="price2">50,000원</td>
+	<td><input id="cnt2" type="number" min="0" max="100" step="1" value="0"></td>
+	<td><input id="rs2" type="text" value="0"></td>
+	</tr>
+	
+	<tr>
+	<td>음악파일</td>
+	<td id="price3">1,000원</td>
+	<td><input id="cnt3" type="number" min="0" max="100" step="1" value="0"></td>
+	<td><input id="rs3" type="text" value="0"></td>
+	</tr>
+	
+	<tr>
+	<td>영화파일</td>
+	<td id="price4">5,000원</td>
+	<td><input id="cnt4" type="number" min="0" max="100" step="1" value="0"></td>
+	<td><input id="rs4" type="text" value="0"></td>
+	</tr>
+</table>
+	<input class="a" type="button" value="계산" onclick="calc()">
+	<input class="a" type="submit" value="구매">
+	<input class="a" type="reset" value="초기화"><br>
+	<br>
+	<a href="index.html">Back to Home</a>
+	
+	
+<!--<script>
+	function calc(){
+		//1. id가 price인 요소에 접근 후 값을 가져온다.
+	/* 	a = document.getElementById('price');
+		aValue = a.value; */
+		//2. id가 cnt 인 요소에 접근 후 값을 가져온다.
+		b = document.getElementById('cnt');
+		bValue = b.value;
+
+		//3. 각각의 값 계산(price*cnt)
+		//res = aValue*bValue;
+		//4. 출력한다.(alert로)
+		document.getElementById('rs').value = bValue*2000000;
+		
+	}
+	
+</script>-->
+	
+	
+</body>
+</html>

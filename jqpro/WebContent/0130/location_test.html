@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="../CSS/mystyle.css";>
+	<script type="text/javascript">
+		function proc1(){
+			// http://localhost:80/jqpro/0130/test.html?id="korea"
+			// get방식에서 검색부분. id="korea" 이부분이 query String 이야.
+			res = "href : " + location.href + "<br>";
+			res += "protocol : " + location.protocol + "<br>";
+			res += "host : " + location.host + "<br>";
+			res += "hostname : " + location.hostname + "<br>";
+			res += "port : " + location.port + "<br>";
+			res += "pathname : " + location.pathname + "<br>";
+			
+			document.getElementById('result1').innerHTML = res;
+		}
+		
+		function proc2(){
+			location.href = "test.jsp";
+			/* 현재위치(폴더 1030)를 기준으로 test.jsp 여기로 이동한다. */
+		}
+		
+		function goPage(){
+			location.href = "test.jsp";
+		}
+		
+		function goPagePost(){
+			// 입력한 값(hidden값) 을 서버프로그램으로 보낸다.
+			
+			mf = document.myform;
+			
+			mf.action = "testpost.jsp";
+			mf.method = "post";
+			document.myform.submit();
+		}
+		
+		function goReplace(){
+			location.replace("test.jsp");
+		}
+		
+		function goReload(){
+			str = ["Hello", "HTML", "CSS","JAVASCRIPT", "JSP", "JQuery"];
+			
+			rand = Math.floor(Math.random()* str.length);
+			res = "<h1>" + str[rand] + "</h1>";
+			
+			result = document.getElementById('result2');
+			result.innerHTML = res;
+			result.style.color = "red";
+			
+			setTimeout(function(){
+				location.reload();
+			}, 1000);
+			
+		}
+	</script>
+</head>
+<body>
+	<div class="box">
+		<h2> Location 객체 </h2>
+		<pre>
+			url의 정보를 얻는다.
+			
+			href : 전체 url
+			protocol : http: 
+			hostname : 
+			port : 
+			host : hostname+port
+			pathname :
+		</pre>
+		<button onclick="proc1()" type="button">Location</button>
+		<br>
+		<div id="result1"></div>
+	</div>
+	
+	<div class="box">
+		<h2> Location 객체 </h2>
+		<pre>
+		Location 객체의 사용
+			- 자동으로 특정페이지로 이동할 때 사용.
+			- a태그에서 사용.
+			- 이번트(get)
+			- 이벤트(post)
+			- 새로운 문서로 대체할 때.
+				(원래창꺼버리고 새페이지 켜는 것과 같음.뒤로가기 안됨.)
+			- 현재 문서를 다시 로드할 때.
+		
+		
+		 http://localhost:80/jqpro/0130/test.html?id="korea"
+			- get방식에서 검색부분. id="korea" 이부분이 query String 이야.
+			
+		a href="javascript:goPage()" : 유알엘 화 시킨것
+			
+		</pre>
+		- 자동으로 특정페이지로 이동할 때 사용 : location.href<br>
+		<button onclick="proc2()" type="button">자동으로 이동</button>
+		<br><br>
+		- a태그에서 사용.<br>
+		<a href="javascript:goPage()">a태그-이동</a>
+		<!-- javascript: goPage() 이렇게 안쓰면 주소인줄알아. -->
+		<br><br>
+		- 이번트(get)<br>
+		<button onclick="goPage()" type="button">get</button>
+		<br><br>
+		- 이벤트(post)
+		<form name="myform">
+			<input type="hidden" name="abc" value="korea">
+			<button onclick="goPagePost()" type="button">post</button>
+		</form>
+			<br>
+		- 새로운 문서로 대체할 때. : 원래페이지로 돌아올 수 없음.<br>
+		<button onclick="goReplace()" type="button">대체</button>
+		<br><br>
+		- 현재 문서를 다시 로드할 때.<br>
+		<button onclick="goReload()" type="button">다시로드</button>
+		
+		
+		<div id="result2"></div>
+	</div>
+</body>
+</html>

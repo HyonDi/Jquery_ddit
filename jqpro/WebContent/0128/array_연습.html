@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>array_연습</title>
+	<link rel="stylesheet" href="../CSS/mystyle.css";>
+	<script>
+		function proc1(){
+			arr = new Array();
+			
+			// 계속 입력받기
+			while(true){
+				input = prompt("이름을 입력해 주세요. > ");
+				
+				
+				if(input == "" || input == null){
+					break;
+				}
+				
+				arr.push(input);
+			}
+			document.getElementById('result1').innerHTML = arr;
+			
+			// 배열에 저장한다.
+		}
+		
+		// 중복되지 않는 정수
+		function proc2() {
+			i = 0; 
+			arr = new Array();
+			/* 여기에 숫자5 미리 정해놓으면 아래 while문 안에서 
+			arr.push 할 경우 6번째 인덱스부터값이 들어간다. */
+			
+			// 중복된 숫자입력받을수도있으니 반복횟수 정해져있는 for문 말고while문 사용했다.
+			while(true){
+				// 입력
+				input = prompt("숫자를 입력해주세요. > ");
+				
+				//if중복검사+중복되지않으면 배열에 추가+배열에 추가했으면 i증가.
+				//i가 4?5?가 되면 break;
+				if(input == "" || input == null){
+					break;
+				}
+				
+				if(arr.indexOf(input) == -1) {
+					
+					/* arr[i] = input; 
+					이렇게 하거나 push하거나 둘중 하나!*/
+					arr.push(input);
+					
+					i++;
+				}
+				
+				if(i==5) {
+					break;
+				}
+				
+			}
+			// 출력
+			document.getElementById('result2').innerHTML = arr;
+			
+		}
+	</script>
+</head>
+<body>
+	<div class="box">
+		<h2>입력받아 배열에 저장</h2>
+		<pre>
+			/*pre랑 비슷. 스크립트에서 쓰는 코드를 설명으로 그대로 쓸 때 사용. code는 줄바꿈 필요.*/<br>
+			arr = new Array();<br>
+			<br>
+			while(true){
+				input = prompt("이름을 입력해 주세요. > ");
+				if(input == "" || input == null){
+					break;
+				}
+				arr.push(input);
+			}
+			document.getElementById('result1').innerHTML = arr;
+			// 배열에 저장한다.
+		}
+		</pre>
+		<button onclick="proc1()" type="button">실행</button>
+		<div id="result1"></div>
+	</div>
+	<br><br>
+	
+	<div class="box">
+		<h2>중복되지 않는 정수 5개 입력 받아 출력.</h2>
+		<pre>
+			
+		</pre>
+		<button onclick="proc2()" type="button">실행</button>
+	<div id="result2"></div>
+	</div>
+	<br><br>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<!--  외부스타일 연결 적용. -->
+<link rel = "stylesheet" href="../CSS/mystyle.css">
+
+<style>
+	div{
+		width : 40%;
+		background : pink;
+		padding : 20px;
+		margin : 10px;
+		border-bottom :5px double hotpink;
+		float : Left; 
+	}
+	
+	
+	img{
+	width : 50px;
+	height : 50px
+	}
+
+
+</style>
+
+</head>
+<body>
+<pre>
+외부에 저장된 스타일 파일을 html안에서 링크로 연결해서 사용.
+&lt;link rel = "stylesheet" href="../CSS/mystyle.css"&gt;
+div 는 화면 좌~우까지 전체사용. 자동줄바꿈 해준다.
+
+</pre>
+<div>
+	
+	ul : 번호 없는 리스트. li 텍스트
+	
+	
+	<ul>
+	<li>아메리카노</li>
+	<li>카푸치노</li>
+	<li>카페라떼</li>
+	</ul>
+</div>
+
+<div>
+
+	ul : 번호 있는 리스트. li 텍스트
+	
+	<ol>
+	<li>아메리카노</li>
+	<li>카푸치노</li>
+	<li>카페라떼</li>
+	</ol>
+</div>
+
+<div>
+ul : 번호 없는 리스트. li. 이미지
+	<ul>
+		<li><img src ="../images/jQuery.jpg"></li>
+		<li><img src ="../images/image.2.jpg"></li>
+		<li><img src ="../images/image.3.jpg"></li>
+		<li><img src ="../images/image.4.jpg"></li>
+		<li><img src ="../images/image.5.jpg"></li>
+	</ul>
+</div>
+<div>
+ol : 번호 있는 리스트. li. 이미지
+	<ol>
+		<li><img src ="../images/burger.jpg"></li>
+		<li><img src ="../images/image.4.jpg"></li>
+		<li><img src ="../images/image.5.jpg"></li>
+		<li><img src ="../images/image.6.jpg"></li>
+		<li><img src ="../images/movie.jpg"></li>
+	</ol>
+</div>
+
+
+<div>
+ul : 번호 없는 리스트. li. 링크 - 텍스트
+	<ul>
+		<li> <a href="http://www.naver.com">네이버</a> </li>
+		<li> <a href="http://www.daum.net">다음</a> </li>
+		<li> <a href="http://www.nate.com">네이트</a> </li>
+		<li> <a href="http://www.google.com">구글</a> </li>
+		<li> <a href="http://www.w3schools.com">w3스쿨</a> </li>
+	</ul>
+</div>
+<div>
+ol : 번호 있는 리스트. li. 링크
+	<ol>
+		<li> <a href="http://www.naver.com">네이버</a> </li>
+		<li> <a href="http://www.daum.net">다음</a> </li>
+		<li> <a href="http://www.nate.com">네이트</a> </li>
+		<li> <a href="http://www.google.com">구글</a> </li>
+		<li> <a href="http://www.w3schools.com">w3스쿨</a> </li>
+	</ol>
+</div>
+
+<div>
+ul : 번호 없는 리스트. li. 링크 - 이미지
+	<ul>
+		<li> <a href="http://www.naver.com"> <img src = "../images/image.4.jpg"> </a> </li>
+		<li> <a href="../images/rest01.jpg"> <img src = "../images/image.3.jpg"> </a> </li>
+		<li> <a href="../images/rest02.jpg"> <img src = "../images/image.2.jpg"> </a> </li>
+		<li> <a href="../images/rest03.jpg"> <img src = "../images/image.3.jpg"> </a> </li>
+		<li> <a href="../images/rest04.jpg"> <img src = "../images/image.6.jpg"> </a> </li>
+	</ul>
+</div>
+
+<div>
+ul : 번호 있는 리스트. li. 링크 - 이미지
+	<ol>
+		<li> <a href="http://www.naver.com"> <img src = "../images/image.4.jpg"> </a> </li>
+		<li> <a href="../images/rest01.jpg"> <img src = "../images/image.3.jpg"> </a> </li>
+		<li> <a href="../images/rest02.jpg"> <img src = "../images/image.2.jpg"> </a> </li>
+		<li> <a href="../images/rest03.jpg"> <img src = "../images/image.3.jpg"> </a> </li>
+		<li> <a href="../images/rest04.jpg"> <img src = "../images/image.6.jpg"> </a> </li>
+	</ol>
+</div>
+
+<div>
+ul : 번호 없는 리스트. li. 다른 리스트
+디스크 : 까망동그라미, 써클 : 하양동그라미, 스퀘어 : 네모
+	<ul>
+		<li> 꽃
+			 <ul>
+			 <li>개나리
+			 	<ul>
+			 		<li>나리1</li>
+			 		<li>나리2</li>
+			 	</ul>
+			 </li>
+			 <li>진달래</li>
+			 
+			</ul>
+		</li>
+		<li>aa </li>
+		<li> bb</li>
+		<li> cc</li>
+		<li> dd</li>
+	</ul>
+</div>
+
+
+
+</body>
+</html>

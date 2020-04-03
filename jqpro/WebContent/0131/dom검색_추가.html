@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="../CSS/mystyle.css";>
+	<script type="text/javascript">
+		function proc1(){
+			lilist = document.getElementsByTagName('li');
+			
+			res="";
+			
+			for(i=0; i<lilist.length;i++){
+				res+= lilist[i].firstChild.data + "<br>";
+			}
+			
+			document.getElementById('result1').innerHTML = res;
+			
+		}
+		
+		function proc2(text) {
+			txtnode = document.createTextNode(text);
+			
+			//document.getElementById('result2').appendChild(txtnode); 
+			
+			// <br> 넣기위해 p태그 생성 - p태그에 text를 추가
+			
+			
+			// p태그 생성 - p태그에 text를 추가
+			ptag = document.createElement('p');
+			ptag.appendChild(txtnode);
+			
+			// p태그를 div에 추가
+			document.getElementById('result2').appendChild(ptag);
+			
+			
+		}
+		
+		function proc3(){
+			ultag =document.getElementsByTagName('ul')[1];
+			lilist = ultag.getElementsByTagName('li');
+			
+			for(i=0; i<lilist.length;i++){
+				// 문자 가져오기
+				vtxt = lilist[i].firstChild.data;
+				
+				// img태그 생성
+				imgtag = document.createElement('img');
+				
+				// img의 src, width, height 설정
+				imgtag.src = "../images/" + vtxt + ".jpg";
+				imgtag.width = 100;
+				imgtag.height = 100;
+				
+				// lilist 에 img태그를 추가하기.
+				lilist[i].appendChild(imgtag);
+			}
+		}
+		
+		function proc4(a){
+			// 문자 가져오기
+			vtxt = a.firstChild.data;
+			
+			// img태그 생성
+			imgtag = document.createElement('img');
+			
+			// img의 src, width, height 설정
+			imgtag.src = "../images/" + vtxt + ".jpg";
+			imgtag.width = 100;
+			imgtag.height = 100;
+			
+			// lilist 에 img태그를 추가하기.
+			a.appendChild(imgtag);
+			
+		}
+	</script>
+</head>
+<body>
+	<div class="box">
+		<h2>dom 순회 </h2>
+		<pre>
+			각 li요소들의 첫번째 Child를 검색 
+			- firstChild : Object Text
+			- data : Object Text의 실제 Text 값
+		</pre>
+		 <ul>
+		 	<li>HTML</li>
+		 	<li>CSS</li>
+		 	<li>JavaScript</li>
+		 	<li>JQuery</li>
+		 </ul>
+		<button onclick="proc1()" type="button">실행</button>
+		<br>
+		<div id="result1"></div>
+	</div>
+	
+	<div class="box">
+		<h2>dom 순회 </h2>
+		<pre>
+			button을 클릭하면 새로운 text요소 추가.
+			createTextNode("문자열")
+			
+			부모요소.appendChild("문자열")
+			무보요소.aapendChild("새로운 자식 요소")
+			
+		</pre>
+
+		<button onclick="proc2('무궁화 꽃이 피었습니다.')" type="button">실행</button>
+		<br>
+		<div id="result2"></div>
+	</div>
+	
+	
+	
+	<div class="box">
+		<h2>dom 순회 </h2>
+		<pre>
+		<h4>실행버튼 누르면 글씨 옆으로 이미지보이기</h4>
+		- li의 문자열을 검색해 가져오기.
+		- 해당 문자열로 img 요소 추가
+			imgtag = createElement("img");
+				
+			imgtag.src = "문자열.jpg"
+		- 이미지를 li요소에 추가.
+			부모 요소(li).appendChild('img요소')
+		</pre>
+		
+		<ul>
+			<li>식품1</li>
+			<li>pizza</li>
+			<li>식품2</li>
+			<li>음식</li>
+			<li>음식2</li>
+		</ul>
+		
+		
+		<button onclick="proc3()" type="button">실행</button>
+		<br>
+		<div id="result3"></div>
+	</div>
+	
+	
+	
+	<div class="box">
+		<h2>dom 순회 </h2>
+		<pre>
+		<h4>li클릭해서 이미지 보이게하기.</h4>
+		
+		- li의 문자열을 검색해 가져오기.
+		- 해당 문자열로 img 요소 추가
+			imgtag = createElement("img");
+				
+			imgtag.src = "문자열.jpg"
+		- 이미지를 li요소에 추가.
+			부모 요소(li).appendChild('img요소')
+		</pre>
+		
+		<ul>
+			<li onclick="proc4(this)">식품1</li>
+			<li onclick="proc4(this)">pizza</li>
+			<li onclick="proc4(this)">식품2</li>
+			<li onclick="proc4(this)">음식</li>
+			<li onclick="proc4(this)">음식2</li>
+		</ul>
+	</div>
+</body>
+</html>

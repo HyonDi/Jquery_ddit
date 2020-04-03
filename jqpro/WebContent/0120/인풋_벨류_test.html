@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<!-- 같은 수 적어놓고 버튼 2번이상 누르면 값이 이상해지고 오류 > 왜??-->
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="../CSS/mystyle.css";>
+	<script type="text/javascript">
+	
+		window.onload = function(){
+			num1 = document.getElementsByTagName('input')[0];
+			num2 = document.getElementsByTagName('input')[1];
+			num3 = document.getElementsByTagName('input')[2];
+			output = document.getElementsByTagName('div')[0];
+			/* object 값이 num1,2,3 에 들어온다. (value 아님!!**) */
+		}
+	
+		function addProc(){
+			num1 = num1.value;
+			num2 = num2.value;
+			/* 게터 */
+			
+			add = parseInt(num1) + parseInt(num2);/* 덧셈을 수행해라. */
+			num3.value = add;
+			/* 세터 */
+		}
+		
+		function subProc(){
+			
+			num1 = num1.value;
+			num2 = num2.value;
+			
+			sub = parseInt(num1) - parseInt(num2);/* 덧셈을 수행해라. */
+			/* += 을 써서 윗출력결과에 덧셈결과를 추가시켰다. */
+			
+			num3.value = sub;
+		}
+		
+		function mulProc(){
+			num1 = num1.value;
+			num2 = num2.value;
+			
+			mul = parseInt(num1) * parseInt(num2);/* 덧셈을 수행해라. */
+			/* += 을 써서 윗출력결과에 덧셈결과를 추가시켰다. */
+			
+			num3.value = mul;
+		}
+		
+		function divideProc(){
+			num1 = num1.value;
+			num2 = num2.value;
+			
+			divide = parseInt(num1) / parseInt(num2);/* 덧셈을 수행해라. */
+			/* += 을 써서 윗출력결과에 덧셈결과를 추가시켰다. */
+			
+			num3.value = divide;
+		}
+		
+		
+		function proc(abc){
+			
+			/* alert(abc.textContent); */
+			/* alert(abc.innerHTML); //위와 같은 코드. */
+			//버튼의 글자(연산기호)
+			txt = abc.textContent;
+			
+			//입력한 값(숫자)
+			vnum1 = num1.value;
+			vnum2 = num2.value;
+			
+			console.log(vnum1 + "," + vnum2);
+			
+			if(txt == ' + '){
+				res = parseInt(vnum1) + parseInt(vnum2);
+				
+			}else if(txt == ' - '){
+				res = vnum1 - vnum2;
+				
+			}else if(txt == ' * '){
+				res = vnum1 * vnum2;
+				
+			}else if(txt == ' / '){
+				res = vnum1 / vnum2;
+				
+			}
+			
+			num3.value = res;
+			
+			output.innerHTML = "<h2>" + res + "</h2>";
+			/* 위(innerHTML)는 태그적용 됨. 아래(textContent)는 태그적용안되고 문자열로 나온다.*/
+			output.textContent = "<h2>" + res + "</h2>";
+			/* res 찍으면서 <h2>태그도 실행되게. div에는 innerHTML, input에는 value */
+			
+		}
+	</script>
+</head>
+<body>
+	
+	<pre>
+	값 가져올 때 : 
+	1. 코드 포함 - innerHTML
+	2. 글자만 - textContent
+	를 사용한다.
+	</pre>
+	<h2>계산기</h2>
+	
+	수1 : <input type="text"><br>
+	수2 : <input type="text"><br>
+	결과 : <input type="text"><br>
+	
+	<!-- <button onclick="addProc()" type="button"> + </button>
+	<button onclick="subProc()" type="button"> - </button>
+	<button onclick="mulProc()" type="button"> * </button>
+	<button onclick="divideProc()" type="button"> / </button> -->
+	
+	<button onclick="proc(this)" type="button"> + </button>
+	<button onclick="proc(this)" type="button"> - </button>
+	<button onclick="proc(this)" type="button"> * </button>
+	<button onclick="proc(this)" type="button"> / </button>
+	<!-- this 는 현재 실행한 버튼을 의미함. -->
+	
+	<pre>
+	div에 출력할 때 :
+	innerHTML : 출력내용 속의 html태그가 실행되면서 출력된다.
+	textContent : 출력내용 속의 html태그가 그냥 글자로 출력된다.
+	
+			output.innerHTML = "&lt;h2&gt;" + res + "&lt;/h2&gt;";
+			output.textContent = "&lt;h2&gt;" + res + "&lt;/h2&gt;";
+	
+	</pre>
+	<div></div>
+	
+</body>
+</html>

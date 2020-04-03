@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="../CSS/mystyle.css";>
+	<style>
+		img {
+			width : 100px;
+			height : 100px;
+		 }
+		
+	</style>
+	<script type="text/javascript">
+		function proc1(){
+			f = document.ff;
+			
+			namevalue = f.name.value;
+			telvalue = f.tel.value;
+			
+			myimg1 = document.myimg[0].src;
+			myimg2 = document.myimg[1].src;
+			
+			res = "이름 : " + namevalue + "<br>";
+			res += "전화번호 : " + telvalue + "<br>";
+			res += "이미지1 : " + myimg1 + "<br>";
+			res += "이미지2 : " + myimg2 +"<br>";
+			
+			document.getElementById('result1').innerHTML = res;
+			
+			
+			
+		}
+	</script>
+</head>
+<body>
+	<div class="box">
+		<h2> name을 이용한 html요소 찾기 </h2>
+		<pre>
+			
+			- id로 접근 - [0]인덱스가 항상항상필요.
+			document.getElementsByTagName('div')[0]
+			
+			- form 속의 input 에 이름으로 접근.
+				같은 이름이 여러개 있을 경우만 [0] 인덱스를 붙인다.
+			- input요소는 form요소를 거쳐서 찾기를 한다. 
+			document.formName.inputName
+			
+			- 이미지요소는 form요소를 거치지 않는다.
+			document.imgName
+			
+			: form이랑 img는 서로다른 html객체 이기때문.
+				img과 form안에 있더라도!
+		</pre>
+		
+		<img src="../images/식품1.jpg" alt="식품1" name="myimg">
+		<form name="ff">
+			<input type="text" name="name"><br>
+			<input type="text" name="tel"><br>
+			<img src="../images/음식.jpg" alt="식품2"  name="myimg">
+			<input type="button" onclick="proc1()" value="확인"><br>
+		</form>
+		
+		<button onclick="proc1()" type="button">실행</button>
+		<br>
+		<div id="result1"></div>
+	</div>
+</body>
+</html>

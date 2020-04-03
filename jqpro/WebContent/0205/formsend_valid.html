@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="../CSS/mystyle.css";>
+	<script src="../js/formsend_valid.js" type="text/javascript"></script>
+	<!--외부스크립트도 있음!  -->
+	
+	<script type="text/javascript">
+		function proc1(){
+			/* 외부 스크립트 호출하는 방법! */
+			
+			if(sendProc()){ // sendProc가 트루인지 false인지 확인.
+				res = "제출 성공했습니다.";
+				document.getElementById("result2").innerHTML = 	res;
+				
+				document.getElementById("result2").style.color = "red";
+				document.getElementById("result2").style.fontSize = "1.5em";
+			}
+		}
+	</script>
+	
+	<style>
+		label {
+			display : inline-block;
+			width : 100px;
+		}
+		
+		button {
+			margin : 10px;
+		}
+		
+		fieldset{
+			width : 350px;
+			line-height : 30px;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<form name="ff">
+			<fieldset>
+			
+			<legend>회원정보입력</legend>
+			<label>아이디</label>
+			<input type="text" name="id"><br>
+			
+			<label>패스워드</label>
+			<input type="password" name="pass"><br>
+			
+			<label>패스워드확인</label>
+			<input type="password" name="pass2"><br>
+			
+			<label>이름</label>
+			<input type="text" name="name"><br>
+			
+			<label>성별</label>
+			<input type="radio" name="gender" value="남자" checked> 남자
+			 <input name="gender" type="radio" value="여자"> 여자 <br>
+			 
+			<label>휴대폰번호</label>
+			<input type="text" name="tel"><br>
+			
+			<label>이메일</label>
+			<input type="email" name="mail"><br>
+			
+			</fieldset>
+			<button onclick="proc1()" type="button">제출</button>
+			<button type="reset">초기화</button>
+		</form>
+		
+	<div id="result2"></div>
+	</div>
+</body>
+</html>

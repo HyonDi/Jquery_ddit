@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="../CSS/mystyle.css";>
+	<script src="../js/jquery-3.4.1.min.js"></script>
+	
+	<script>
+		$(function(){
+			//delegate 쓸 때 첫번째괄호안에는 대상의 부모가 온다.
+			// * 바인드형식
+			// : 기존에 만들어져있는 요소에만 이벤트가 적용
+			// $('.add').click(function(){})
+			// $('.add').bind('click', function(){})
+			// $('.add').on('click', function(){})
+			// 델리게이트형식
+			// : 새롭게 만들어지는 class = add 인 요소에도 이벤트 적용
+			count = 0;
+			$('#result1').on('click', '.add', function(){
+				count++;
+				file = '<p id="' + count + '">';
+				file += '파일 : <input type="file">';
+				file += '<button type="button" class="add">추가</button>';
+				file += '<button type="button" class="del ' +count+'">삭제</button>';
+				file += '<br></p>';
+				
+				// 다른 방법
+				/* $('<button/>', {
+					'type' : 'button', 'class' : 'add', 'text' :'추가' 
+				}) */
+				
+				$('#result1').append(file);
+			})
+			
+			$('#result1').on('click','.del', function(){
+				console.log( $(this).attr('class'));
+				vclass = $(this).attr('class');
+				vc = vclass.split(' '); //vc[0]=del; vc[1]=숫자(count)
+				$('#'+vc[1]).remove();
+			})
+			
+			
+		})
+	</script>
+</head>
+<body>
+	<div class="box">
+		<h2> 파일 추가 </h2>
+		<pre>
+			
+		</pre>
+		<br>
+		<div id="result1">
+			이름 : <input type="text"><br>
+			파일 : <input type="file">
+			<button type="button" class="add">추가</button>
+			<br>
+		</div>
+	</div>
+</body>
+</html>

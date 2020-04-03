@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+/* 여기에쓰는게 내부스타일. 밖에꺼 link 로 가져오는게 외부스타일. div 안쪽에쓰는게 inline스타일인데 인라인은 html5에서 지원x*/
+/* 
+	*{
+		font-size : 15px;
+	}
+ */
+	div {
+		width : 100%; /*안써도 원래 100%*/
+		height : 400px;
+		border : 2px dotted blue;
+		margin : 10px;
+	}
+	
+	.indiv{/* 왼쪽, 오른쪽의 div를 나타냄. */
+		box-sizing : border-size;
+		/* width : 47%; */
+		width : calc(47%);
+		height : 287px;
+		float : left;
+		
+	}
+	/*calc 는 화면이 늘고 줄고에따라 그 비율을 유지시키는것.
+	너무 줄이면 유지안됨.*/
+	
+	.in1{/* 오른쪽의 div 를 나타냄.*/
+		box-sizing : border-size;
+		/* width : 47%; */
+		width : calc(47%);
+		/* - 연산할때는 반드시 한 칸 띄워야한다.*/
+		overflow : auto;
+		
+	}
+	
+	img{
+		width : 100%;
+		height : 100%;
+	}
+	
+	h1{
+		width : 50%;
+		background : lime;
+		text-align : center;
+		margin-left : 25%;
+	}
+	
+	span{
+		color : red;
+		font-size : 1.5em; /*20px;*/
+		font-weight : bold;
+	}
+	
+	#king{
+		background : yellow;
+		/* 
+		display : inline-block;
+		width : 200px;
+		height : 50px; 
+		*/
+	}
+</style>
+</head>
+<body>
+
+<div>
+	<h1>사자</h1>
+	<div class="indiv">
+	 <img src="../images/사자1.jpg">
+	</div>
+	<div class="indiv in1">
+	<span>사자(獅子, lion)</span>는 식육목 고양이과 표범속으로 분류되는 포유동물이다. 
+	현존하는 고양잇과 동물 중에서 호랑이에 이어 두 번째로 큰 종이다. 
+	사자는 흔히 백수(百獸)의 왕으로 불리며, 고양잇과 동물 가운데 사자만이 무리를 지어 산다. 
+	사자무리를 <span>‘프라이드’</span>라고 하는데[1] 한 마리의 수컷이 여러 암컷들을 거느리고 다니는 습성으로 인하여 
+	수사자는 동서고금 가리지 않고 <span id="king">왕권의 상징</span>으로 사용되어 왔다.
+	<br><br>
+	span 태그는 일부분의 문자 텍스트를 묶어주기 위한 태그. <br>
+	인라인 요소로 필요한만큼만 차지하고 줄이 바뀌지 않는다. <br>
+	가로 세로 크기를 조절할 수 없다.<br>
+	style에서 display 속성으로 display : inline-block 설정을 하면 가로,세로 크기를 조절할 수 있다.<br>
+	
+	 
+	</div>
+</div>
+
+<div>
+	<h1>호랑이</h1>
+	<div class="indiv">
+	 <img src="../images/호랑이.jpg">
+	</div>
+	<div class="indiv in1">
+	<span>호랑이(虎狼-)</span> 또는 범은 고양이과에 속하는 맹수이다. 칡범 또는 갈범이라고도 하며, 이는 표범과 구별하여 일컫는 말이다. 
+	어린 개체는 개호주라 부른다.[2]
+	고양이과 동물중 그 크기가 가장 크며, 표범과 재규어를 제외하면 유일하게 수영을 할 수 있다. 
+	(단, 재규어같은 경우에는 단지 사냥을 목적으로 수영을 할뿐 호랑이처럼 주기적으로 물에 들어가지는 않는다). 
+	호랑이의 크기는 아종에 따라 다양한데, 발리호랑이는 대개 100kg 미만이며, 시베리아호랑이는 수컷의경우 최대 360kg에 이르기도 한다. 
+	대개 황갈색 바탕에 검은색 줄무늬가 있다. 드물게 흰색을 띤 백호가 있는데, 이는 백색증과 무관한 열성유전자가 발현되어 나타나는 것이다. 
+	뼈를 비롯한 신체의 거의 대부분의 부위가 한약로 쓰이고 있으며, 그로 인해 심각한 생존의 위협을 받고있다.
+	</div>
+</div>
+
+</body>
+</html>

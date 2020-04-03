@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="../CSS/mystyle.css";>
+	<!-- 외부 스크립트 -->
+	<script src="../js/myscript.js"></script>
+	<script>
+	
+	/* 내부 스크립트 */
+	
+		function proc1(){
+			//textarea에 접근하여 style 변경
+			area = document.getElementsByTagName('textarea')[0];
+			
+			//호출시마다 배경색을 변경 -랜덤을 이용
+			r = parseInt(Math.random()*255);
+			g = parseInt(Math.random()*255);
+			b = parseInt(Math.random()*255);
+			
+			r16 = r.toString(16);
+			g16 = g.toString(16);
+			b16 = b.toString(16);
+			
+			area.style.background = 'rgb('+ r + ',' + g + ',' + b +')';
+			/* -> 16진수로 안바꾸고 출력하는 방법 */
+			
+			/* area.style.background = '#' + r16 + g16 + b16; */
+			/* -> 16진수로 바꿔서 출력하는 방법 */
+			
+			
+		}
+	</script>
+
+</head>
+<body>
+	<button type="button" onclick="proc1()">내부</button>
+	<button type="button" onclick="proc2()">외부</button>
+	<button type="button" onclick="alert('Hello~~')">인라인</button>
+	<!-- 인라인은 고작 alert 띄우기밖에 못함.기본함수사용만 가능한듯.너무기니까. -->
+	<br>
+	<textarea rows="10" cols="50"></textarea>
+</body>
+</html>

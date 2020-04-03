@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="../CSS/mystyle.css";>
+	<script src="../js/jquery-3.4.1.min.js"></script>
+	
+	<script>
+		$(function(){
+			
+			$('#btn1').on('click',function(){
+				
+				str = " :hidden 내용 <br><br>"
+				$('.box :hidden').each(function(i,v){
+					// v 는 $('.box :hidden')[i] 와 같다. 
+					str += i + "번째 태그 : " + v.tagName + " / " +
+					"내용 : " + $(this).text() + "<br>";
+				})
+				$('#result1').html(str);
+			})
+			
+			$('#btn2').on('click',function(){
+				str = " :visible 내용 <br><br>";
+				$('.box :visible').each(function(i){
+					
+					txt = $(this).text();
+					if(txt.trim().length > 0 ){
+						str += i + "번째 태그 : " + this.tagName + " / " +
+						"내용 : " + $(this).text()+"<br>";	
+					}
+				})
+				$('#result2').html(str);
+			})
+		})
+	</script>
+</head>
+<body>
+	<div class="box">
+		<h2> 기타필터 </h2>
+		<pre>
+		:hidden
+		:visible
+		</pre>
+		<p>보이는 문단</p>
+		 <span style="visibility:hidden;">숨겨진 문단</span>
+		  <div style="display:none;"> 자리를 차지 하지 못한 문단 </div>
+		  <em style="opacity:0;"> 투명한 문단</em><br>
+		  
+		<button id="btn1" type="button">hidden</button>
+		<button id="btn2" type="button">visible</button>
+		
+		<div id="result1"></div>
+		<div id="result2"></div>
+	</div>
+</body>
+</html>

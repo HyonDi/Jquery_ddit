@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="../CSS/mystyle.css";>
+	<script src="../js/jquery-3.4.1.min.js" type="text/javascript"></script>
+	
+	
+	<script type="text/javascript">
+	
+/*  		 window.onload=function(){
+		$('h1').css('color','red');
+		console.log("red");
+		
+		$('button:eq(0)').on('click',function(){
+			$('h1').css('color','green');
+		})
+		}
+ */
+
+ 		$(document).ready(function(){
+ 			
+/*  		vh = $('h1:eq(2)');
+ 			vh.css('color','blue');
+ 			vh.css('background','yellow');
+ */ 		
+ 			//위 주석을 아래로 바꿀 수 있음 : 메소드체이닝
+ 			$('h1:eq(2)').css('color','blue').css('background','yellow');
+ 			
+			$('h1:eq(0)').css('color','blue');
+			console.log("blue");
+			
+			$('button#btn1').on('click',function(){
+				cr = Math.floor(Math.random()*255);
+				cg = Math.floor(Math.random()*255);
+				cb = Math.floor(Math.random()*255);
+				
+				$('h1:eq(1),h1:eq(3)').css('color','rgb(' + cr + "," + cg + "," + cb +')');
+			})
+			
+			
+			$('#btn2').on('click',function(){
+				$('.box2 *').css('background','skyblue');
+				$('.box2 h1').css('color','orange');
+				$('#para').css('color','green');
+				$('.box2 .sample').css('color','red');
+			})
+			
+		}) 
+
+	</script>
+</head>
+<body>
+	<div class="box box1"> <!-- 이름이 2개인것. 자식아님. -->
+		<h1>무궁화 꽃이 피었습니다.</h1>
+		<h1>무궁화 꽃이 피었습니다.</h1>
+		<h1>무궁화 꽃이 피었습니다.</h1>
+		<h1>무궁화 꽃이 피었습니다.</h1>
+		<button id="btn1" type="button">실행</button>
+		<br>
+		<div id="result1"></div>
+	</div>
+	
+	
+	<div class="box box2">
+		<pre>
+ 		 전체 배경색을 변경 .
+         h1요소의 글자색을 파랑 .
+	     id가 para인 요소의 글자색은 녹색.
+	     class 가 sample요소의 글자색은 빨강.
+		</pre>
+		 <h1> 제목입니다 </h1>
+		 <h2 id="para"> 작은 제목입니다 </h2>
+		 <h2 class="sample"> 샘플입니다 </h2>
+		<button id="btn2" type="button">실행</button>
+		<br>
+	</div>
+</body>
+</html>

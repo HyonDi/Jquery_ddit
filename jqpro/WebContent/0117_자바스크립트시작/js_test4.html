@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="../CSS/mystyle.css";>
+	
+	<script>
+	window.onload = function(){/* 바디태그부분이 완성된 후 함수가 실행 되게 하는 부분. */
+		
+		now = new Date();
+		nowString = now.toLocaleString();
+		dateString = now.toLocaleDateString();
+		timeString = now.toLocaleTimeString();
+		
+		area = document.getElementsByTagName('textarea')[0];
+		
+		data = now + "\n" + nowString + "\n" + dateString + "\n" + timeString  + "\n";
+		
+		area.innerHTML = data;	
+	}
+	
+		/* js_test3.html은 버튼 클릭하면 나오고, 여기는 그냥 바로 나옴. */
+	</script>
+</head>
+
+
+<body>
+
+	<pre>
+	실행하면 날짜와 시간이 자동으로 출력된다.
+	
+	
+	window.onload = function() {  }
+	
+		body요소들이 document객체로 생성되고, 
+		window에 load가 완료된 시점에서 function()을 수행하도록 한다.
+		
+		
+		area = document.getElementsByTagName('textarea')[0];
+		->이부분을 읽기위해서 쓰는것.
+	
+	</pre>
+	
+	<textarea rows="10" cols="50"></textarea>
+</body>
+</html>

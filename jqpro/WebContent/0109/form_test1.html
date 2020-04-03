@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>form</title>
+<link rel="stylesheet" href="../CSS/mystyle.css">
+</head>
+<body>
+<pre>
+ submit이 발생되면 입력양식의 값을 서버페이지로 보낸다.
+ 입력 양식의 값은 name속성(속성 : 이름 = 값)을 이용한다.
+ 
+ 서버페이지(test.jsp)에서는 name속성값을 이용해서 요청된 값을 가져간다.
+ : request(요청-우리), response(응답-네이버)
+ 
+ request.getParameter("username");
+ request.getParameter("userpass"); 
+ - 이걸 네이버가 가져감.(jsp에서!!(test.jsp를 보렴.))
+ 
+ 
+ 보내는 방식에는 get, post 가 있다.
+ 
+ get방식 : 입력값이 url주소 뒤에 [?문자열 ]형식으로 보낸다.(쿼리스트링)
+ post방식 : 입력값이 url주소 뒤에 붙지 않고, requestHeader에 숨겨서 보내진다.
+ 
+</pre>
+<h1>get 전송</h1>
+<form action="test.jsp" method="get"> 
+<!-- action 은 서버에있는 페이지야.jsp 는 자바기반임.  --> 
+ 이름 : <input type="text" name="username"><br> 
+ 비밀번호 : <input type="password" name="userpass"><br>
+ 
+ 
+ <button type="button">확인</button> <!-- 기능없음. -->
+ <button>전송</button> <!-- 자동 submit이라(디폴트) 얘도 기능있음. -->
+ <button type="submit">전송</button> <!-- 이미 기능이있음. -->
+ 
+ <input type="button" value="확인"> <!-- 기능없음. -->
+ <input type="submit"> <!-- 이미 기능이있음. -->
+ <!-- <input> 그냥 인풋은 존재하지않음. -->
+</form>
+
+<!-- ---------------------------------------------------------------- -->
+
+<br><hr>
+<h1>post 전송</h1>
+<p>(requestHeader에 숨겨서 보내는 방식. 웹에서 f12-network-headers의 맨밑에 로그인정보있음.)</p>
+<form action="test.jsp" method="get"> 
+<!-- action 은 서버에있는 페이지야.jsp 는 자바기반임.  --> 
+ 이름 : <input type="text" name="username"><br> 
+ 비밀번호 : <input type="password" name="userpass"><br>
+ 
+ 
+ <button type="button">확인</button> <!-- 기능없음. -->
+ <button>전송</button> <!-- 자동 submit이라(디폴트) 얘도 기능있음. -->
+ <button type="submit">전송</button> <!-- 이미 기능이있음. -->
+ 
+ <input type="button" value="확인"> <!-- 기능없음. -->
+ <input type="submit"> <!-- 이미 기능이있음. -->
+ <!-- <input> 그냥 인풋은 존재하지않음. --> 
+</form>
+<hr>
+한글 깨짐?<br>
+왼쪽폴더 > 서버 > server.xml 의 인코딩을 보렴. get방식의 인코딩설정이 들어있다.<br>
+post방식 인코딩은 여기에 없음. 프로그램상에서 해야해.<br>
+위는 복사본.<br>
+원본 : 탐색기> d드라이브> b유틸> 5아파치톰캣 > conf> server.xml> 노트패드로 열기.<br>
+
+탐색기> d드라이브> b유틸> 5아파치톰캣 > bin> startup.bat> 이게 실제 서버실행임.<br>
+톰캣을 이클립스랑 연결해놓은것. 이클립스없어도 서버는 띄울 수 있어.<br>
+(*환경변수설정이 필요함ㅜㅜㅜ)<br>
+종료시에는 shutdown.bat 실행해야함.<br>
+
+
+
+</body>
+</html>

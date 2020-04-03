@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="../js/board.js"></script>
+	
+	
+	<script>
+	// 객체={} 배열=[]
+	// 스크립트 객체는 생성시 비워두고 동적으로 넣을 수 있다. 함수, 객체, 필드, 컬럼?
+	// vo역할.
+	reply = {};
+	currentPage = 1;
+	
+		$(function(){
+			/* $.ajax({
+				url : '/board/BoardList', //boardList 는 src>controller 속에 있는 서블릿 이름임.
+				data : { "page" : '1'},
+				type : 'get', //get일때는 생략해도 된다.
+				dataType : 'json',
+				success : function(res){
+					// res = 서블릿에서 수행. jsp 수행. 이후 값
+					
+				}, error : function(xhr) {
+					alert("상태 : " + xhr.status)
+				}
+				// 여기에쓰면 페이지새롴고침할때 1번실행됨. 우린 자주써야해서 함수로, 외부스크립트로 빼놓자.(js폴더>board.js)
+			}) */
+			readServer(currentPage);
+			
+			
+			// 페이징버튼 이벤트
+			$('#boardlist').on('click', '.paging', function(){
+				currentPage = $(this).text();
+				//alert(currentPage);
+				readServer(currentPage);
+			})
+			
+			// 다음페이지버튼 이벤트
+			$('#boardlist').on('click', '.next', function(){
+				btxt = parseInt($('.paging:last').text().trim());
+				currentPage = btxt + 1;
+				readServer(currentPage);
+				
+			})
+			
+			// 이전페이지버튼 이벤트
+			$('#boardlist').on('click', '.prev', function(){
+				btxt = parseInt($('.paging:first').text().trim());
+				currentPage = btxt - 1;
+				readServer(currentPage);
+			})
+			
+			// 버튼 이벤트
+			$('#boardlist').on('click','.action',function(){
+				
+				
+				
+				bonum = $(this).attr('idx'); // 여기서 this = .action  
+				actionName = $(this).attr('name');
+				
+				if(actionName == "reply"){
+					// 댓글 등록버튼
+					//alert(bonum + "번 글에 댓글 달기.");
+					
+					// 작성된 댓글 내용 가져오기.
+					/* $('.area').val() // 20개 area 전부가져오는 내용임. */
+					
+					rcont = $(this).parent().find('.area').val();
+					
+					// 이름 : 로그인정보를 넣어야하는데 없으니까 임의로 넣는다.
+					rname = "강현지";
+					
+					// 가져가
+					//replySave(bonum, rname, rcont); // 얘네를 스크립트 객체속에 담습니다.(스크립트 맨위. 객체이름 : reply)
+					reply.bonum = bonum;
+					reply.name = rname;
+					reply.cont = rcont;
+					replySave(reply.bonum, this); 
+					//replySave 에서 보낼것임. 근데 reply객체가 전역변수여서 파라미터는 안보내도된다.
+					
+					
+					
+					
+				}else if(actionName == "modify"){
+					// 글수정버튼
+					//alert(bonum + "번 글 수정하기.");
+					
+				}else if(actionName == "delete"){
+					// 글삭제버튼
+					//alert(bonum + "번 글 삭제하기.");
+					// renum 가져와서 삭제하기.
+					
+				}else if(actionName == "list"){
+					replyList(bonum, this) // this = 누른 a 태그. ( =제목 )
+				}
+			})
+		})
+	</script>
+	<style>
+		hr{
+			clear : both;
+		}
+		
+		.rep{
+			background : pink;
+		}
+	</style>
+</head>
+<body>
+	<div id="boardlist">
+	
+	</div>
+</body>
+</html>

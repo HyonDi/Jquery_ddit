@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="../CSS/mystyle.css";>
+	<script type="text/javascript">
+		window.onload=function(){
+			btn1 = document.getElementById("btn1");
+			result1 = document.getElementById("result1");
+		}
+		
+		function downProc(){
+			// 버튼을 누를때. (눌렀다 떼었을때 X)
+			btn1.style.background = "white";
+			btn1.style.color = "black";
+		}
+		
+		function upProc(){
+			// 눌려진버튼을 놓을때 (꾹누르고만있으면 실행안돼)
+			// onmousepressed = up+down
+			btn1.style.background = "black";
+			btn1.style.color = "white";
+		}
+		
+		function overProc(){
+			// div에 마우스를 누르지 않고 올려놓을 때
+			result1.style.background = "skyblue";
+			result1.style.height = "50px";
+			
+			
+		}
+		
+		function outProc(){
+			// div에서 마우스 포인터가 나갈때
+			result1.style.background = "white";
+			result1.style.height = "auto";
+			
+			btn1.style.display = "block";
+		}
+		
+		function dblProc(){
+			// 버튼을 더블클릭했을 때
+			btn1.style.display = "none";
+			
+		}
+	</script>
+	<style>
+	#btn1 {
+		width : 130px;
+	}
+	</style>
+</head>
+<body>
+	<div class="box">
+	<h2>mouse 이벤트</h2>
+		<pre>
+		onmousedown : 마우스를 누를 때
+		onmouseup	: 마우스 놓을 때
+		onmouseover : 마우스 포인터가 들어올때
+		onmouseout	: 마우스 포인터가 나갈때
+		onclick
+		ondblclick : 더블클릭 (여기선 버튼 사라지고 div 나갈때 다시생김.)
+		</pre>
+		<button id="btn1" ondblclick="dblProc()" onmousedown="downProc()"
+			onmouseup="upProc()" type="button">onmouseup/down</button>
+		<br>
+		<div onmouseover="overProc()" onmouseout="outProc()" id="result1">onmouseover/out</div>
+	</div>
+</body>
+</html>

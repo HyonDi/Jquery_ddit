@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="../CSS/mystyle.css";>
+	<script src="../js/jquery-3.4.1.min.js"></script>
+	
+	<script>
+		$(function(){
+			$('#runBtn').on('click', function(){
+				chk = $('#checkTest').prop('checked');
+				sel = $('#selTest option:eq(2)').prop('selected');
+				txt = $('#txtTest').prop('readonly');
+				but = $('#btnTest').prop('disabled');
+				
+				// 체크 해제/설정
+				$('#checkTest').prop('checked', !chk);
+				
+				// 셀렉트 해제/설정. 현재 selected 되있는것이 해제되면 디폴트 0번째가 셀렉티드된다.
+				$('#selTest option:eq(2)').prop('selected',!sel);
+				
+				$('#txtTest').prop('readonly',!txt);
+				
+				 $('#btnTest').prop('disabled',!but);
+				
+				/* // 상태값 얻어오기
+				res = "체크박스 : " + $('#checkTest').prop('checked') + "\n";
+				 //alert의 줄바꿈은 <br> 아니고 \n 이야.  
+				 res +="select : " + $('#selTest option:eq(0)').prop('selected') + "\n";
+				 res +="inputText : " + $('#txtTest').prop('readonly') + "\n";
+				 res += "inputBtn : " + $('#runBtn').prop('disabled');
+				 
+				 alert(res); */
+			})
+			
+			
+			$('#btnTest').on('click', function(){
+				alert("hello~~~" +  $('#txtTest').val());
+			})
+			
+			
+			/* 전체선택하는 함수 */
+			$('#checkAll').on('change', function(){
+				
+				// checkAll 의 상태값 가져오기
+				chk = $('#checkAll').prop('checked');
+				
+				// .check(클래스이름)의 상태값을 #checkAll로 변경하기
+				$('.check').prop('checked',chk);
+			})
+			
+		})
+	</script>
+</head>
+<body>
+	<div class="box">
+		<h2> </h2>
+		<pre>
+		실행버튼 클릭할 때 마다 상태값을 반대로 변경한다.
+		
+		checkbox(checked)
+		select(selected)
+		text(readonly)
+		button(disabled)
+		</pre>
+		<form>
+		체크박스(라디오버튼) : <input type="checkbox" id="checkTest" checked><br><br>
+		
+		<input type="checkbox" id="checkAll" >전체선택
+		<br>
+		<input type="checkbox" class="check" >1반
+		<input type="checkbox" class="check" >2반
+		<input type="checkbox" class="check" >3반
+		<input type="checkbox" class="check" >4반
+		<input type="checkbox" class="check" >5반
+		<br><br>
+		
+		리스트박스(select객체) :
+		<select id="selTest">
+			<option value="1">하나</option> 
+			<option value="2">둘</option>
+			<option value="3" selected >셋</option> 
+			<option value="4">넷</option>
+		</select><br><br>
+
+		text객체
+		(readonly) : <input type="text" value="가나다" id="txtTest"><br><br>
+
+		button객체(disabled) :
+		<input type="button" value="연습용" id="btnTest"><br><br>
+
+		<input type="button" value="실행" id="runBtn">
+
+	</form>
+	</div>
+</body>
+</html>

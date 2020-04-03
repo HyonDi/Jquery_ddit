@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+ table{
+    border : 2px solid green;
+    width : 80%;
+ }
+ #tab1{
+   border : 2px solid green;
+   border-collapse: collapse;
+ }
+ #tab2{
+    border : 5px double orange;
+ }
+ td{
+  /*  width : 100px;  */
+   height : 50px;
+   text-align: center;
+ }
+ 
+ #tab2 td{
+   font-size : 20px;
+   font-weight : bold;
+ }
+</style>
+</head>
+<body>
+<table id="tab1" border="1">
+ <tr>
+     <td>1-1</td>
+     <td>1-2</td>
+     <td>1-3</td>
+ </tr>
+ 
+ <tr>
+   <td rowspan="2">2-1</td>
+   <td>2-2</td>
+   <td>2-3</td>
+ </tr>
+ 
+ <tr>
+   <td>3-1</td>
+   <td>3-2</td>
+ </tr>
+ 
+ <tr>
+   <td colspan="3">4-1</td>
+ </tr>
+</table>
+
+<br><br><hr><br><br>
+
+ <table id="tab2" border="1">
+  <tr>
+    <td colspan="2">1-1</td>
+    <td colspan="2">1-2</td>
+    <td>1-3</td>
+    <td>1-4</td>
+  </tr>
+  
+  <tr>
+    <td colspan="4">2-1</td>
+    <td colspan="2">2-2</td>
+  </tr>
+  
+  <tr>
+    <td colspan="4">3-1</td>
+    <td colspan="2" rowspan="2">3-2</td>
+  </tr>
+  
+  <tr>
+    <td>4-1</td>
+    <td>4-2</td>
+    <td>4-3</td>
+    <td>4-4</td>
+  </tr>
+ </table>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

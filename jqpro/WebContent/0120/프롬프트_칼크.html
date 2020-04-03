@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="../CSS/mystyle.css";>
+	<script>
+	function proc(){
+		// 두개의 수와 연산자를 입력
+		num1 = parseInt(prompt("첫번째 수 입력 >> ","정수로 입력해주세요."));
+		aa = prompt("연산기호를 입력해주세요. >> ","+,-,*,/");
+		num2 = prompt("두번째 수 입력 >> ","정수로 입력해주세요.");
+		
+		res = num1 + aa + num2 + " = ";
+	
+		 if(aa == '+'){
+			res += parseInt(num1) + parseInt(num2);
+		}else if(aa == '-'){
+			res += num1 - num2;
+		}else if(aa == '*'){
+			res += num1 * num2;
+		}else if(aa == '/'){
+			res += num1 / num2;
+			/* res += res.toFixed(2); //소수점 나오게하는거라는데 적용안됨.*/
+		}
+		 
+		
+		document.getElementsByTagName('div')[0].textContent = res;
+		
+	}
+	</script>
+</head>
+<body>
+	<pre>
+		버튼을 클릭하면 두개의 수와 연산자를 입력받아 연산을 수행 한다.
+		결과는 div에 출력한다.
+	</pre>
+<br>
+<button onclick="proc()" type="button">확인</button>
+<br><br>
+<div></div>
+</body>
+</html>

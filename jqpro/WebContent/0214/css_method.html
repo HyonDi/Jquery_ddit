@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="../CSS/mystyle.css";>
+	<script src="../js/jquery-3.4.1.min.js"></script>
+	
+	<script>
+		$(function(){
+			
+			// p태그를 클릭하면 글씨가 커진다.
+			$('.box1 p').on('click', function(){
+				
+				// 글자크기 설정
+				$(this).css('font-size','+=2px');
+				
+				// 색 설정
+				$(this).css('color',"#" + cr + cg + cb);
+			})
+			
+			
+		 	// 실행버튼을 누르면 현재 폰트사이즈를 가져온다.
+			$('#btn1').on('click', function(){
+				// 현재배경색을 16진수로 출력하시오.
+				cr = Math.floor(Math.random()*256);
+				cg = Math.floor(Math.random()*256);
+				cb = Math.floor(Math.random()*256);
+				
+				cr = cr.toString(16);
+				cg = cg.toString(16);
+				cb = cb.toString(16);
+				// 글자크기 값 가져오기
+				res = "font-size : " + $('p').css('font-size') + "<br>";
+				// 배경색 가져오기
+			/* 	a = $('p').css('color');
+				a = a.toString(16); */
+				res += "font-color(16진수) : #"  + cr + cg + cb +"<br>"; 
+				res += "font-color(rgb) : " + $('p').css('color');
+				
+				$('#result1').html(res);
+				
+			}) 
+			
+			$('#btn2').on('click', function(){
+//				$('box2 p').css('background','white');
+				// 위,아래 같음. 아래쓸때에 클래스이름에는 . 안찍는다.
+				$('.box2 p').addClass('pBackColor');
+			})
+			
+			$('#btn3').on('click', function(){
+				$('.box2 p').removeClass('pBackColor');
+			})
+			
+			$('#btn4').on('click', function(){
+				//$('.box2 p').toggleClass('pBackColor');
+				
+				// 위와 아래 같음.
+				if($('.box2 p').hasClass('pBackColor')){
+					$('.box2 p').removeClass('pBackColor');
+				}else{
+					$('.box2 p').addClass('pBackColor');
+				}
+			})
+			
+			
+			
+		})
+	</script>
+	
+	<style>
+		p{
+			font-size : 1.5em;
+			
+		}
+		
+		.pBackColor{
+			background : skyblue;
+		}
+	</style>
+</head>
+<body>
+	<div class="box box1">
+		<h2>style 설정과 값 얻기.</h2>
+		<pre>
+		- setter / 설정
+			css('font-size','+=2px');
+			
+		-  getter / 값얻기 
+			css('font-size');
+		</pre>
+		<p>무궁화 꽃이 피었습니다.</p>
+		<button id="btn1" type="button">실행</button>
+		<br>
+		<div id="result1"></div>
+	</div>
+	
+	<div class="box box2">
+		<h2>class를 이용한 스타일 설정</h2>
+		<pre>
+		style에 class를 선언한다음에 사용할 수 있다.
+		
+		addClass(class이름) : class이름 을 추가한다.
+		removeClass(class이름) : class이름을 삭제한다.
+		toggleClass(class이름) : class이름을 추가/삭제를 번갈아 한다.
+		hasClass(class이름) : class이름이 존재하는지에 대한 boolean값 반환.
+		</pre>
+		<p>무궁화 꽃이 피었습니다.</p>
+		<button id="btn2" type="button">addClass</button>
+		<button id="btn3" type="button">removeClass</button>
+		<button id="btn4" type="button">toggleClass</button>
+	</div>
+	
+</body>
+</html>

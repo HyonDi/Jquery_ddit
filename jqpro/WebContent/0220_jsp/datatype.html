@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="../CSS/mystyle.css";>
+	<script src="../js/jquery-3.4.1.min.js"></script>
+	
+	<script>
+		$(function(){
+			$('#txt').on('click', function(){
+			
+				$.ajax({
+					url : '../0219_ajax시작/txt.jsp',
+					type : 'get',
+					success : function(res){
+						// 성공했으면 res=홍길동/진달래/개나리/무궁화/임꺽정/신나라
+						res = res.split("/");
+						
+						code = "<ul>";
+						$.each(res, function(i){
+							code += "<li>" + res[i] + "</li>";
+						})
+						code += "</ul>";
+						$('#result1').html(code);
+					},
+					error : function(xhr){
+						alert(xhr.status);
+					},
+					dataType : 'text'
+				})
+				
+			})
+			
+			$('#jarr').on('click', function(){
+				
+				$.ajax({
+					url : '../0219_ajax시작/jarr.jsp',
+					type : 'get',
+					success : function(res){
+						//==if(this.readyState == 4 && this.status == 200)
+						//jsonparsing 필요없고 dataType에 json 주면 된다.
+						
+						code = "<ol>"
+						$.each(res, function(i){
+							code += "<li>" + res[i] + "</li>";
+						})
+						code += "</ol>"
+							
+						$('#result2').html(code);
+					},
+					error : function(xhr){
+						alert(xhr.status);
+					},
+					dataType : 'json'
+				})
+			})
+			
+			$('#jobj').on('click', function(){
+				
+				$.ajax({
+					url : '../0219_ajax시작/jobj.jsp',
+					type : 'get',
+					success : function(res){
+						// 배열아니라서 each문 안돌리는것.
+						code = "이름 : " + res.name + "<br>";
+						code += "주소 : " + res.addr + "<br>";
+						code += "전화번호 : " + res.tel + "<br>";
+						code += "우편번호 : " + res.zip + "<br>";
+						
+						$('#result3').html(code);
+						
+					},
+					error : function(xhr){
+						alert(xhr.status);
+					},
+					dataType: 'json'
+					
+				})
+				
+			})
+			
+/* 			$('#jobjarr').on('click', function(){
+			
+				$.ajax({
+					url : '../0219_ajax시작/jobjarr.jsp',
+					type : 'get',
+					success : function(res){
+						code = "";
+						$.each(res, function(i){
+							code += (i+1) + "번 째 회원 자료<br>";
+							code += "이름 : " + res[i].name + "<br>";
+							code += "주소 : " + res[i].addr + "<br>";
+							code += "전화번호 : " + res[i].tel + "<br>";
+							code += "우편번호 : " + res[i].zip + "<br><br>";
+							
+						})
+						
+						$('#result4').html(code);
+						
+					},
+					error : function(xhr){
+						alert(xhr.status);
+					},
+					dataType : 'json'
+				})
+			}) */
+			
+			// 위 주석을 단축으로 바꿔봅니다
+			$('#jobjarr').on('click', function(){
+				
+				$.get(// type
+					'../0219_ajax시작/jobjarr.jsp',// url
+					
+					// function부분이 success 부분.
+					function(res){
+						code = "";
+						$.each(res, function(i){
+							code += (i+1) + "번 째 회원 자료<br>";
+							code += "이름 : " + res[i].name + "<br>";
+							code += "주소 : " + res[i].addr + "<br>";
+							code += "전화번호 : " + res[i].tel + "<br>";
+							code += "우편번호 : " + res[i].zip + "<br><br>";
+							
+						})
+						
+						$('#result4').html(code);
+						// 에러시 수행할 부분이 없어짐!!
+					},
+					'json'// datatype
+				)
+			})
+			
+			
+			
+			
+			
+		})
+	</script>
+	<style>
+		.box div{
+			float : left;
+			width : 200px;
+			height : auto;
+			margin : 5px;
+			padding : 10px;
+		}
+		.box button {
+		 	margin-left : 70px;
+		 	margin-right : 70px;
+		 }
+	</style>
+</head>
+<body>
+	<div class="box">
+		<h2> </h2>
+		<pre>
+
+		</pre>
+		<button id="txt" type="button">text실행</button>
+		<button id="jarr" type="button">jArray실행</button>
+		<button id="jobj" type="button">jObject실행</button>
+		<button id="jobjarr" type="button">jObjArr실행</button>
+		<br>
+		<div id="result1"></div>
+		<div id="result2"></div>
+		<div id="result3"></div>
+		<div id="result4"></div>
+	</div>
+</body>
+</html>

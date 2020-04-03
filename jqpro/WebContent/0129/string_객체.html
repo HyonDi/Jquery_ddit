@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="../CSS/mystyle.css";>
+	<script type="text/javascript">
+		str = "I Love KOREA 대만민국 만세";
+		
+		function proc1(){
+			aval = document.getElementById('area').value;
+			aval = aval.replace(/\r/g, "").replace(/\n/g,"<br>");
+			/* //g : 전체를 바꿔라. global.  */
+			document.getElementById('result1').innerHTML = aval;
+			
+		}
+		
+		function proc2(){
+			sval = str.substring(7,12);	
+			res = "str.substring(7,12) : " + "<strong>" + sval +"</strong>";
+			document.getElementById('result2').innerHTML =res;
+		}
+		
+		function proc3(){
+			sval = str.slice(13,17);
+			res = "str.slice(13,17) : " + "<strong>" + sval +"</strong>";
+			document.getElementById('result3').innerHTML = res;
+		}
+				
+		function proc4(){
+			sval = str.substr(2,4);
+			res = "str.substr(2,4) : " + "<strong>" + sval +"</strong>";
+			document.getElementById('result4').innerHTML = res;
+		}
+		
+		function proc5(){
+			sval = str.split(" ");
+			
+			res='str.split(" ") : ' + "<br>";
+			// document.getElementById('result5').innerHTML = res; 
+			// 이렇게 찍어도 되고 아래포문으로 해도됨.
+			for(i = 0; i < sval.length; i ++) {
+				res += i + "번째 : " + "<strong>" + sval[i] +"</strong>" + "<br>";
+			}
+			document.getElementById('result5').innerHTML = res;
+		}
+		
+		function proc6(){
+			sval = str.charAt(7);
+			
+			res='str.charAt(7) : ' + "<strong>" + sval +"</strong>";
+			document.getElementById('result6').innerHTML = res;
+		}
+		
+		function proc7(){
+			str2 = "                     대한민국 우리나라 좋은나라                                        ";
+			res = "str2.length : " + str2.length +"<br>";
+			str2 = str2.trim();
+			
+			res += "str2.trim().length : " + str2.length +"<br>";
+			document.getElementById('result7').innerHTML = res;
+		}
+		
+		function proc8(){
+			nameval = document.getElementById('name').value;
+			nameval = nameval.trim();
+			
+			if(nameval.length == 0){
+				alert("이름을 입력하세요.");
+				return false;
+			}
+			
+			alert("입력값은 " + nameval + " 입니다. ");
+		}
+	</script>
+</head>
+<body>
+
+	<div class="box">
+		<h2> String 객체 </h2>
+
+		<pre>
+		- replace(old, new) : 문자열 변경.
+		str = "I Love KOREA 대만민국 만세";
+		</pre>
+		<textarea rows="10" cols="40" id="area"></textarea>
+		<button onclick="proc1()" type="button">실행</button>
+		<p> aval.replace(/\r/g, "").replace(/\n/g,"&lt;br&gt;");</p>
+		<br>
+		<div id="result1"></div>
+	</div>
+	
+	
+	
+	
+	<div class="box">
+		<h2> String 객체 </h2>
+
+		<pre>
+		- replace(old, new) : 문자열 변경.
+		- substring(from, to) : from 이상 to미만 인덱스 사이 값 추출.
+		- slice(from, to)) : from 이상 to미만 까지 자르기.
+		- substr(from, length) : 갯수만큼 추출. from 인덱스부터 length개 추출.
+		
+		str = "I Love KOREA 대만민국 만세";
+		</pre>
+		<button onclick="proc2()" type="button">substring</button>
+		<button onclick="proc3()" type="button">slice</button>
+		<button onclick="proc4()" type="button">substr</button>
+		<br>
+		<div id="result2"></div>
+		<div id="result3"></div>
+		<div id="result4"></div>
+	</div>
+
+
+
+	<div class="box">
+		<h2> String 객체 </h2>
+
+		<pre>
+		- split(구분자) : 구분자를 기준으로 문자열 분리. 배열로 리턴한다.
+		- charAt(index) : index번째에 있는 문자를 리턴.
+		- trim() : 문자열의 앞뒤 공백 제거.
+		
+		str = "I Love KOREA 대만민국 만세";
+		str2 = "                     대한민국 우리나라 좋은나라                                        ";
+		</pre>
+		<button onclick="proc5()" type="button">split</button>
+		<button onclick="proc6()" type="button">charAt</button>
+		<button onclick="proc7()" type="button">trim</button>
+		<br>
+		<div id="result5"></div>
+		<div id="result6"></div>
+		<div id="result7"></div>
+		
+		<br>
+		입력 후 버튼을 클릭하면 입력데이터의 공백을 제거한다. <br>
+		<input type="text" id="name">
+		<button onclick="proc8()" type="button">공백체크</button>
+		
+	</div>
+	
+</body>
+</html>

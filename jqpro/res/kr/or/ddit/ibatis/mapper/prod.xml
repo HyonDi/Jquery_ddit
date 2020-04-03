@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+			PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+			"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+			
+<!-- namespace는 daoimpl 에서 씀. -->
+
+<sqlMap namespace="prod">
+<select id="prodNames" resultClass="prodVO" parameterClass="String">
+	SELECT prod_id, prod_name
+	FROM prod
+	WHERE prod_lgu = #data#
+
+</select>
+
+<select id="prodDetail" resultClass="prodVO" parameterClass="String">
+	SELECT *
+	FROM prod
+	WHERE prod_id = #data#
+</select>
+</sqlMap>

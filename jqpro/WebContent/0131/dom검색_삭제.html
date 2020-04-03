@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="../CSS/mystyle.css";>
+	<script type="text/javascript">
+		function proc1(){
+			// 배열만들어둔다.
+			arr = ["Hello", "Happy", "맛있는 점심", "Home", "HTML", "CSS", "JQuery"];
+			
+			// 랜덤발생 0~arr.length --> arr[random]
+			random = Math.floor(Math.random()*arr.length);
+			// arr[random]번째의 문자열로 txtnode를 생성한다.
+			/* txtnode = arr[random].createTextNode(text); */
+			txtnode = document.createTextNode(arr[random]);
+			// p태그 생성.
+			ptag = document.createElement('p');
+			// p태그에 textnode를 추가한다.
+			ptag.appendChild(txtnode);
+			// div에 p태그를 추가한다.
+			document.getElementById('result1').appendChild(ptag);
+			
+			/* 그니까 일단 텍스트노드를 만들고 피태그를 만들어서
+			피태그속에 텍스트노드를 넣고 텍스트노드가 담긴 피태그를 div에 넣은건데
+			넣고넣고할때는 상위.appenchild(넣을거)  이렇게 넣고
+			요소 만들때는 create. */
+		}
+		
+		function proc2(){
+			// 부모 = div(id = result1) 검색 접근
+			parent = document.getElementById('result1');
+			// 자식 = 마지막 자식을 검색
+			child = parent.lastChild;
+			// 삭제한다. - 부모.removeChild(자식)
+			parent.removeChild(child);
+		}
+		
+		function proc3(){
+			arr = ["Hello", "Happy", "맛있는 점심", "Home", "HTML", "CSS", "JQuery"];
+			
+			// 랜덤발생 0~arr.length --> arr[random]
+			random = Math.floor(Math.random()*arr.length);
+			
+			// arr[random]번째의 문자열로 txtnode를 생성한다.
+			txtnode = document.createTextNode(arr[random]);
+			
+			// p태그 생성.
+			ptag = document.createElement('p');
+			
+			// 버튼생성.
+			addbtn = document.createElement('button');
+			addbtn.innerHTML = "삭제";
+			
+			addbtn.onclick = function(){
+				this.parentnod???????????????????
+			}
+			
+			// p태그에 textnode와 btn을 추가한다.
+			ptag.appendChild(txtnode);
+			ptag.appendChild(addbtn);
+			
+			// div에 p태그를 추가한다.
+			document.getElementById('result3').appendChild(ptag);
+	
+		}
+
+	</script>
+</head>
+<body>
+	<div class="box">
+		<h2> dom검색 - 추가/ 삭제</h2>
+		<pre>
+		 - 추가버튼 클릭 시(dom검색_추가의 2번function과 같다.)
+			1. p태그 생성
+			2. 랜덤을 이용한 text생성
+			3. text를 p태그에 추가
+			4. p태그를 div에 추가
+			
+		 - 삭제버튼 클릭 시
+		 	1. div에서 마지막 자식요소(lastChild)를 찾는다.
+		 	2. 찾은 요소를 삭제한다.
+		</pre>
+		<button onclick="proc1()" type="button">추가</button>
+		<button onclick="proc2()" type="button">삭제</button>
+		<br>
+		<div id="result1"></div><!-- 얘가 부모야. -->
+	</div>
+	
+	
+	
+	<div class="box">
+		<h2> dom검색 - 추가/ 삭제</h2>
+		<pre>
+		 - 추가버튼 클릭 시
+			1. p태그 생성
+			2. 랜덤을 이용한 text생성
+			3. 새로운 버튼(삭제) 추가
+			4. text와 새로운 버튼을 p태그에 추가
+			5. p태그를 div에 추가
+			
+		 - 삭제버튼 클릭 시
+		 	1. p태그에서 마지막 자식요소(lastChild)를 찾는다.
+		 	2. 찾은 요소를 삭제한다.
+		</pre>
+		<button onclick="proc3()" type="button">추가</button>
+		<br>
+		<div id="result3"></div>
+		<!-- 얘가 부모야. -->
+	</div>
+</body>
+</html>

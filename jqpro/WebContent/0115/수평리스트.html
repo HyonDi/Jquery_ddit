@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>수평리스트</title>
+	<style>
+		ul#u2{/* 이렇게쓸거면 붙여서 써야함(ul이랑 #u2) */
+		/* list-style-type 을 none 으로 바꿉니다.*/
+			list-style-type : none;
+			/* 위아래 테두리 */
+			border-top : 1px solid red;
+			border-bottom : 1px solid red;
+			/* 테두리와 ul간격 */
+			padding : 25px 0;
+		}
+		
+		li.li2{
+		/* 블럭요소를 inline요소로 바꿉니다. */
+			display : inline;
+		/* list들끼리의 간격을 띄웁니다. */	
+			margin : 20px;
+		}
+		
+		#u2 a{
+			/* 글자간격을 늘립니다. %는 안먹습니다.*/
+			letter-spacing : 10px;
+			/* 글자 크기, 대분자 변경 */
+			font-size : 25px;
+			text-transform : uppercase;
+			/* 밑줄을 없앱니다. */
+			text-decoration : none;
+		}
+		
+		
+	</style>
+</head>
+<body>
+
+	<ul>
+	<li><a href="#">Home</a></li>
+	<li><a href="#">Blog</a></li>
+	<li><a href="#">About</a></li>
+	<li><a href="#">Contact</a></li>
+	</ul>
+	
+	<pre>
+		ul#u2{/* 이렇게쓸거면 붙여서 써야함(ul이랑 #u2) */
+		/* list-style-type 을 none 으로 바꿉니다.*/
+			list-style-type : none;
+			/* 위아래 테두리 */
+			border-top : 1px solid red;
+			border-bottom : 1px solid red;
+			/* 테두리와 ul간격 */
+			padding-top : 25px;
+			padding-bottom : 25px;
+		}
+		
+		li.li2{
+		/* 블럭요소를 inline요소로 바꿉니다. */
+			display : inline;
+		/* list들끼리의 간격을 띄웁니다. */	
+			margin : 20px;
+		}
+		
+		#u2 a{
+			/* 글자간격을 늘립니다. %는 안먹습니다.*/
+			letter-spacing : 10px;
+			/* 글자 크기, 대분자 변경 */
+			font-size : 25px;
+			text-transform : uppercase;
+			/* 밑줄을 없앱니다. */
+			text-decoration : none;
+		}
+		
+		li > a : 한칸아래 자식지칭(세대차이 1)
+		li a : 두칸이상 모든 자식들 지칭
+</pre>
+	
+	<br><hr><br>
+	
+	
+	
+	<ul id="u2">
+	<li class="li2"><a href="#">Home</a></li>
+	<li class="li2"><a href="#">Blog</a></li>
+	<li class="li2"><a href="#">About</a></li>
+	<li class="li2"><a href="#">Contact</a></li>
+	</ul>
+	
+</body>
+</html>

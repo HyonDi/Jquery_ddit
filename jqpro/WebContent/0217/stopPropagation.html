@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="../CSS/mystyle.css";>
+	<script src="../js/jquery-3.4.1.min.js"></script>
+	
+	<script>
+		$(function(){
+			
+			// box1
+			$('.box1 h1').on('click', function(){
+				$(this).css('background', 'green');
+				//event.stopPropagation()
+			})
+			
+			$('.box1 span').on('click',function(){
+				$(this).css('background','red');
+				event.stopPropagation();
+				/* 자식에만 stopPropagation을 주면 된다. */
+			})
+			
+			
+			// box2 
+			// 각 요소 클릭시  style을 변경한다.
+			
+			// div를 클릭하면 Hello 글자를 추가한다.
+			$('.box2 #d1').on('click', function(){
+				$(this).append("Hello ");
+			})
+			
+			// span을 클릭하면 테두리 변경
+			$('.box2 span').on('click', function(){
+				$(this).css('border', '10px solid lightgreen');
+				//event.stopPropagation();
+				return false;
+			})
+			
+			// button을 클릭하면 배경색 변경.
+			$('.box2 button').on('click', function(){
+				$(this).css('background', 'gray');
+				//event.stopPropagation();
+				return false;
+				
+			})
+			
+			
+		})
+	</script>
+	
+	<style>
+		.box2 #d1{
+			background : pink;
+			width : 300px; 
+			height : auto;
+		}
+		.box2 span{
+			background : lightblue;
+			display : block;
+			width : 200px;
+			height : 200px;
+			margin-left : 30px;
+		}
+		.box2 button{
+			margin : 50px;
+		}
+	</style>
+</head>
+<body>
+	<div class="box box1">
+		<h2> event.stopPropagation </h2>
+		<pre>
+			자식에서 이벤트 발생시 부모의 이벤트 실행을 막는다.
+			자식선택시 부모까지 함께 선택되지 않도록 한다.
+			
+			메서드의 맨 마지막 문장에 return false 를 써도 된다.
+			event.stopPropagation() 는 맨앞에써도 되지만 리턴은 맨 마지막에 써야함.
+		</pre>
+		<h1>큰 제목 안에 <span>작은영역</span>이 있다.</h1>
+		<div id="result1"></div>
+	</div>
+	
+	
+	<div class="box box2">
+	
+		<h2>  </h2>
+		<pre>
+
+		</pre>
+		
+		<div id="d1"> 
+          <span> 
+               <button> 클릭하세요</button>  
+          </span>
+ 		 </div>
+		  <br>
+		  <hr color="red"><br>
+	
+	</div>
+</body>
+</html>

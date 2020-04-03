@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="../CSS/mystyle.css";>
+	<script src="../js/jquery-3.4.1.min.js"></script>
+	
+	<script>
+		$(function(){
+			$('#btn1').on('click',function(){
+				setInterval(function(){
+					$('img:first').appendTo($('#result1'));
+				},1000)
+			})
+			
+			
+			
+			$('p').on('click',function(){
+				vtit = $(this).attr('title');
+				vtxt = $(this).text();
+				
+				// 이미지 생성
+				$('<img>', {
+					'src' : '../images/' + vtxt + ".jpg",
+					'width' : '100px',
+					'height' : '100px'
+				}).insertBefore(this);
+				//.appendTo(this)
+				
+			})
+		})
+	</script>
+	<style>
+		img{
+			width : 150px;
+			height : 150px;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<h2> 이미지 회전(조작관련메서드) </h2>
+		<pre>
+			$('#btn1').on('click',function(){
+				setInterval(function(){
+					$('img:first').appendTo($('#result1'));
+				},1000)
+			})
+			
+			img:first
+			append(text)/appendTo(selector)
+		</pre>
+		<button id="btn1" type="button">실행</button>
+		<br>
+		<div id="result1">
+			<img id="img1" src="../images/아메리카노.jpg">
+			<img id="img2" src="../images/에스프레소.jpg">
+			<img id="img3" src="../images/핫초코.jpg">
+			<img id="img4" src="../images/카페라떼.jpg">
+			<img id="img5" src="../images/카푸치노.jpg">
+			<img id="img6" src="../images/음식2.jpg">
+			<img id="img7" src="../images/음식.jpg">
+		
+		</div>
+	</div>
+	
+	
+	
+	<div class="box">
+		<h2> 이미지 추가(조작관련메서드) </h2>
+		<pre>
+		추가시에, 기존의 요소를 추가하면 기존의 요소를 삭제/붙여넣기로 이동시킨다.
+		p태그의 text를 클릭하면, 그  text에 맞는 이미지를 추가한다.
+		</pre>
+		<div id="result2">
+			<p title="cafelatte">카페라떼</p>
+			<p title="espresso">에스프레소</p>
+			<p title="americano">아메리카노</p>
+			<p title="capuchino">카푸치노</p>
+			<p title="hotchoco">핫초코</p>
+		</div>
+	</div>
+	
+</body>
+</html>

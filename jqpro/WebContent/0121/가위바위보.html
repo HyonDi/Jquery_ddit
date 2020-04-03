@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="../CSS/mystyle.css";>
+	
+	<script type="text/javascript">
+		function proc(){
+			a = prompt("첫 번째 사람이 입력하세요. >> ", "가위바위보");
+			b = prompt("두 번째 사람이 입력하세요. >> ", "가위바위보");
+			
+			res = "첫 번째 사람 : " + a + "<br>";
+			res += "두 번째 사람 : " + b + "<br>";
+			
+			if(a == b){
+				res += "결과 : 비겼습니다."
+			}else if(a == "가위" && b == "보" || a == "보" && b == "바위" ||
+				a == "바위" && b == "가위"){
+				res += "결과 : 첫 번째 사람이 이겼습니다.";
+			}else {
+				res += "결과 : 두 번째 사람이 이겼습니다.";
+			}
+			
+			document.getElementsByTagName("div")[0].innerHTML = "<br>"+res;
+			/* br 이라는 태그가 포함되어있어서 innerHTML 로 찍어야한다. */
+		}
+	</script>
+	
+	<style>
+	
+	</style>
+	
+</head>
+<body>
+	<button onclick="proc()" type="button">가위바위보</button>
+	<br><br>
+	<div></div>
+</body>
+</html>

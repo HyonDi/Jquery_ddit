@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="../CSS/mystyle.css";>
+	<script type="text/javascript">
+	
+		rand = Math.floor(Math.random()*10 +1);
+		function procText(){
+			
+			invalue = document.getElementById('insu').value;
+			res = "입력값 : " + invalue + "<br><br>";
+			
+			result = document.getElementById('result1');
+			/* 미리가져다높은 이유 : 아래에 두번쓰려고. */
+			
+			if(rand > invalue) result.innerHTML = "더 크게 입력.";
+			else if(rand < invalue) result.innerHTML = "더 작게 입력.";
+			else result.innerHTML = "맞추기 성공";
+			
+			
+			
+			
+		}
+	
+	
+	
+	
+		function proc1(){
+			// 난수 발생 1~10
+/* 			rand = Math.floor(Math.random()*10 +1);
+			
+			count =0;
+			res = "랜덤값 : " + rand + "<br><br>"; */
+			
+			// 위에 랜덤값을 입력값으로 해보라고??
+			
+			
+			
+			while(true){
+				//입력
+				input = prompt("숫자를 입력해주세요. >");
+				
+				//입력 == rand => break;
+				
+				count++;
+				
+				res += "입력값 : " + input + "<br>";
+				
+				if(input > rand){
+					alert("더 작게");
+				}else if(input < rand){
+					alert("더 크게");
+				}else if(input == rand){
+					break;
+				}
+			}
+			res += "<br>" + "입력횟수 : " + count;
+			document.getElementById('result1').innerHTML = res;
+		}
+		
+		function proc2(){
+			
+			com = ["가위", "바위", "보"];
+			rand = Math.floor(Math.random()*3);
+			
+			comval = com[rand];
+			
+			
+			input = prompt("가위바위보 입력 > ","가위바위보");
+			res = "사용자 : " + input + "<br>";
+			res += "컴퓨터 : " + comval + "<br>";
+			res += "결과 : ";
+			
+			
+			if(input == "가위"&&comval == "보" 
+					|| input =="보"&&comval == "바위" 
+					|| input == "바위"&&comval == "가위"){
+				res += "사용자가 이겼습니다.";
+			} else if(comval == input){
+				res += "비겼습니다.";
+			} else{
+				res += "컴퓨터가 이겼습니다.";
+			}
+			
+			document.getElementById('result2').innerHTML = res;
+			
+		}
+		
+		
+		
+		
+		
+		
+		
+			k=0;			
+		function proc3(){
+			
+			rtnum = new Array();
+			
+			i = 0;
+			while(true){
+				ran = parseInt((Math.random())*45+1);
+				
+				if(rtnum.indexOf(ran) == -1) {
+					rtnum.push(ran);
+					i++;
+				}
+				
+				if(i==6) {
+					break;
+				}
+			}
+			k++;
+			res = k + "회  &emsp; : &emsp;";
+			//res += rtnum +"<br>";
+			
+			for(i = 0; i <rtnum.length; i ++){
+			res += rtnum[i] + "&emsp;&emsp;"
+			}
+			
+			res += "<br>";
+			document.getElementById('result3').innerHTML += res;
+		}
+	</script>
+</head>
+<body>
+
+	<div class="box">
+		<h2> UpDown </h2>
+		<pre>
+		1~10 사이의 난수를 발생한 후 사용자가 이 값을 맞추는 프로그램을 작성하시오.
+		입력값에 따라 더 크게, 더 작게 힌트를 준다.
+		몇번만에 맞췄는지 횟수 카운트를 한다.
+		</pre>
+		<input type="text" id = "insu">
+		<button onclick="procText()" type="button">실행input</button>
+		<button onclick="proc1()" type="button">실행random</button>
+		<br>
+		<div id="result1"></div>
+	</div>
+	
+	
+	
+	
+	
+	<div class="box">
+		<h2> 가위바위보 </h2>
+		<pre>
+		가위 바위 보 게임을 할 수 있는 프로그램을 작성하시오.
+		(단, 컴퓨터는 랜덤을 이용하고, 사용자는 prompt로 입력받아서 처리)
+		com = ["가위", "바위", "보"]
+		com[0], com[1], com[2]
+		</pre>
+		<button onclick="proc2()" type="button">실행</button>
+		<br>
+		<div id="result2"></div>
+	</div>
+	
+	
+	
+
+	
+	
+	<div class="box">
+		<h2> 로또번호 </h2>
+		<pre>
+		로또 번호를 생성하는 프로그램을 작성하시오.
+		(1번 ~ 45번 중 6개의 중복되지 않는 숫자 번호를 추첨)
+		발생된 수 6개를 배열에 저장, 출력
+		
+		</pre>
+		<button onclick="proc3()" type="button">실행</button>
+		<br>
+		<div id="result3"></div>
+	</div>
+	
+</body>
+</html>

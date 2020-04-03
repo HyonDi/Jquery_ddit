@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="../CSS/mystyle.css";>
+	<style>
+
+		
+		*{
+			background :#FFF0F5;
+		}
+		img {
+			width: 50px;
+			height: 50px;
+			float : left;
+		}
+		
+		h1{
+			font-size:30px;
+		}
+	
+		ul#u2{
+			list-style-type : none;
+			border-top : 1px solid gray;
+			border-bottom : 1px solid gray;
+			padding : 25px 0;
+		}
+		
+		.li2, white {
+		/* 블럭요소를 inline요소로 바꿉니다. */
+			display : inline;
+		/* list들끼리의 간격을 띄웁니다. */	
+			margin : 15px;
+		}
+		
+		#u2 a{
+			/* 글자간격을 늘립니다. %는 안먹습니다.*/
+			letter-spacing : 9px;
+			/* 글자 크기, 대분자 변경 */
+			font-size : 20px;
+			text-transform : uppercase;
+			/* 밑줄을 없앱니다. */
+			text-decoration : none;
+		}
+		
+		table {
+			border-collapse: collapse;
+			background: black;
+			float : left;
+			border-color: lightgray;
+		}
+		
+		caption {
+			font-size : 1.5em;
+			/* margin-bottom : 10px; */
+			caption-side : top; 
+		}
+		
+		table {
+			width : 150px;
+			
+		}
+		
+		td {
+			background : lightgray;
+			color : white;
+			text-align: center;
+		}
+		
+		a:link, a:visited {
+			color : black;
+			text-decoration : none;
+		}
+		
+		a:hover{/* 마우스를 대고있을 때 */
+			color : white;
+		}
+		
+		iframe {
+			margin : 20px;	
+/* 			border : 1px solid #FFF0F5; */
+				
+		}
+		
+		section{
+		float : left;
+		}
+		
+		aside{
+		margin : 50px;
+		float : right;
+		}
+		
+		footer{
+		clear : both;
+		}
+		
+		span{
+			font-weight: bold;
+			font-size : 20px;
+		}
+	
+		.blue:link, .blue:visited{
+			color : blue;
+		}
+		
+		.blue:hover{
+			color : red;
+		}
+		
+		.gray:link, .gray:visited{
+		background : lightgray;
+		}
+		
+		input{
+			background : white;
+		}
+		
+
+		 
+		#ifr iframe{
+		 position: absolute;
+ 		width: calc(100% - 50%);
+		 height: 30%;
+	     border: 1px solid #fff0f5;
+		}
+	</style>
+</head>
+<body>
+<img src="../images/shop.png">
+
+<a id="down" href="index.html"><h1>Web Shop</h1></a> 
+<br>
+
+	<ul id="u2">
+	<li class="li2"><a href="#">HOME</a></li>
+	<li class="li2"><a href="#">ABOUT</a></li>
+	<li class="li2"><a href="#">US</a></li>
+	<li class="li2"><a href="#">NEWS</a></li>
+	<li class="li2"><a href="#">MY</a></li>
+	<li class="li2"><a href="#">ACCOUNT</a></li>
+	<li class="li2"><a href="#">CONTACTS</a></li>
+	</ul>
+	
+	<nav>
+	
+	 <table border="1">
+	 <caption><strong>카테고리<strong></caption>
+  	
+    <tr><td><a class="gray" target="section" href="computer.html">컴퓨터</a></td></tr>
+    <tr><td><a class="gray" target="section" href="clothing.html">의류</a></td></tr>
+    <tr><td><a class="gray" target="section" href= "music.html">음악</a></td></tr>
+    <tr><td><a class="gray" target="section" href="movie.html">영화</a></td></tr>
+    <tr><td><a class="gray" target="section" href="sports.html">스포츠/레저</a></td></tr>
+    <tr><td><a class="gray" target="section" href="interior.html">가구/인테리어</a></td></tr>
+    <tr><td><a class="gray" target="section" href="food.html">식품</a></td></tr>
+    
+    </table>
+    
+    
+	</nav>
+	
+	<section>
+	<div id="ifr">
+	<iframe name="section" height="300px"></iframe>
+	</div>
+	</section>
+	
+	
+	<aside>
+	<span>Shopping Cart</span><br>
+	현재 쇼핑카트에 물품이 없습니다.<br>
+	<a class="blue" target="section" href="shopcart.html">쇼핑카트 보기</a><br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<span>Log in</span><br>
+	아이디<br>
+	<input type ="text"><br>
+	패스워드<br>
+	<input type="text"><br>
+	<input type="button" value="로그인">
+	<input type="reset" value="초기화"><br>
+	<a class="blue" target="section" href="register.html">회원가입</a>
+	<a class="blue" href="losePass.html">비밀번호분실</a>
+	
+	</aside>
+	
+	<footer>Copyright(c) 2013 Web Shop</footer>
+	
+</body>
+</html>

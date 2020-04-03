@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>calc_function</title>
+
+<script>
+	function calc(){
+		//1. id가 price인 요소에 접근 후 값을 가져온다.
+		a = document.getElementById('price');
+		aValue = a.value;
+		//2. id가 cnt 인 요소에 접근 후 값을 가져온다.
+		b = document.getElementById('cnt');
+		bValue = b.value;
+		//3. 각각의 값 계산(price*cnt)
+		res = aValue*bValue;
+		//4. 출력한다.(alert로)
+		output = "가격 : " + aValue + "\n" + "수량 : " + bValue
+				+ "\n" + "금액 : " + res ;
+		alert(output);
+		
+	}
+
+</script>
+
+<style>
+	form{
+		width : 50%;
+		border : 10px outset blue;/* inset 도 있음. */
+		padding : 10px;
+		margin : 100px auto;
+	}
+</style>
+
+</head>
+<body>
+
+<form>
+<!-- object로 바뀌어?뭐가?  -->
+ 가격 : <input type="text" id="price"><br>
+ 수량 : <input type="text" id="cnt"><br>
+ <input type=button value="확인" onclick="calc()"><br>
+ <!-- 큰따옴표, 작은따옴표 상관없지만 포함관계에 있는 애들끼리 다르게 해야함 . -->
+ <!-- alert는 이미만들어져있는 함수니까 우리가 만든함수를 쓰도록 작성한다. -->	
+ 
+</form>
+
+<br>
+<hr>
+<button onclick="alert('hello')">클릭</button>
+<br>
+<hr>
+<form action="textarea.jsp" method="post">
+이름 : <input type="text" name="name"><br><br>
+고객의 의견<br>
+<textarea name="area" rows="10" cols="50"></textarea>
+<br>
+<button>전송</button>
+</form>
+
+</body>
+</html>

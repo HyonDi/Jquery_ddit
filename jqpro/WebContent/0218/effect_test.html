@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="../CSS/mystyle.css";>
+	<script src="../js/jquery-3.4.1.min.js"></script>
+	
+	<script>
+		$(function(){
+			$('#show').on('click',function(){
+				$('img').show(3000,"swing",function(){
+				alert("커피나왔어요~~~");
+					
+				});
+			})
+			
+			$('#hide').on('click',function(){
+				$('img').hide(3000,"linear",function(){
+					
+				alert("커피가 사라졌어요!")
+				});
+			})
+			
+			$('#toggle').on('click',function(){
+				$('img').toggle(1000);
+			})
+			//--------------------------------------------
+			$('#sup').on('click',function(){
+				$('img').slideUp("slow");
+			})
+			
+			$('#sdown').on('click',function(){
+				$('img').slideDown("fast");
+			})
+			
+			$('#stog').on('click',function(){
+				$('img').slideToggle();
+			})
+			
+			$('#fin').on('click',function(){
+				$('img').fadeIn(500);
+			})
+			
+			$('#fout').on('click',function(){
+				$('img').fadeOut(1000);
+			})
+			
+			$('#fto').on('click',function(){
+				// 투명도 지정할수있어.
+				// 아래는 반만흐려지는것.
+				// 이렇게한번지정해놓으면 fadein, fadeout에서도
+				// 동일하게 적용된다.
+				$('img').fadeTo(1000,0.5);
+			})
+			
+			$('#ftog').on('click',function(){
+				$('img').fadeToggle(2000);
+			})
+		})
+	</script>
+	<style>
+		img{
+			width : 400px;
+			height : 300px;
+		}
+		
+		/* #result1{
+			height : 500px;
+		} */
+	</style>
+</head>
+<body>
+	<div class="box">
+		<h2> effect(효과) </h2>
+		<pre>
+		$(selector).show(speed, easing, function)
+		function : show 끝난다음에 실행될 콜백메서드.
+		easing : swing, linear
+		</pre>
+		<button id="show" type="button">show</button>
+		<button id="hide" type="button">Hide</button>
+		<button id="toggle" type="button">toggle</button>
+		<button id="sup" type="button">slideUp</button>
+		<button id="sdown" type="button">slideDown</button>
+		<button id="stog" type="button">slideToggle</button>
+		<button id="fin" type="button">fadeIn</button>
+		<button id="fout" type="button">fadeOut</button>
+		<button id="fto" type="button">fadeTo</button>
+		<button id="ftog" type="button">fadeToggle</button>
+		<br>
+		<div id="result1">
+			<img src="../images/coffee1.jpg">
+			
+		</div>
+	</div>
+</body>
+</html>

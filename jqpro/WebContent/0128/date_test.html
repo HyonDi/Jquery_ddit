@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="../CSS/mystyle.css";>
+	<script type="text/javascript">
+		function proc1() {
+			now1 = new Date();
+			print(now1,'result1'); 
+			// 전역변수지만 같은 print함수를 4개에서 모두 사용하기 위해 now1도 파라미터로 넣어준다.
+			// now1은 변수니까 따옴표로 감싸지 않는다.
+			now2 = new Date(1234567812);
+			/* 1970년 1월 1일 이후 1234567812밀리세컨이 지난 때가 언제인지 알려줌. */
+			print(now2,'result2');
+			
+			now3 = new Date("2010.01.10");
+			print(now3,'result3');
+			now4 = new Date(2010,01,10,12,10,20);
+			/* 시분초까지 나온다. */
+			print(now4,'result4');
+			
+	/*
+			res1 = document.getElementById('result1');
+			res2 = document.getElementById('result2');
+			res3 = document.getElementById('result3');
+			res4 = document.getElementById('result4');
+			print()
+	*/
+	/*		 document.getElementById('result1').innerHTML = now1;
+			document.getElementById('result2').innerHTML = now2;
+			document.getElementById('result3').innerHTML = now3;
+			document.getElementById('result4').innerHTML = now4; 
+	*/
+		}
+		
+		function print(now, result){
+			res = document.getElementById(result).innerHTML = now + "<br>";
+			
+			datestr = now.toLocaleString();
+			date = now.toLocaleDateString();
+			time = now.toLocaleTimeString(); 
+			
+			document.getElementById(result).innerHTML += datestr + "<br>";
+			document.getElementById(result).innerHTML += date + "<br>";
+			document.getElementById(result).innerHTML += time + "<br>";
+			
+			/* 네가지를 각자쓰지않고 한번에 변환하려고 print 함수를 만들었다. */
+		}
+	</script>
+</head>
+<body>
+	<div class="box">
+		<h2>Date 객체 생성</h2>
+		<pre>
+			now1 = new Date();
+			now2 = new Date(1234567812);
+			/* 1970년 1월 1일 이후 1234567812밀리세컨이 지난 때가 언제인지 알려줌. */
+			
+			now3 = new Date("2010.01.10");
+			now4 = new Date(2010,01,10,12,10,20);
+			/* 시분초까지 나온다. 월은 0부터시작해서 얘는 1을 썼지만 2월로 나옴.*/
+			now4 = new Date(2010,01-1,10,12,10,20);
+			: 이렇게하면 1월 제대로 나온다.
+			
+		</pre>
+		<button onclick="proc1()" type="button">실행</button>
+		<br>
+		<div id="result1"></div>
+		<div id="result2"></div>
+		<div id="result3"></div>
+		<div id="result4"></div>
+	</div>
+	<br><br>
+</body>
+</html>

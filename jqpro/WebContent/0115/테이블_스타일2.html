@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<link rel="stylesheet" href="../CSS/mystyle.css";>
+<style>
+table {
+			margin : 50px auto;
+			empty-cells: hide;/* show; */
+}
+
+td{
+		 width : 150px;
+		 height : 30px;
+		 text-align : center;
+	 }
+	 
+ th{
+ 		 height : 40px;
+ 		 width : 200px;/* width는 td와 th가 같이 변화된다. height는 따로 줄 수 있음. */
+ 		 background : crimson;
+ }
+ 	caption {
+		font-size : 1.5em;
+		/* margin-bottom : 10px; */
+		margin : 10px auto ;
+		caption-side : bottom; 
+		
+	}	
+	
+	.even {
+		background : Lightblue;
+	}
+	.odd{
+		background : pink;
+	}
+	
+	#tab2 tr:nth-child(2n){
+		background : pink;
+	}
+	
+		#tab2 tr:nth-child(2n+1){
+		background : lightgray;
+	}
+</style>
+</head>
+<body>
+<pre>
+	-tr 태그에 번갈아가며 class=even, class=odd 를 부여하였다.
+	.even {
+		background : Lightblue;
+	}
+	.odd{
+		background : pink;
+	}
+</pre>
+ <table id="tb1" border="1"><!-- border="1" 이 있어야 선이 그어진다.1이 표준. 1이랑 ""만 허용. -->
+  <caption>VIP고객리스트</caption>
+  <tr>
+    <th>이름</th>
+    <th>주소</th>
+    <th>전화번호</th>
+    
+  </tr>
+  
+  <tr class="even">
+    <td>강현지</td>
+    <td>대전</td>
+    <td>010-1234-1234</td>
+  </tr>
+  
+  <tr class="odd">
+    <td>홍길동</td>
+    <td>대구</td>
+    <td>010-2345-2345</td>
+  </tr>
+  
+  <tr class="even">
+    <td>고릴라</td>
+    <td>부산</td>
+    <td>010-1235-4576</td>
+  </tr>
+  
+   <tr class="odd">
+    <td>개나리</td>
+    <td>광주</td>
+    <td>010-1233-4576</td>
+  </tr>
+  
+   <tr class="even">
+    <td>진달래</td>
+    <td>부산</td>
+    <td></td>
+  </tr>
+  
+    </table>
+    <br>
+<pre>
+	- 구조적 의사 클래스를 이용했다.
+	
+		#tab2 tr:nth-child(2n){
+		background : pink;
+	}
+	
+		#tab2 tr:nth-child(2n+1){
+		background : lightgray;
+	}
+	
+
+</pre>
+ <table id="tab2" border="1"><!-- border="1" 이 있어야 선이 그어진다.1이 표준. 1이랑 ""만 허용. -->
+  <caption>VIP고객리스트</caption>
+  <tr>
+    <th>이름</th>
+    <th>주소</th>
+    <th>전화번호</th>
+    
+  </tr>
+  
+  <tr>
+    <td>강현지</td>
+    <td>대전</td>
+    <td>010-1234-1234</td>
+  </tr>
+  
+  <tr>
+    <td>홍길동</td>
+    <td>대구</td>
+    <td>010-2345-2345</td>
+  </tr>
+  
+  <tr>
+    <td>고릴라</td>
+    <td>부산</td>
+    <td>010-1235-4576</td>
+  </tr>
+  
+   <tr>
+    <td>개나리</td>
+    <td>광주</td>
+    <td>010-1233-4576</td>
+  </tr>
+  
+   <tr>
+    <td>진달래</td>
+    <td>부산</td>
+    <td>010-4444-4576</td>
+  </tr>
+  
+    </table>
+
+
+
+</body>
+</html>

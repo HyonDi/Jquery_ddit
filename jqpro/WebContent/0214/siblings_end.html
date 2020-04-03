@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="../CSS/mystyle.css";>
+	<script src="../js/jquery-3.4.1.min.js"></script>
+	
+	<script>
+		$(function(){
+			$('#btn1').on('click',function(){
+				/*$(“div”).eq(1) .css()
+				앞뒤 형제 모두 파란색 테두리 - siblings()
+				다시 되돌아와서 (eq(1) ) - -
+				바로 다음 형제 (next() )의 text변경—세번쩨third
+				다시 되돌아와서 --
+				뒤 모든 형제(nextAll() )들 배경색 변경-노란색
+				다시 되돌아와서 –
+				앞 형제(prev() ) 배경색 변경 - 그린  */
+				
+				// 박스안 div첫번째의 형제중 div요소인것만 찾아라.
+				/* $('.box div').eq(1).siblings('div').css('border','3px solid blue');
+				$('.box div:eq(1)').next('div').html('third');
+				$('.box div').eq(1).nextAll('div').css('background','yellow');
+				$('.box div').eq(1).prev('div').css('background','green'); */
+				
+				$('.box div').eq(1).siblings('div').css('border','3px solid blue')
+					.end().next('div').html('third')
+					.end().nextAll('div').css('background','yellow')
+					.end().prev('div').css('background','green');
+			})
+		})
+	</script>
+</head>
+
+	<style>
+		.box{
+			height : 400px;
+		}
+		.box div{
+			width : 80px;
+			height : 80px;
+			border : 2px solid black;
+			float : left;
+		}
+		hr{
+			clear : both;
+		}
+
+	</style>
+
+<body>
+	<div class="box">
+		<h2> </h2>
+		<pre>
+		모든 수행은 $(“div”).eq(1) 을 기준으로 한다.
+		
+		$(“div”).eq(1) .css()
+		앞뒤 형제 모두 파란색 테두리 - siblings()
+		다시 되돌아와서 (eq(1) ) - -
+		바로 다음 형제 (next() )의 text변경—세번쩨third
+		다시 되돌아와서 --
+		뒤 모든 형제(nextAll() )들 배경색 변경-노란색
+		다시 되돌아와서 –
+		앞 형제(prev() ) 배경색 변경 - 그린
+		</pre>
+		
+		<div>a</div>
+		<div>b</div>
+		<div>c</div>
+		<div>d</div>
+		<div>e</div>
+		<div class="orange">f</div>
+		<div>g</div>
+		<hr>
+		
+		<button id="btn1" type="button">실행</button>
+	</div>
+</body>
+</html>

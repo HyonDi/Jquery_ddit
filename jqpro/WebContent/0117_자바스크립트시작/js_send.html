@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="../CSS/mystyle.css";>
+	<style>
+	form{
+		margin : 20px auto;
+		width : 50%;
+		height : auto;
+		border : 2px dotted orange;
+		padding : 10px; 
+	}
+	</style>
+	
+</head>
+<body>
+	<img src="" width="100px" height="100px">
+	<form action="send.jsp" method="post">
+	이름 : <input type="text" name="name"><br>
+	아이디 : <input type="text" name="id"><br>
+	이메일 : <input type="email" name ="email"><br>
+	<button>전송</button>
+	<button type="button" onclick="alert('확인되었습니다.')">확인</button>
+	<!-- 저 alert 가 인라인스크립트야. -->
+	</form>
+
+</body>
+</html>

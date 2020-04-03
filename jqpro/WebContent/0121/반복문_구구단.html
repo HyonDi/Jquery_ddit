@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="../CSS/mystyle.css";>
+	
+	<script>
+		function proc1(){
+			res1 = document.getElementById("result1");
+			str1="";
+			
+			for(var i =1; i<=10; i++){
+				
+				str1 += i + "   ";				 
+			}
+			res1.innerHTML = str1;
+		}
+	
+		function proc2(){
+			res2 = document.getElementById("result2");
+			str2 =0;
+			
+			for(var i =1; i<=10; i++){
+				
+				str2 += parseInt(i);
+				
+			}
+			res2.innerHTML = "결과 : "+str2;
+			
+		}
+	
+		function proc3(){
+			input = prompt("숫자를 입력해주세요.");
+			res3 = document.getElementById("result3");
+			
+			str3= '';
+			
+			for(var i =1; i <=9; i++){
+				str3 += input + " * " + i + " = " + input * i + "<br>"
+			}
+			res3.innerHTML = str3;
+		}
+
+		
+		
+		function proc4(){/* 세로 */
+			str4='';
+			for(var i = 1; i <=9; i ++){
+				res4 = document.getElementById("result4");
+				
+				for(var j=1; j <=9; j ++){
+					str4 +=   i + " * " + j + " = " + i * j + "<br>"
+				}
+				str4 += "<br>"
+				res4.innerHTML = str4;
+			}
+		}
+
+		function proc5(){/* 가로 */
+			str5='';
+			str10='';	
+			
+			
+			for(var i = 1; i <=9; i ++){
+				
+				str10 += "***" + i + "단 ***\t";
+				res5 = document.getElementById("result5");
+				
+				for(var j=1; j <=9; j ++){
+						
+					str5 +=   j + " * " + i + " = " + (j * i) + "\t";
+				}
+				
+				
+				str5 += "<br>"
+				res5.style.whiteSpace = 'pre';
+				res5.innerHTML = str10 + "<br>" + str5;
+				
+			}
+		}
+
+		function proc6(){/* 테이블 */
+			res6 = document.getElementById("result6");
+		
+			str6 = "<h1>구구단 표</h1>";
+			str6 += "<table border=1>";
+			for(var i = 1; i <= 9 ; i++) {
+				str6 += "<tr>";
+				str6 += "<td>" + i + "</td>";
+				
+				for(var j =2; j<=9; j++){
+					str6 += "<td>" + i * j + "</td>";
+				}
+				str6 += "</tr>";
+			}
+			str6 += "</table>";
+			res6.innerHTML = str6;
+		}
+		
+		
+		
+	</script>
+	
+	<style>
+		div{
+			height : auto;
+			padding : 10px;
+			margin : 10px;
+			border : 1px dotted orange;
+		}
+		
+		table, td{
+			border : 1px solid blue;
+			
+		}
+		
+		td{
+			padding : 10px;
+		}
+	</style>
+	
+</head>
+<body>
+	<h3>1~10 까지 출력</h3>
+	<button onclick="proc1()" type = "button">1~10</button>
+	<div id="result1"></div>
+	<hr>
+	
+	<h3>1~10까지 합</h3>
+	<button onclick="proc2()" type = "button">1~10 합</button>
+	<div id="result2"></div>
+	<hr>
+	
+	<h3>입력한 수의 구구단 출력</h3>
+	<button onclick="proc3()" type = "button">구구단</button>
+	<div id="result3"></div>
+	<hr>
+	
+	<h3>구구단 전체 - 세로</h3>
+	<button onclick="proc4()" type = "button">구구단 전체</button>
+	<div id="result4"></div>
+	<hr>
+	
+	<h3>구구단 전체 - 가로</h3>
+	<button onclick="proc5()" type = "button">구구단 전체</button>
+	<div id="result5"></div>
+	<hr>
+	
+	<h3>구구단 전체 - table</h3>
+	<button onclick="proc6()" type = "button">구구단 전체</button>
+	<div id="result6"></div>
+	<hr>
+	
+	
+	<hr>
+</body>
+</html>

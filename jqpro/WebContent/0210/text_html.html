@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery_html()</title>
+	<link rel="stylesheet" href="../CSS/mystyle.css";>
+	<script src="../js/jquery-3.4.1.min.js"></script>
+	
+	<script type="text/javascript">
+		$(function(){
+			
+			$('#btn1').on('click', function(){// 이게 콜백메서드가 된다고??
+				vh = $('body').html();// body안의 태그와 내용을 전부.
+//				alert(vh);
+				
+				$('#result1').text(vh);//result1에 vh를 출력하라.
+				// 태그를 적용시키지않고 텍스트로 함께 출력.
+				
+				$('#result1').html(vh);
+				// 모든태그가 실행되어서 body
+			})
+			
+			$('#btn2').click(function(){
+				// body태그안의 모든 내용을 가져온다.-태그없이 문자만.
+				vt = $('body').text();
+				alert(vt);
+				$('#result1').text(vt);
+				
+			})
+			
+			$('#btn3').on('click', function(){
+				
+				// p태그가 여러개인 경우 첫번째만 가져온다. a태그를 포함해서.
+				ph = $('p').html();
+				//alert(ph);
+				//$('#result1').html(ph);
+				$('#result1').text(ph);
+			})
+			
+			$('#btn4').on('click', function(){
+				pt = $('p').text();
+				// p태그안의 문자만. 태그빼고.
+				// p태그가 여러개인경우 모두가져온다.
+				alert(pt);
+				$('#result1').text(pt);
+			})
+			
+			$('#btn5').on('click', function(){
+				
+				str="";
+ 				
+		//매개변수 없는 each 반복사용
+/*				$('p').each(function(){
+					str += $(this).html()
+				})
+				
+				$('#result1').html(str);
+				//$('#result1').text(str);
+*/ 			
+				
+ 
+/* 				매개변수 i,k 넣음.		
+ 
+ 				$('p').each(function(i,k){
+					//str += $(k).html();
+					str += $('p:eq(' + i + ')').html;
+				})
+ */				
+				
+ 				$.each($('p'), function(){
+ 					str += $(this).html();
+ 				}) 
+
+ 
+ // this를 안쓰면 첫번째 것만(html은 맨첫번째만가져오니까) 3번(p태그의 length)반복함.
+/* 				$('p').each(function(){
+					str += $('p').html();
+				}) */
+				
+				$('#result1').html(str);
+				//$('#result1').text(str);
+			})
+		})
+	
+	</script>
+	<style>
+		button {
+			padding : 10px;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<h2> </h2>
+		<pre>
+		$('body').html("abcdef"); --> body내용을 싹지우고 저거로 수정.
+		.html()  /  .text();   --> 괄호안에 내용이 없으면 getter, 있으면 setter.
+		
+		$('#result1').html(vh); --> result1에 나타난 body태그내용 속의 버튼은 실행안된다.
+		 
+		 $('p').each(function(i,k){})
+		 --> 
+		 each 함수는 앞에오는 태그의 length만큼 반복함(향상된포문과같음.)
+		 
+		
+		</pre>
+		  <p>1<a>홍길동</a></p>
+		  <p>2<a>개나리</a></p>
+		  <p>3<a>진달래</a></p>
+		<button id="btn1" type="button">$('body').html();</button>
+		<button id="btn2" type="button">$('body').text();</button>
+		
+		<button id="btn3" type="button">$('p').html();</button>
+		<button id="btn4" type="button">$('p').text();</button>
+		<button id="btn5" type="button">$('p').html()_반복문사용;</button>
+		<br>
+		<div id="result1"></div>
+		
+	</div>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="../CSS/mystyle.css";>
+	
+	<script type="text/javascript">
+		function proc1(){
+			// input에 입력받은 값을 가져온다.
+			input = document.getElementById("su1").value;
+			
+			
+			// div에 입력받은 수 *2의 값을 출력한다.
+			document.getElementsByTagName("div")[0].innerHTML = "<h2>"+input*2+"</h2>";
+			
+			
+		}
+		
+		function proc2(){
+			// div의 값을 가져오고, 출력한다.
+			document.getElementById("result").value
+			= document.getElementsByTagName("div")[0].textContent;
+		/* innerHTML은 태그(<h2>)까지 가져오는데 textContent 는 태그 빼고 가져온다.*/
+		}
+	</script>
+	
+	<style>
+		div{
+			height : auto;
+			padding : 10px;
+			border : 1px dotted orange;
+		}
+		
+		button {
+			background : Blue;
+			color : white;
+			border-radius : 10px;
+			padding : 5px;
+		}
+	</style>
+</head>
+<body>
+	<pre>
+		input태그에 수를 입력 받는다.
+		실행버튼을 클릭하면, div에 입력받은 수에 *2 의 값을 출력한다.
+	</pre>
+	<br>
+	
+	입력 <input type="text" id="su1">
+	<button onclick="proc1()" type="button">실행</button><br>
+	출력 : 입력*2
+	<div></div>
+	<br>
+	<pre>
+	출력버튼 클릭하면, div의 값을 얻어서 input에 출력. <br>
+	</pre>
+	<button onclick="proc2()" type="button">출력</button>
+	<input type="text" id="result">
+	
+</body>
+</html>

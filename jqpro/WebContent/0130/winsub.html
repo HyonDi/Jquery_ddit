@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="../CSS/mystyle.css";>
+	<script type="text/javascript">
+		function proc1(){
+			// 입력한 값 가져오기
+			namevalue = document.ff.name.value;
+			telvalue = document.ff.tel.value;
+			/* document.ff 를 별도의 변수로 만들어놓아도 된다.
+			df = document.ff   :  df.tel.value  로 접근가능.*/
+			
+			// 출력할 res 구성해놓기
+			res = "이름 : " + namevalue + "<br>";
+			res += "전화번호 : " + telvalue + "<br>";
+			
+			//부모창에 뿌려준다.
+			opener.document.getElementById('result1').innerHTML = res;
+			window.close();
+			
+		}
+	</script>
+</head>
+<body>
+	<div class="box">
+		<h2> Winsub 자식창 </h2>
+		<pre>
+		window_text.html 에서 새롭게 열린 창.
+		window_test.html 의 자식창이다.
+		
+		버튼을 클릭하면 입력한 값을 부모창으로 보낸다.
+		
+		* name 을 이용해서 각 요소에 접근하는 방법
+		
+		1.
+		document.getElementsByName("name")[0]
+		document.getElementsByName("tel")[0]
+		- name 은 중복될 수 있음.
+		
+		2.
+		document.ff.name
+		document.ff.tel
+		- name이 중복되지 않을때만 사용 가능.
+		</pre>
+		<form name="ff">
+		이름 : <input type="text" name="name"><br>
+		전화번호 : <input type="text" name="tel"><br> 
+		</form>
+		<button onclick="proc1()" type="button">실행</button>
+		<br>
+		<div id="result1"></div>
+	</div>
+</body>
+</html>

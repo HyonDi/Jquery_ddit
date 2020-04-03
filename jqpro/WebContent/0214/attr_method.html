@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="../CSS/mystyle.css">
+	<script src="../js/jquery-3.4.1.min.js"></script>
+	
+	<script>
+		$(function(){
+			$('#btn1').on('click',function(){
+				$(this).attr('title','버튼');
+				$(this).siblings().attr('title','아');
+				
+				//$('img').attr('title','이미지');
+				// 아래는 for문 돌리지않아도 등록된이미지 5개 모두에 적용된다.
+				// set 할때는 전부되니까!
+				
+				$('img').attr('title',function(){
+					
+					// src 속성값을 가져온다.
+					src = $(this).attr('src');
+					
+					// 마지막/위치와 마지막.의 위치를 얻는다.
+					start = src.lastIndexOf("/");
+					end = src.lastIndexOf(".");
+					//alert(start+"/"+end);
+					
+					//index 사이의 값을 추출한다.
+					tit = src.substring(start+1, end);
+					//alert(tit);
+					
+					// 추출한 값을 리턴한다.
+					return tit;
+				})
+				
+			})
+			
+		})
+	</script>
+	
+	<style>
+		img {
+			width : 150px;
+			height : 150px;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<h2> </h2>
+		<pre>
+
+		</pre>
+		<button id="btn1" type="button">실행</button>
+		<br>
+		<div id="result1">
+		<img src="../images/핫초코.jpg">
+		<img src="../images/카페라떼.jpg">
+		<img src="../images/에스프레소.jpg">
+		<img src="../images/아메리카노.jpg">
+		<img src="../images/카푸치노.jpg">
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="../CSS/mystyle.css?after">
+	<script type="text/javascript">
+	/* 생성자 함수로 객체 정의하는 부분. */
+		function Rect(width, height){
+			this.width = width;
+			this.height = height;
+			
+			this.getArea = function(){
+				return this.width * this.height;
+			}
+			
+			/* this.getCircum = function(){
+				return ( r3.width + r3.height )
+			}	//여기에 넣으면 1,2,3 모두 둘레구하기를 하게하는 것. 
+			*/
+		}
+	
+		str = "";
+		r3 = ""; // 여기서 미리 초기화해써. 왜냐면 print 함수에서 못찾아
+		r1 = "";
+		r2 = ""; 
+	/* 여기서 위 객체 사용할것이다. */
+	
+		function proc1(){
+			/* Rect객체 생성하기 */	
+			/* 자바에서 객체생성 : Rect r =  new Rect(int width, int height) */
+			/* 아래는 스크립트에서 객체생성. 파라미터속에 아무것도 안넣어도 된다. */
+			r1 = new Rect();
+			r1.name = "사각형1";
+			r1.width = 10;
+			r1.height = 4;
+			/* r1.width = 여기서 설정 가능*/ 
+			print(r1);
+			
+			
+			r2 = new Rect(5,7);
+			r2.name = "네모네모";
+			print(r2);
+		}
+	
+		function proc2() {
+			r3 = new Rect(6,9);
+			// 이름 추가
+			r3.name = "사각형2";
+			// 함수 추가
+			r3.getCircum = function(){
+				return ( r3.width + r3.height ) * 2 
+				
+			}
+			// 출력
+			print(r3);
+			
+		}
+	
+		function print(a){
+			str = ""; //**** 얘 역할중요***
+			
+			num = 0;
+			str += "이름 = " + a.name + "<br>";
+			str += "가로 = " + a.width + "<br>";
+			str += "세로 = " + a.height + "<br>";
+			/* str += "면적 = " + a.getArea() + "<br><br>"; */
+			
+			if(a === r1 || a === r2){
+				str += "면적 = " + a.getArea() + "<br><br>";
+			}
+			
+			if(a === r3){ 
+				str += "면적 = " + a.getArea() + "<br>";
+				str += "둘레 = " + a.getCircum() + "<br><br>";
+				num = 1;
+			}
+			
+			document.getElementsByTagName("div")[num].innerHTML += str;
+		}
+	</script>
+</head>
+<body>
+	<pre>
+	<h2>생성자 함수를 이용한 객체생성과 사용</h2>
+		function Rect(width, height){
+			this.width = width;
+			this.height = height;
+			
+			this.getArea = function(){
+				return this.width * this.height;
+			}
+		}
+		
+		var r1 = new Rect();
+			객체의 속성 (width, height) 의 값이 정해지지않으면 undefinde가 발생한다.
+			r1 객체의 속성에 값을 하나씩 대입한다.
+			r1.width = 10;
+			r1.height = 4;
+				
+		var r2 = new Rect(5,7);
+		
+		객체의 속성이나 메서드가  정해지지 않았어도 종적으로 추가해서 사용할 수 있다.
+		r1.name = "사각형1";
+		
+		r2.name = "네모네모";
+		
+	</pre>	
+	<!-- 스크립트에서 정의한 객체 사용하기위한 버튼 -->
+	<button onclick="proc1()" type="button">객체실행</button>
+	<br><br>
+	<div></div>
+	<br><hr><br>
+	
+	<pre>
+		Rect객체에 둘레를 구하는 메서드를 추가.
+		Rect생성후에 동적으로 추가.
+		
+		r3 = new Rect(6,9);
+		r3.name = "사각형2";
+		
+		r3.getCircum = function(){
+			return (r3.width + r3.height) * 2;
+		}
+	</pre>
+	<button onclick="proc2()" type="button">메소드추가실행</button>
+	<br><br>
+	<div></div>
+</body>
+</html>

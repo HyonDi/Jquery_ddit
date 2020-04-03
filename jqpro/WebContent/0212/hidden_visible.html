@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="../CSS/mystyle.css";>
+	<script src="../js/jquery-3.4.1.min.js"></script>
+	
+	<script>
+		$(function(){
+			$('#btn1').click(function(){
+				// hidden의 p태그
+				str = $('p:hidden').text();
+				$('#result1').html(str);
+				
+			})
+			
+			$('#btn2').click(function(){
+				// visibel의 p태그
+				str = $('p:visible').text();
+				$('#result2').html(str);
+			})
+			
+		})
+	</script>
+</head>
+<body>
+	<div class="box">
+		<h2> 기타필터</h2>
+		<pre>
+		  
+		</pre>
+		<p> 보이는 문단</p>
+		  <p style="visibility:hidden;">숨겨진 문단</p>
+		  <p style="display:none;"> 자리를 차지 하지 못한 문단 </p>
+		  <p style="opacity:0;"> 투명한 문단</p>
+		
+		<button ID="btn1" type="button">hidden</button>
+		<button ID="btn2" type="button">visible</button>
+		<br>
+		<div id="result1"></div>
+		<div id="result2"></div>
+	</div>
+	
+	
+</body>
+</html>

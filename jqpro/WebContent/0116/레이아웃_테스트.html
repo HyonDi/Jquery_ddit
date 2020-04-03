@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="../CSS/mystyle.css";>
+	<style>
+		div{
+			/* 공통속성을 적을 부분 */
+			margin : 10px;
+			padding : 10px;
+			text-align : center;
+			font-size : 2.0em;
+			border-radius:30px;
+			box-sizing : border-box;/* 마진포함안됨. */
+			
+		}
+		
+		#header{
+			background : yellow;
+			width : 90%;
+			height : 80px;
+			margin-bottom : 10px;
+		}
+		
+		#left{
+			background : pink;
+			width : calc(18% - 1%);
+			height : 300px;
+			float : left;
+			
+		}
+		#right{
+			background : rgb(255,231,128);
+			width : calc(70% - 1%);
+			height : 300px;
+			float : right;
+			
+			margin-right : 10%;
+			margin-bottom : 20px;
+		}
+		#footer{
+			clear : both;/* 빈칸을 채우지않고 정상배치. float속성을 중단. */
+			background : skyblue;
+			width : 90%;
+			height : 80px;
+			
+		}
+	</style>
+</head>
+<body>
+	<div id="header">"header"</div>
+	<div id="left">"left"</div>
+	<div id="right">"right"</div>
+	<div id="footer">"footer"</div>
+</body>
+</html>

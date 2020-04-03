@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>시멘틱_테스트</title>
+	<link rel="stylesheet" href="../CSS/mystyle.css";>
+	<style>
+	
+	font-size : 40px;
+	
+		body{
+			/* 공통속성을 적을 부분 */
+			margin : 10px;
+			padding : 10px;
+			text-align : center;
+			font-size : 2.0em;
+			border-radius:30px;
+			box-sizing : border-box;/* 마진포함안됨. */
+			
+		}
+		
+		header{
+			background : yellow;
+			width : 90%;
+			height : 80px;
+			text-align : center;
+			
+			
+		}
+		
+		nav{
+			background : pink;
+			width : calc(21% - 1%);
+			height : 300px;
+			float : left;
+			
+		}
+		
+		section{
+			background : rgb(255,231,128);
+			width : calc(71% - 1%);
+			height : 300px;
+			float : left;
+			
+			margin-right : 10%;
+			
+		}
+		
+		footer{
+			clear : both;/* 빈칸을 채우지않고 정상배치. float속성을 중단. */
+			background : skyblue;
+			width : 90%;
+			height : 40px;
+			text-align : center;
+			
+		}
+		
+		div, h4, h3{
+			margin : 20px;
+		}
+		
+		img {
+			width : 100px;
+			height : 100px;
+			margin-left : 20%;
+			
+		}
+		h1{
+			padding : 2.5%;
+		}
+		
+		#footer{
+			color : white;
+			padding : 1%;
+			
+		}
+		
+	</style>
+</head>
+<body>
+
+	<header><h1>My Blog Page<h1></h1></header>
+	<nav>
+		<h3>Links</h3>
+		<ul>
+		<li><a href="https://www.w3schools.com/">W3C</a></li>
+		<li><a href="https://www.mozilla.org/ko">MOZILLA</a></li>
+		<li><a href="https://www.htmldog.com/">HTML Dogs</a></li>
+		</ul>
+		<figure><img src="../images/홍길동.jpg"><figcaptrion>홍길동</figcaptrion></figure>
+	</nav>
+	<section>
+	<h4>Semantic Tags</h4>
+	<div>
+	시맨틱 요소(Semantic elements)들은 브라우저에게 요소의 의미나
+	목적을 명확하게 알려주는 요소이다.
+	</div>
+	
+	<h4>div와 span</h4>
+	<div>
+	div은 'divide'의 약자로서 페이지를 논리적인 센션으로 분리하는데 사용되는
+	태그이다. span요소는 인라인 요소로서 텍스트를 위한 컨테이너로 사용할 수 있다.
+	</div>
+	</section>
+	<footer><div id="footer">Copyright (c) 2013 Hong</span></footer>
+	
+</body>
+</html>

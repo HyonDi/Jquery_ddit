@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="../CSS/mystyle.css";>
+	
+	<style type="text/css">
+		div{
+			width : 220px;
+			height : auto;
+			padding : 10px;
+			border : 1px dotted red;
+			background : pink;
+		}
+		
+		#d2{
+			height : 200px;
+			overflow : auto;
+		}
+		
+		#run2{
+			display : none;
+		}
+	</style>
+	
+	<script type="text/javascript">
+		function proc1(){
+			// 1~ 100 사이의 난수를 5개 발생시킨다.
+			
+			ran = "";
+			
+			/* document.getElementsByTagName("div")[0].innerHTML = ran; */
+			k=0;
+			while(k<10){
+				
+				for(var i =0; i <5; i++){
+					ran += parseInt((Math.random())*100+1);
+					ran += "&nbsp" + "&nbsp" + "&nbsp" + "&nbsp";
+				}
+				
+				ran += "<br>";
+				k++;
+				// div에 출력한다.
+				document.getElementsByTagName("div")[0].innerHTML = ran;
+			}
+			
+		}
+		
+		function proc2(but){
+			but.style.display = "none";
+			document.getElementById("run2").style.display = "inline";
+			x = setInterval(function(){
+				ran = "";
+				
+				for(var i =0; i <5; i++){
+					ran += parseInt((Math.random())*100+1);
+					ran += "&nbsp" + "&nbsp" + "&nbsp" + "&nbsp";
+				}
+				document.getElementsByTagName("div")[1].innerHTML += ran + "<br>";
+				
+				
+			}, 1000)
+			document
+			console.log(x);
+			
+			
+		}
+		
+		
+		function proc3(but2){
+			but2.style.display = "none";
+			clearInterval(x);/* x라는 아이디의 Interval 을 멈춘다. */
+			document.getElementById("run").style.display = "inline";
+								/* inline 말고 block으로하면 줄바뀜. */
+			
+		}
+	</script>
+	
+</head>
+
+<body>
+	<pre>
+		버튼을 클릭할 때 마다 랜덤숫자 (1~100)가 5개씩 10줄이 출력된다.
+	</pre>
+	<input onclick="proc1()" type="button" value="실행">
+	<br><br>
+	<div></div>
+	<br><hr><br>
+	<pre>
+		0.5초마다 랜덤숫자 (1~100)가 5개씩 한 줄로 출력된다.
+		규칙적인 시간간격으로 실행 : setInterval()
+	</pre>
+	<br><br>
+	<input id="run" onclick="proc2(this)" type="button" value="실행">
+	<!-- this는 현재 호출된 태그 = input(id=run) -->
+	<input id="run2" onclick="proc3(this)" type="button" value="멈춤">
+	<br><br>
+	<div id="d2"></div>
+</body>
+
+</html>

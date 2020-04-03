@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	form{
+		width : 50%;
+		border : 10px outset blue;/* inset 도 있음. */
+		padding : 10px;
+		/* margin-left : 50%;
+		margin-top : 20%;
+		 */
+		/* margin : 30px 50px 10px 20px; */
+		/* 위, 오른쪽, 아래, 왼쪽 순서. */
+		/* margin : 30px 50px 10px; */
+		/* 위, 좌우, 아래 순서*/
+		/* margin : 30px 50px */
+		/* 위아래, 좌우 순서 */
+		margin : 100px auto;
+		
+		
+	}
+</style>
+</head>
+<body>
+<form action="form_type.jsp" method="post">
+	아이디 : <input type="text" value="aaa" name="id" size="10"><br>
+	비밀번호 : <input type="password" name="pass" size="10"><br>
+	<input type="hidden" value="korea" name="name"><br>
+	성별 : 
+		<input type="radio" checked value="남자" name="gender">남자
+		<input type="radio" value="여자" name="gender">여자<br>
+		<!-- 이름이 같아야 중복선택이 안됨. -->
+		<!--checked 는 여러개중 하나에 설정해놓는다. 디폴트로 체크해놓을 것 설정. -->
+	관심분야 :
+		<input type="checkbox" checked name="like" value="java" >JAVA
+		<input type="checkbox" checked name="like" value="jsp">JSP
+		<input type="checkbox" checked name="like" value="db">DB
+		<input type="checkbox" checked name="like" value="htmlcss">HTML/CSS
+		<input type="checkbox" checked name="like" value="javascript">JAVASCRIPT
+		<!-- 이름 같아야함. 중복선택 됨. -->
+	<br>
+				<!-- value 는 서버로 넘어가는 것. 맨 뒤 검은글씨는 화면에 보이는 것. -->
+	첨부파일
+	<input type="file" name ="file"> <br>
+	<br>
+	<input type="submit" value="전송"> <!--디폴트 : 제출  -->
+	<input type="reset" value="취소"> <!-- 디폴트 : 초기화 -->
+	<input type="image" src="../images/check.png"> <br>
+</form>
+
+</body>
+</html>

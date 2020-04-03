@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>테이블_스타일</title>
+	<link rel="stylesheet" href="../CSS/mystyle.css";>
+	<style>
+	
+	
+	table{
+			margin : 50px auto;
+			empty-cells: hide;/* show; */
+	}
+
+	 td{
+		 width : 150px;
+		 height : 30px;
+		 text-align : center;
+	 }
+	 
+	 th{
+	 		 height : 40px;
+	 		 width : 200px;/* width는 td와 th가 같이 변화된다. height는 따로 줄 수 있음. */
+	 		 background : crimson;
+	 }
+	
+	table#tab2 {
+		border : 1px solid gray;/* 표에서, 가운데 선스타일은 필수로 써야한다. */
+		border-spacing : 10px;/* 셀과 셀 사이의 간격 */
+	}
+
+	#tab3 {
+		border-collapse: collapse;/* spacing과 같이 쓸수없음. 선하나만 나오게하는 것. */
+	}
+	
+	caption {
+		font-size : 1.5em;
+		/* margin-bottom : 10px; */
+		margin : 10px auto ;
+		caption-side : bottom; 
+		
+	}	
+	 
+	</style>
+</head>
+<body>
+
+<pre>
+				table{
+						margin : 50px auto;
+						empty-cells: hide;/* show; */
+					}
+</pre>
+ <table border="1"><!-- border="1" 이 있어야 선이 그어진다.1이 표준. 1이랑 ""만 허용. -->
+  <tr>
+    <td>이름</td>
+    <td>주소</td>
+    <td>전화번호</td>
+    
+  </tr>
+  
+  <tr>
+    <td>강현지</td>
+    <td>대전</td>
+    <td>010-1234-1234</td>
+  </tr>
+  
+  <tr>
+    <td>홍길동</td>
+    <td>대구</td>
+    <td>010-2345-2345</td>
+  </tr>
+  
+  <tr>
+    <td>고릴라</td>
+    <td>부산</td>
+    <td>010-1235-4576</td>
+  </tr>
+  
+   <tr>
+    <td>개나리</td>
+    <td>광주</td>
+    <td>010-1233-4576</td>
+  </tr>
+  
+   <tr>
+    <td>진달래</td>
+    <td>부산</td>
+    <td></td>
+  </tr>
+  
+    </table>
+    <br>
+    
+  <pre>
+		  	table#tab2 {
+				border : 1px solid gray;
+				border-spacing : 10px;/* 셀과 셀 사이의 간격 */
+			}
+			
+			th{
+	 		   height : 40px;
+	 		   width : 200px;/* width는 td와 th가 같이 변화된다. height는 따로 줄 수 있음. */
+	 		   background : crimson;
+	 		}
+  </pre>
+ <table id="tab2" border="1"><!-- border="1" 이 있어야 선이 그어진다.1이 표준. 1이랑 ""만 허용. -->
+  <tr>
+    <th>이름</th>
+    <th>주소</th>
+    <th>전화번호</th>
+    
+  </tr>
+  
+  <tr>
+    <td>강현지</td>
+    <td>대전</td>
+    <td>010-1234-1234</td>
+  </tr>
+  
+  <tr>
+    <td>홍길동</td>
+    <td>대구</td>
+    <td>010-2345-2345</td>
+  </tr>
+  
+  <tr>
+    <td>고릴라</td>
+    <td>부산</td>
+    <td>010-1235-4576</td>
+  </tr>
+  
+   <tr>
+    <td>개나리</td>
+    <td>광주</td>
+    <td>010-1233-4576</td>
+  </tr>
+  
+   <tr>
+    <td>진달래</td>
+    <td>부산</td>
+    <td>010-4444-4576</td>
+  </tr>
+  
+    </table>
+    
+    <br>
+    
+    <pre>
+	    	#tab3 {
+		    border-collapse: collapse;/* spacing과 같이 쓸수없음. 선하나만 나오게하는 것. */
+		}	
+    </pre>
+    
+     <table id="tab3" border="1">
+     	<caption>VIP고객리스트</caption>
+  <tr>
+    <th>이름</th><!-- th : table header : 테이블 제목 : 굵은글씨+자동가운데정렬-->
+    <th>주소</th>
+    <th>전화번호</th>
+    
+  </tr>
+  
+  <tr>
+    <td>강현지</td>
+    <td>대전</td>
+    <td>010-1234-1234</td>
+  </tr>
+  
+  <tr>
+    <td>홍길동</td>
+    <td>대구</td>
+    <td>010-2345-2345</td>
+  </tr>
+  
+  <tr>
+    <td>고릴라</td>
+    <td>부산</td>
+    <td>010-1235-4576</td>
+  </tr>
+  
+   <tr>
+    <td>개나리</td>
+    <td>광주</td>
+    <td>010-1233-4576</td>
+  </tr>
+  
+   <tr>
+    <td>진달래</td>
+    <td>부산</td>
+    <td>010-4444-4576</td>
+  </tr>
+  
+    </table>
+</body>
+</html>

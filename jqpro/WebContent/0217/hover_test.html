@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="../CSS/mystyle.css";>
+	<script src="../js/jquery-3.4.1.min.js"></script>
+	
+	<script>
+		$(function(){
+			$('p').hover(function(){
+				//$(this).css('background','gray');
+				$(this).addClass('pcolor');
+			}, function(){
+				//$(this).css('background','pink');
+				$(this).removeClass('pcolor');
+			})
+		})
+	</script>
+	
+	<style>
+		.pcolor {
+			background : gray;
+		}
+		
+		p{
+			font-size : '1.5em';
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<h2> hover(fn1, fn2) </h2>
+			
+		<pre>
+		f1 : mouseover
+		f2 : mouseout
+		</pre>
+		<div id="result1">
+			<p>무궁화 꽃이 피었습니다.</p>
+			<p>무궁화 꽃이 피었습니다.</p>
+			<p>무궁화 꽃이 피었습니다.</p>
+			<p>무궁화 꽃이 피었습니다.</p>
+			<p>무궁화 꽃이 피었습니다.</p>
+			<p>무궁화 꽃이 피었습니다.</p>
+		</div>
+	</div>
+</body>
+</html>

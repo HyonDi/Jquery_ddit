@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="../CSS/mystyle.css";>
+	<script type="text/javascript">
+		function proc1() {
+			// 오늘 날짜 객체 생성.
+			today = new Date();
+			
+			//
+			res = today.toLocaleString(); 
+			// 날짜와 시간이 찍힐것이다. 여기에 요일을 추가해보자.
+			
+			day = today.getDay();
+			//0~6까지 반환할것임.
+			
+			switch(day){
+			case 0 :
+				str = "일요일";
+				break;
+			case 1 :
+				str = "월요일";
+				break;
+			case 2 :
+				str = "화요일";
+				break;
+			case 3 :
+				str = "수요일";
+				break;
+			case 4 :
+				str = "목요일";
+				break;
+			case 5 :
+				str = "금요일";
+				break;
+			case 6 :
+				str = "토요일";
+				break;
+			}
+			res += " " + str + "입니다. "
+			
+			document.getElementById("result1").innerHTML = res;
+		}
+		
+		function proc2(){
+			// 요일이 담긴 배열 생성
+			days = ["일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"];
+			
+			today = new Date();
+			day = today.getDay(); // 0~6 사이의 값을 얻는다.
+			
+			res = today.toLocaleString();
+			res += "&nbsp;&nbsp;" + days[day] + " 입니다. ";
+			
+			document.getElementById("result2").innerHTML = res;
+			
+			
+		}
+	</script>
+</head>
+<body>
+	<div class="box">
+		<h2>요일 구하기</h2>
+		<pre>
+			today = new Date();
+			
+			//
+			res = today.toLocaleString(); 
+			// 날짜와 시간이 찍힐것이다. 여기에 요일을 추가해보자.
+			
+			day = today.getDay();
+			//0~6까지 반환할것임.
+			
+			switch(day){
+			case 0 :
+				str = "일요일";
+				break;
+			case 1 :
+				str = "월요일";
+				break;
+			case 2 :
+				str = "화요일";
+				break;
+			case 3 :
+				str = "수요일";
+				break;
+			case 4 :
+				str = "목요일";
+				break;
+			case 5 :
+				str = "금요일";
+				break;
+			case 6 :
+				str = "토요일";
+				break;
+			}
+			res += " " + str + "입니다. "
+		</pre>
+		<button onclick="proc1()" type="button">실행</button>
+		<br>
+		<div id="result1"></div>
+
+	</div>
+	
+	
+	
+	<div class="box">
+		<h2>배열을 이용한 요일 구하기</h2>
+		<pre>
+			today = new Date();
+			days = ["일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"];
+			
+			day = today.getDay();// 0~6 사이의 값을 얻는다.
+			days[day] -> days[2]
+			
+			res = today.toLocaleString();
+			res += "&nbsp;&nbsp;" + days[day] + " 입니다. ";
+			
+			document.getElementById("result2").innerHTML = res;
+			
+		</pre>
+		<button onclick="proc2()" type="button">실행</button>
+		<br>
+	<div id="result2"></div>
+
+	</div>
+	<br><br>
+</body>
+</html>

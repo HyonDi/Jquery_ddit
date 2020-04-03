@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="../CSS/mystyle.css";>
+	<script src="../js/jquery-3.4.1.min.js"></script>
+	
+	<script>
+		$(function(){
+			$('a').on('click', function(){
+				
+				// 나이를 입력받는다.
+				age = prompt("나이를 입력해주세요.","15세이상 페이지");
+				
+				if(age < 15){
+				//event.preventDefault();
+				alert("15세 미만 접근금지");
+				return false;
+				}
+				
+			})
+		})
+	</script>
+</head>
+<body>
+	<div class="box">
+		<h2> event.preventDefault() </h2>
+		<pre>
+		어떤 요소가 기본적으로 가지고 있는 기능을 수행하지 못하도록 막아준다.
+		return false로 대신할 수 있다.
+		</pre>
+		<a href="http://www.naver.com">네이버</a>
+		<div id="result1"></div>
+	</div>
+</body>
+</html>

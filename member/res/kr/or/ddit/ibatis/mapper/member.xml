@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+			PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+			"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="member">
+	<select id="listAll" resultClass="memVO">
+		SELECT * FROM member
+	</select>
+
+	<!-- 아이디 중복검사 -->
+	<select id="checkById" resultClass="String" parameterClass="String">
+	SELECT mem_id FROM member WHERE mem_id=#data#
+	</select>
+	
+	<!-- 우편번호 검색 -->
+	<!-- public List<zipVO> selectByDong(String dong) -->
+	<select id="selectByDong" resultClass="zipVO" parameterClass="String">
+	SELECT * FROM ziptb WHERE dong like #data#||'%'
+	</select>
+	
+	<!-- 제출(저장)하기 -->
+	<!-- public String insertMember(memVO vo) -->
+	<insert id="insertMember" parameterClass="memVO">
+	INSERT INTO member(MEM_ID, MEM_PASS, MEM_NAME, 
+			MEM_BIR, MEM_ZIP, MEM_ADD1, MEM_ADD2, MEM_HP, MEM_MAIL)
+	VALUES(
+		#mem_id#,
+		#mem_pass#,
+		#mem_name#,
+		#mem_bir#,
+		#mem_zip#,
+		#mem_add1#,
+		#mem_add2#,
+		#mem_hp#,
+		#mem_mail#
+	)
+	
+	<!-- insert문에서는 resultClass를 몼서서 select태그를 하나 더 사용해야한다.
+	keyProperty 이게 returnType이야. -->
+	<selectKey keyProperty="mem_id" resultClass="String">
+	SELECT MEM_ID FROM member
+	WHERE MEM_ID = #mem_id#
+	
+	</selectKey>
+	</insert>
+</sqlMap>

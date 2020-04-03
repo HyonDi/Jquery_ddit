@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="../CSS/mystyle.css";>
+	<script src="../js/jquery-3.4.1.min.js"></script>
+	
+	<script>
+		$(function(){
+			$('#btn1').on('click',function(){
+				// $(':checkbox:checked').val();
+				/* 체크된것중 하나만 가져온다. */
+				
+				// 체크된 모든것을 가져오기위해 each 사용.
+				str = "당신의 취미는 ";
+				$(':checkbox:checked').each(function(i){
+				// 앞에 체크박스는 폼양식선택자. 뒤에체크드는 상태필터.
+				
+					str += $(this).val() + " ";		
+				})
+				
+				str += "입니다.";
+				$('#result1').html(str);
+				
+				
+				
+			})
+			
+			$('select#spring').on('change',function(){
+				// $('this option:selected') 이렇게쓰고싶은데 this는 변수여서 안된다.
+				// 부모역할을하는 this를 사용하려면
+			
+				str="봄소식을 알리는 꽃이 피어요 : <br> ";
+				// 반복문
+				$('option:selected',this).each(function(){
+					str += "";
+					str += $(this).val() + "<br>";
+				// this = select#spring.
+				//option:selected =  this 의 자식.
+				})
+				$('#result2').html(str);
+			
+			})
+		})
+	</script>
+</head>
+<body>
+	<div class="box">
+		<h2>form 상태 필터</h2>
+		<pre>
+		:checkbox:checked
+		</pre>
+		<form>
+			취 미 :
+			 <input type="checkbox" name="hobby" value="여행" checked="chkcked" >여행
+			<input type="checkbox" name="hobby" value="장기">장기
+			<input type="checkbox" name="hobby" value="바둑">바둑
+			<input type="checkbox" name="hobby" value="독서" >독서
+			<input type="checkbox" name="hobby" value="낚시">낚시<br><br>
+		</form>
+		
+		<button id="btn1" type="button">실행</button>
+		<div id="result1"></div>
+		
+	</div>
+	
+	
+	<div class="box">
+		<h2> from 상태필터 </h2>
+		<pre>
+		option:selected 	
+		
+		select 의 change이벤트
+		</pre>
+		<form>
+			봄소식 : <br>
+			<select name="spring" id="spring" multiple size="6">
+				<option  >개나리</option>
+				<option selected>진달래</option>
+				<option>민들레</option>
+				<option selected>벚꽃</option>
+				<option>목련</option>
+				<option>철쭉</option>
+			</select>
+		</form>
+		
+		<div id="result2"></div>
+		
+	</div>
+</body>
+</html>

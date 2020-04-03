@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="../CSS/mystyle.css";>
+	<script src="../js/jquery-3.4.1.min.js"></script>
+	
+	<script>
+		$(function(){
+			$('img').on('dblclick',function(){
+				$(this).hide();
+			
+				if($('img:visible').length == 0){
+				  //$('#btn1').css('display','block'); // 아래와 같음.
+					$('#btn1').show();
+				}
+			})
+			
+			// 버튼을 클릭하면.
+			//$('#btn1').click(function(){  ;}) // 아래와 같음.
+			$('#btn1').on('click',function(){
+				$('img').show();
+				$(this).hide();
+			})
+			
+			
+			
+			/* temp라는 속성만들어보기(temp = src). */
+			$('img').attr('temp', function(){
+				aa = $(this).attr('src');
+				return aa;
+			})
+			
+			// moseover 하면 이미지 변경
+			// moseout 하면 원래이미지로 돌아온다.
+			$('img').hover(function(){
+				// moseover
+				
+				// src의 값을 가져와서 temp라는 변수에 저장한다.
+			//	temp = $(this).attr('src');
+				
+				// src2의 값을 가져와서 src2라는 변수에 담았다.
+				src2 = $(this).attr('src2');
+				
+				// src의 값을 src2의 값으로 변경한다.
+				$(this).attr('src',src2);
+				
+			}, function(){
+				// mouseout
+				
+				// temp의 변수값을 src의 값으로 변경한다.
+				//$(this).attr('src',temp);
+				
+				// temp의 속성값을 가져온다.(temp속성값 = 원래이미지)
+				
+				temp = $(this).attr('temp');
+				
+				//src 속성값을 temp로 바꾼다.
+				$(this).attr('src',temp);
+			})
+			
+			
+			
+		})
+	</script>
+	<style>
+		#btn1{
+			display : none;
+		}
+		img{
+			width : 150px;
+			height : 150px;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<h2>dblclicked, hover </h2>
+		<pre>
+
+		</pre>
+		<br>
+		<div id="result1">
+		<img src="../images/핫초코.jpg" src2="../images/음식.jpg">
+		<img src="../images/카푸치노.jpg" src2="../images/음식2.jpg">
+		<img src="../images/에스프레소.jpg" src2="../images/식품1.jpg">
+		<img src="../images/아메리카노.jpg" src2="../images/식품2.jpg">
+		<img src="../images/카페라떼.jpg" src2="../images/coffee1.jpg">
+		<!-- src2 는 임의로 준 속성이야. 존재하지않음. 내가만든거야 -->
+		<button id="btn1" type="button">보이기</button>
+		</div>
+	</div>
+</body>
+</html>

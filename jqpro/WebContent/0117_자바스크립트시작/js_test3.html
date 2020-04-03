@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="../CSS/mystyle.css";>
+	<script>
+		function proc1(){
+			now = new Date();
+			nowString = now.toLocaleString();
+			dateString = now.toLocaleDateString();
+			timeString = now.toLocaleTimeString();
+			
+			
+			/* document.write(now); 얘는 새다큐멘트 만드니까 지우고*/
+			area = document.getElementsByTagName('textarea')[0];
+			
+			/* area.innerHTML = now + "\n" + nowString + "\n" + dateString + "\n" + timeString  + "\n"; */
+			
+			/* area.innerHTML = now + "\n";
+			area.innerHTML += nowString + "\n";
+			area.innerHTML += dateString + "\n";
+			area.innerHTML += timeString + "\n";
+			 */
+			 
+			/*위 주석처럼 출력하려면 누적시키려면 2번째거부턴 += 으로 추가시켜야함. 
+			그냥 '=' 만 쓰면 마지막거 한줄만 나옴.*/
+			
+			data = now + "\n" + nowString + "\n" + dateString + "\n" + timeString  + "\n";
+			 
+			 area.innerHTML = data;
+			 /* 출력내용을 미리 구성해놓아도 됨. */
+			
+			 
+		}
+	</script>
+</head>
+<body>
+<pre>
+버튼을 클릭하면 textarea 요소에 날짜와 시간을 찍는다.
+
+[textarea요소에 접근]
+area = document.getByElementsByTagName('textarea')[0];
+
+[area 출력]
+area.innerHTML = now;
+</pre>
+	<button onclick="proc1()" type="button">확인</button><br>
+	
+	<textarea rows="10" cols="50"></textarea>
+	
+	
+</body>
+</html>

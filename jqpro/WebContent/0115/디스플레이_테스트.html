@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>디스플레이_테스트</title>
+	<link rel="stylesheet" href="../CSS/mystyle.css";>
+	<style>
+/* 		#btn3, img{
+			display : none;/* 사라지는 마술 */
+		}  */
+	</style>
+	
+		<script>
+		
+		window.onload = function(){
+			b3 = document.getElementById('btn3');
+			vimg = document.getElementsByTagName('img')[0]; 
+				
+		}
+		
+		/* window = 다큐먼트를 담고있는 객체~! 저 윗부분은 다큐먼트가 다 완성된 후 실행시킨다.!!
+		엄청 중요한 역할 window.onload = function() */
+		
+		
+		function show() {
+			//이미지와 확인버튼을 보이게 설정한다.
+			//요소에 접근한다.(document)
+/*  		b3 = document.getElementById('btn3');
+		vimg = document.getElementsByTagName('img')[0];  */
+		/* 전역변수에 적용을 해 봅니다. b3이랑vimg를. 왜냐면 hide랑 show랑 둘다에 똑같이 들어가잖아.*/
+		
+		//각 요소에 스타일을 지정한다.
+		b3.style.display = 'block';/* 'block';  */
+		vimg.style.display = 'block';
+			
+		}
+		
+		function hide() {
+			//이미지와 확인버튼을 안 보이게 설정한다.
+/* 		b3 = document.getElementById('btn3');
+		vimg = document.getElementsByTagName('img')[0]; */
+		
+		//각 요소에 스타일을 지정한다.
+		b3.style.display = 'none';/* 'block';  */
+		vimg.style.display = 'none';
+			
+			
+		}
+		
+	</script>
+	
+	
+</head>
+<body>
+	<button onclick="hide()" id="btn1" type = "button">감추기</button>
+	<button onclick="show()" id="btn2" type = "button">보이기</button>
+	<br>
+	<button id="btn3" type = "button">짠</button>
+	<br>
+	<br>
+	<img src="../images/pizza.jpg">
+	
+	
+</body>
+</html>
